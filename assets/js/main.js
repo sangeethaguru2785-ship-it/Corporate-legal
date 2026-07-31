@@ -1,8 +1,18 @@
 /* ============================================
-   STERLING & ASSOCIATES — Theme JavaScript
+   STACKLY — Theme JavaScript
    ============================================ */
 
 document.addEventListener('DOMContentLoaded', function () {
+
+  // ----- Reduced motion / missing AOS: never leave content hidden -----
+  var reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reducedMotion || typeof window.AOS === 'undefined') {
+    document.querySelectorAll('[data-aos]').forEach(function (el) {
+      el.removeAttribute('data-aos');
+      el.removeAttribute('data-aos-delay');
+      el.removeAttribute('data-aos-duration');
+    });
+  }
 
   // ----- Navbar scroll effect -----
   var nav = document.getElementById('mainNav');
@@ -57,15 +67,35 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // ----- GSAP animations -----
-  if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+  if (!reducedMotion && typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
     gsap.registerPlugin(ScrollTrigger);
+
+    // ----- SplitType letter-by-letter heading animations -----
+    if (typeof SplitType !== 'undefined') {
+      var splitHeadings = [];
+      document.querySelectorAll('h1, h2').forEach(function (h) {
+        if (h.closest('.accordion-header') || h.closest('nav') || h.closest('footer')) return;
+        splitHeadings.push(h);
+      });
+      splitHeadings.forEach(function (heading) {
+        var splitText = new SplitType(heading, { types: 'chars,words', tagName: 'span' });
+        var chars = splitText.chars;
+        if (!chars || !chars.length) return;
+        gsap.set(chars, { opacity: 0, y: 24 });
+        gsap.to(chars, {
+          opacity: 1,
+          y: 0,
+          duration: 0.65,
+          ease: 'power3.out',
+          stagger: { each: 0.02, from: 'start' },
+          scrollTrigger: { trigger: heading, start: 'top 88%', toggleActions: 'play none none none' }
+        });
+      });
+    }
 
     // Hero timeline
     var heroTl = gsap.timeline({ defaults: { ease: 'power3.out' } });
-    heroTl
-      .to('.hero-bg', { scale: 1, duration: 1.6, ease: 'power2.out' })
-      .to('.hero .gsap-fade', { opacity: 1, y: 0, duration: 0.9, stagger: 0.15 }, '-=0.6')
-      .to('.hero .gsap-scale', { opacity: 1, scale: 1, duration: 0.8, stagger: 0.12 }, '-=0.4');
+    heroTl.to('.hero-bg', { scale: 1, duration: 1.6, ease: 'power2.out' });
 
     // Homepage hero only
     var heroSection = document.querySelector('.hero');
@@ -76,30 +106,6 @@ document.addEventListener('DOMContentLoaded', function () {
         scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true, invalidateOnRefresh: true }
       });
     }
-
-    // Scroll-triggered animations
-    function createScrollTrigger(selector, props) {
-      var els = document.querySelectorAll(selector);
-      if (!els.length) return;
-      var defaults = { opacity: 1, y: 0, x: 0, scale: 1, duration: 0.85, ease: 'power3.out' };
-      var merged = Object.assign({}, defaults, props);
-      els.forEach(function (el) {
-        // Skip elements already handled by hero timeline
-        if (heroSection && heroSection.contains(el)) return;
-        gsap.to(el, {
-          ...merged,
-          scrollTrigger: { trigger: el, start: 'top 88%', toggleActions: 'play none none none' }
-        });
-      });
-    }
-
-    setTimeout(function () {
-      createScrollTrigger('.gsap-fade', { opacity: 1, y: 0 });
-      createScrollTrigger('.gsap-fade-left', { opacity: 1, x: 0 });
-      createScrollTrigger('.gsap-fade-right', { opacity: 1, x: 0 });
-      createScrollTrigger('.gsap-scale', { opacity: 1, scale: 1 });
-      ScrollTrigger.refresh();
-    }, 200);
 
     // Counter animation
     var counters = document.querySelectorAll('[data-count]');
@@ -121,6 +127,74 @@ document.addEventListener('DOMContentLoaded', function () {
       clearTimeout(resizeTimer);
       resizeTimer = setTimeout(function () { ScrollTrigger.refresh(); }, 300);
     });
+  }
+
+  // ----- AOS scroll animations -----
+  if (!reducedMotion && typeof AOS !== 'undefined') {
+    AOS.init({
+      once: true,
+      duration: 900,
+      easing: 'ease-out-cubic',
+      offset: 70,
+      delay: 0
+    });
+  }
+
+  // ----- Hero background video loop (hero01 -> hero02 -> repeat) -----
+  var heroVideo01 = document.getElementById('heroVideo01');
+  var heroVideo02 = document.getElementById('heroVideo02');
+
+  if (heroVideo01 && heroVideo02) {
+    var FADE_S = 0.9;
+    var LEAD_S = 0.4;
+    var heroVideos = [heroVideo01, heroVideo02];
+    var heroIdx = 0;
+    var heroSwitching = false;
+
+    function showHeroVideo(nextIdx) {
+      if (heroSwitching) return;
+      heroSwitching = true;
+      var cur = heroVideos[heroIdx];
+      var nxt = heroVideos[nextIdx];
+      // Replay the outgoing video muted so it is warm for the next cycle
+      cur.currentTime = 0;
+      cur.play().catch(function () {});
+      nxt.currentTime = 0;
+      nxt.play().catch(function () {});
+      cur.classList.remove('active');
+      nxt.classList.add('active');
+      heroIdx = nextIdx;
+      setTimeout(function () { heroSwitching = false; }, (FADE_S + 0.15) * 1000);
+    }
+
+    heroVideos.forEach(function (video) {
+      video.addEventListener('timeupdate', function () {
+        if (video === heroVideos[heroIdx] && !heroSwitching &&
+            video.currentTime > 0 && video.duration &&
+            (video.duration - video.currentTime) < LEAD_S) {
+          showHeroVideo((heroIdx + 1) % heroVideos.length);
+        }
+      });
+      video.addEventListener('ended', function () {
+        if (video === heroVideos[heroIdx]) {
+          showHeroVideo((heroIdx + 1) % heroVideos.length);
+        }
+      });
+    });
+
+    function ensureHeroPlaying() {
+      heroVideo01.classList.add('active');
+      var p1 = heroVideo01.play();
+      var p2 = heroVideo02.play();
+      if (p1) p1.catch(function () {});
+      if (p2) p2.catch(function () {});
+    }
+
+    // Start immediately on load; retry as data becomes available so the
+    // first frame shows as soon as the browser has it (no placeholder).
+    ensureHeroPlaying();
+    heroVideo01.addEventListener('canplay', ensureHeroPlaying);
+    heroVideo02.addEventListener('canplay', ensureHeroPlaying);
   }
 
   // ----- Newsletter form validation -----
