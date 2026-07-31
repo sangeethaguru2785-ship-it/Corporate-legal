@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Activity Logs — Admin Panel | Stackly</title>
+  <meta name="description" content="Stackly admin panel — audit trail of administrative actions across the firm." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/dashboard.css" />
+</head>
+<body class="dashboard">
+
+  <!-- Overlay -->
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <!-- Sidebar -->
+  <aside class="dash-sidebar" id="dashSidebar">
+    <a class="sidebar-brand" href="index.html">
+      <img src="assets/img/logo.webp" alt="Stackly" />
+      <span>Admin Panel</span>
+    </a>
+
+    <nav class="sidebar-nav">
+      <div class="sidebar-label">Main</div>
+      <ul>
+        <li><a class="sidebar-link" href="admin-dashboard.html"><i class="fa-solid fa-chart-pie"></i> Dashboard</a></li>
+        <li><a class="sidebar-link" href="admin-users.html"><i class="fa-solid fa-users"></i> Users</a></li>
+        <li><a class="sidebar-link" href="admin-services.html"><i class="fa-solid fa-briefcase"></i> Services</a></li>
+        <li><a class="sidebar-link" href="admin-appointments.html"><i class="fa-regular fa-calendar-check"></i> Appointments</a><span class="ms-auto status-badge pending" style="padding:0.15rem 0.5rem;font-size:0.62rem;">12</span></li>
+        <li><a class="sidebar-link" href="admin-reports.html"><i class="fa-solid fa-file-invoice"></i> Reports</a></li>
+        <li><a class="sidebar-link" href="admin-analytics.html"><i class="fa-solid fa-chart-column"></i> Analytics</a></li>
+        <li><a class="sidebar-link" href="admin-messages.html"><i class="fa-regular fa-envelope"></i> Messages</a><span class="ms-auto status-badge pending" style="padding:0.15rem 0.5rem;font-size:0.62rem;">3</span></li>
+        <li><a class="sidebar-link active" href="admin-logs.html"><i class="fa-solid fa-clock-rotate-left"></i> Activity Logs</a></li>
+      </ul>
+
+      <div class="sidebar-label" style="margin-top:1.5rem;">System</div>
+      <ul>
+        <li><a class="sidebar-link" href="admin-settings.html"><i class="fa-solid fa-gear"></i> Settings</a></li>
+        <li><a class="sidebar-link" href="logout.html"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a></li>
+      </ul>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="d-flex align-items-center gap-3 px-3">
+        <span class="avatar-initials md">AS</span>
+        <div class="flex-grow-1" style="min-width:0;">
+          <div style="font-size:0.82rem;font-weight:600;color:var(--white);">Alexander Stackly</div>
+          <div style="font-size:0.72rem;color:rgba(255,255,255,0.45);">Managing Partner</div>
+        </div>
+        <span class="status-badge active" style="font-size:0.6rem;padding:0.15rem 0.5rem;">Online</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main -->
+  <div class="dash-main">
+
+    <!-- Topbar -->
+    <header class="dash-topbar">
+      <button class="hamburger" id="sidebarToggle" aria-label="Toggle sidebar" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
+      <h1 class="topbar-title">Activity Logs</h1>
+
+      <form class="topbar-search" role="search" onsubmit="return false;">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="search" placeholder="Search anything..." aria-label="Search" />
+      </form>
+
+      <div class="topbar-actions">
+        <div class="dash-dropdown">
+          <button class="icon-btn" data-dropdown-toggle aria-label="Notifications">
+            <i class="fa-regular fa-bell"></i>
+            <span class="badge">5</span>
+          </button>
+          <div class="dash-dropdown-panel">
+            <div class="dash-dropdown-head">
+              <span>Notifications</span>
+              <a href="#" class="btn-link">Mark all read</a>
+            </div>
+            <div class="notif-list">
+              <a href="#" class="notif-item text-decoration-none">
+                <span class="notif-icon" style="background:rgba(171,135,82,0.12);color:var(--gold);"><i class="fa-solid fa-calendar-plus"></i></span>
+                <div class="notif-text">
+                  <div class="notif-title">New consultation request from Horizon Tech Inc.</div>
+                  <div class="notif-time">12 min ago</div>
+                </div>
+              </a>
+              <a href="#" class="notif-item text-decoration-none">
+                <span class="notif-icon" style="background:rgba(12,21,36,0.08);color:var(--primary);"><i class="fa-solid fa-user-plus"></i></span>
+                <div class="notif-text">
+                  <div class="notif-title">3 new client accounts awaiting review.</div>
+                  <div class="notif-time">1 hour ago</div>
+                </div>
+              </a>
+              <a href="#" class="notif-item text-decoration-none">
+                <span class="notif-icon" style="background:rgba(110,31,42,0.1);color:var(--oxblood);"><i class="fa-solid fa-file-circle-exclamation"></i></span>
+                <div class="notif-text">
+                  <div class="notif-title">Retainer renewal due for Meridian Group.</div>
+                  <div class="notif-time">3 hours ago</div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="dash-dropdown">
+          <button class="icon-btn" data-dropdown-toggle aria-label="Messages">
+            <i class="fa-regular fa-envelope"></i>
+            <span class="badge">3</span>
+          </button>
+          <div class="dash-dropdown-panel">
+            <div class="dash-dropdown-head">
+              <span>Messages</span>
+              <a href="admin-messages.html" class="btn-link">View all</a>
+            </div>
+            <div class="notif-list">
+              <a href="admin-messages.html" class="notif-item text-decoration-none">
+                <span class="avatar-initials sm gold-bg">MB</span>
+                <div class="notif-text">
+                  <div class="notif-title">Maria Belcher &mdash; Documents signed</div>
+                  <div class="notif-time">20 min ago</div>
+                </div>
+              </a>
+              <a href="admin-messages.html" class="notif-item text-decoration-none">
+                <span class="avatar-initials sm oxblood-bg">JT</span>
+                <div class="notif-text">
+                  <div class="notif-title">James Torres &mdash; Meeting confirmed</div>
+                  <div class="notif-time">2 hours ago</div>
+                </div>
+              </a>
+              <a href="admin-messages.html" class="notif-item text-decoration-none">
+                <span class="avatar-initials sm" style="background:#2E7D32;">RK</span>
+                <div class="notif-text">
+                  <div class="notif-title">Rita Khan &mdash; New enquiry</div>
+                  <div class="notif-time">Yesterday</div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="dash-dropdown">
+          <button class="avatar-initials md gold-bg" data-dropdown-toggle aria-label="Account menu" style="border:none;cursor:pointer;">AS</button>
+          <div class="dash-dropdown-panel profile-menu">
+            <div class="profile-head">
+              <span class="avatar-initials md gold-bg">AS</span>
+              <div>
+                <div class="name">Alexander Stackly</div>
+                <div class="role">Managing Partner</div>
+              </div>
+            </div>
+            <a href="admin-settings.html"><i class="fa-regular fa-user"></i> My Profile</a>
+            <a href="admin-settings.html"><i class="fa-solid fa-gear"></i> Account Settings</a>
+            <a href="admin-logs.html"><i class="fa-solid fa-chart-simple"></i> Activity Log</a>
+            <a href="logout.html" class="danger"><i class="fa-solid fa-arrow-right-from-bracket"></i> Sign Out</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Content -->
+    <main class="dash-content">
+
+      <div class="dash-hello d-flex flex-wrap align-items-end justify-content-between gap-3">
+        <div>
+          <h2>Activity Logs</h2>
+          <p>Audit trail of administrative actions across the firm.</p>
+        </div>
+      </div>
+
+      <!-- Stat cards -->
+      <div class="row g-3 mb-4">
+        <div class="col-sm-6 col-xl-3">
+          <div class="stat-card">
+            <span class="stat-icon navy"><i class="fa-solid fa-list-check"></i></span>
+            <div class="stat-info">
+              <div class="stat-label">Total Events</div>
+              <div class="stat-value"><span data-count="12480">0</span></div>
+              <span class="stat-trend up"><i class="fa-solid fa-arrow-trend-up"></i> 6% this month</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-xl-3">
+          <div class="stat-card">
+            <span class="stat-icon gold"><i class="fa-solid fa-calendar-day"></i></span>
+            <div class="stat-info">
+              <div class="stat-label">Today</div>
+              <div class="stat-value"><span data-count="214">0</span></div>
+              <span class="stat-trend up"><i class="fa-solid fa-arrow-trend-up"></i> 42 this hour</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-xl-3">
+          <div class="stat-card">
+            <span class="stat-icon oxblood"><i class="fa-solid fa-triangle-exclamation"></i></span>
+            <div class="stat-info">
+              <div class="stat-label">Failed Actions</div>
+              <div class="stat-value"><span data-count="6">0</span></div>
+              <span class="stat-trend down"><i class="fa-solid fa-arrow-trend-down"></i> 3 require review</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-xl-3">
+          <div class="stat-card">
+            <span class="stat-icon green"><i class="fa-solid fa-file-export"></i></span>
+            <div class="stat-info">
+              <div class="stat-label">Exports</div>
+              <div class="stat-value"><span data-count="4">0</span></div>
+              <span class="stat-trend up"><i class="fa-solid fa-arrow-trend-up"></i> 2 scheduled</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Logs table -->
+      <div class="dash-card table-card mb-4">
+        <div class="table-toolbar">
+          <h3 style="font-family:var(--font-display);font-size:1.05rem;font-weight:700;color:var(--primary);margin:0;">Event Log</h3>
+          <div class="search-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="search" placeholder="Search logs..." data-table-search="logsTable" aria-label="Search logs" />
+          </div>
+          <select data-filter-col="1" data-table-search="logsTable" aria-label="Filter by type">
+            <option value="">All types</option>
+            <option value="User">User</option>
+            <option value="Auth">Auth</option>
+            <option value="Report">Report</option>
+            <option value="Appointment">Appointment</option>
+            <option value="Payment">Payment</option>
+            <option value="Settings">Settings</option>
+          </select>
+          <select data-filter-col="5" data-table-search="logsTable" aria-label="Filter by status">
+            <option value="">All statuses</option>
+            <option value="Success">Success</option>
+            <option value="Failed">Failed</option>
+            <option value="Warning">Warning</option>
+          </select>
+        </div>
+
+        <div class="dash-table-wrap">
+          <table class="dash-table" id="logsTable">
+            <thead>
+              <tr>
+                <th>Timestamp</th>
+                <th>User</th>
+                <th>Action</th>
+                <th>Entity</th>
+                <th>Location</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Jul 31, 2026 &middot; 10:12 AM</td>
+                <td><div class="user-cell"><span class="avatar-initials sm gold-bg">MC</span><div><div class="name">Margaret Chen</div><div class="email">Payment</div></div></div></td>
+                <td>Updated retainer for Meridian Group</td>
+                <td>Meridian Group</td>
+                <td>New York</td>
+                <td><span class="status-badge active">Success</span></td>
+              </tr>
+              <tr>
+                <td>Jul 31, 2026 &middot; 9:58 AM</td>
+                <td><div class="user-cell"><span class="avatar-initials sm oxblood-bg">EV</span><div><div class="name">Elena Vasquez</div><div class="email">Report</div></div></div></td>
+                <td>Exported Monthly Billing Report</td>
+                <td>Billing</td>
+                <td>New York</td>
+                <td><span class="status-badge active">Success</span></td>
+              </tr>
+              <tr>
+                <td>Jul 31, 2026 &middot; 9:31 AM</td>
+                <td><div class="user-cell"><span class="avatar-initials sm" style="background:#37474F;">SY</span><div><div class="name">System</div><div class="email">Auth</div></div></div></td>
+                <td>Failed login attempt</td>
+                <td>Admin Portal</td>
+                <td>Remote &middot; 203.0.113.5</td>
+                <td><span class="status-badge" style="color:var(--oxblood);background:rgba(110,31,42,0.1);">Failed</span></td>
+              </tr>
+              <tr>
+                <td>Jul 31, 2026 &middot; 8:40 AM</td>
+                <td><div class="user-cell"><span class="avatar-initials sm" style="background:#5B4A9E;">AS</span><div><div class="name">Alexander Stackly</div><div class="email">Appointment</div></div></div></td>
+                <td>Created appointment for Jonathan Pierce</td>
+                <td>Scheduling</td>
+                <td>New York</td>
+                <td><span class="status-badge active">Success</span></td>
+              </tr>
+              <tr>
+                <td>Jul 31, 2026 &middot; 8:15 AM</td>
+                <td><div class="user-cell"><span class="avatar-initials sm" style="background:#5B4A9E;">AS</span><div><div class="name">Alexander Stackly</div><div class="email">User</div></div></div></td>
+                <td>Changed user role &mdash; Sofia Patel</td>
+                <td>Sofia Patel</td>
+                <td>New York</td>
+                <td><span class="status-badge active">Success</span></td>
+              </tr>
+              <tr>
+                <td>Jul 30, 2026 &middot; 5:22 PM</td>
+                <td><div class="user-cell"><span class="avatar-initials sm" style="background:#2E7D32;">DO</span><div><div class="name">David Okafor</div><div class="email">Settings</div></div></div></td>
+                <td>Updated firm profile information</td>
+                <td>Settings</td>
+                <td>New York</td>
+                <td><span class="status-badge pending">Warning</span></td>
+              </tr>
+              <tr>
+                <td>Jul 30, 2026 &middot; 3:48 PM</td>
+                <td><div class="user-cell"><span class="avatar-initials sm gold-bg">MC</span><div><div class="name">Margaret Chen</div><div class="email">Payment</div></div></div></td>
+                <td>Processed invoice #4821 payment &mdash; $12,400</td>
+                <td>Invoice #4821</td>
+                <td>New York</td>
+                <td><span class="status-badge active">Success</span></td>
+              </tr>
+              <tr>
+                <td>Jul 30, 2026 &middot; 2:10 PM</td>
+                <td><div class="user-cell"><span class="avatar-initials sm" style="background:#37474F;">SY</span><div><div class="name">System</div><div class="email">Auth</div></div></div></td>
+                <td>2FA code resend requested</td>
+                <td>Admin Portal</td>
+                <td>Remote &middot; 198.51.100.8</td>
+                <td><span class="status-badge pending">Warning</span></td>
+              </tr>
+              <tr>
+                <td>Jul 30, 2026 &middot; 11:05 AM</td>
+                <td><div class="user-cell"><span class="avatar-initials sm oxblood-bg">EV</span><div><div class="name">Elena Vasquez</div><div class="email">Report</div></div></div></td>
+                <td>Scheduled Q3 performance report</td>
+                <td>Reports</td>
+                <td>New York</td>
+                <td><span class="status-badge active">Success</span></td>
+              </tr>
+              <tr>
+                <td>Jul 30, 2026 &middot; 9:14 AM</td>
+                <td><div class="user-cell"><span class="avatar-initials sm" style="background:#5B4A9E;">AS</span><div><div class="name">Alexander Stackly</div><div class="email">Appointment</div></div></div></td>
+                <td>Cancelled appointment &mdash; James Torres</td>
+                <td>Scheduling</td>
+                <td>New York</td>
+                <td><span class="status-badge" style="color:var(--oxblood);background:rgba(110,31,42,0.1);">Failed</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="dash-pagination" data-pagination="logsTable" data-per-page="6">
+          <span class="info"></span>
+          <div class="pages"></div>
+          <div style="display:flex;gap:0.3rem;">
+            <button class="page-btn" data-page="prev" aria-label="Previous page"><i class="fa-solid fa-chevron-left"></i></button>
+            <button class="page-btn" data-page="next" aria-label="Next page"><i class="fa-solid fa-chevron-right"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Severity + alerts -->
+      <div class="row g-3">
+        <div class="col-lg-4">
+          <div class="dash-card hoverable h-100">
+            <div class="dash-card-head">
+              <div>
+                <h3>Log Severity</h3>
+                <span class="muted">Distribution of events</span>
+              </div>
+            </div>
+            <div class="analytics-widget">
+              <div class="row-line"><span class="label">Info</span><span class="value">78%</span></div>
+              <div class="progress"><div class="progress-bar navy" style="width:78%;"></div></div>
+            </div>
+            <div class="analytics-widget">
+              <div class="row-line"><span class="label">Warning</span><span class="value">15%</span></div>
+              <div class="progress"><div class="progress-bar oxblood" style="width:15%;"></div></div>
+            </div>
+            <div class="analytics-widget mb-0">
+              <div class="row-line"><span class="label">Critical</span><span class="value">7%</span></div>
+              <div class="progress"><div class="progress-bar" style="width:7%;"></div></div>
+            </div>
+            <p class="muted" style="font-size:0.76rem;margin:1.25rem 0 0;">Critical events are flagged for immediate review; warnings are queued for end-of-day inspection.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-8">
+          <div class="dash-card hoverable h-100">
+            <div class="dash-card-head">
+              <div>
+                <h3>Recent Alerts</h3>
+                <span class="muted">Latest system notifications</span>
+              </div>
+              <a href="admin-settings.html" class="btn-link btn text-decoration-none p-0" style="font-size:0.78rem;font-weight:600;color:var(--gold);">Manage alerts</a>
+            </div>
+            <div class="activity-list">
+              <div class="activity-item">
+                <span class="activity-dot"><i class="fa-solid fa-shield-halved"></i></span>
+                <div class="activity-body">
+                  <div class="title">3 failed logins detected</div>
+                  <div class="desc">Repeated authentication failures for the admin portal from a single IP.</div>
+                  <div class="time">Today, 9:58 AM</div>
+                </div>
+              </div>
+              <div class="activity-item">
+                <span class="activity-dot" style="background:rgba(171,135,82,0.12);color:var(--gold);"><i class="fa-solid fa-file-contract"></i></span>
+                <div class="activity-body">
+                  <div class="title">Retainer renewal due</div>
+                  <div class="desc">Meridian Group retainer renews in 5 days &mdash; no payment on file.</div>
+                  <div class="time">Today, 8:30 AM</div>
+                </div>
+              </div>
+              <div class="activity-item">
+                <span class="activity-dot" style="background:rgba(46,125,50,0.1);color:#2E7D32;"><i class="fa-solid fa-database"></i></span>
+                <div class="activity-body">
+                  <div class="title">Backup completed successfully</div>
+                  <div class="desc">Nightly database snapshot finished with 0 errors in 4m 12s.</div>
+                  <div class="time">Yesterday, 2:00 AM</div>
+                </div>
+              </div>
+              <div class="activity-item mb-0">
+                <span class="activity-dot" style="background:rgba(12,21,36,0.08);color:var(--primary);"><i class="fa-solid fa-user-plus"></i></span>
+                <div class="activity-body">
+                  <div class="title">New admin invited</div>
+                  <div class="desc">Elena Vasquez was invited as reporting admin and accepted.</div>
+                  <div class="time">Yesterday, 11:40 AM</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer style="border-top:1px solid rgba(12,21,36,0.06);padding:1.25rem 1.75rem;font-size:0.78rem;color:var(--text-light);display:flex;flex-wrap:wrap;gap:0.5rem;justify-content:space-between;">
+      <span>&copy; 2026 Stackly LLP. All rights reserved.</span>
+      <span><a href="index.html" class="text-decoration-none" style="color:var(--gold);">Back to Website</a> &middot; <a href="#" class="text-decoration-none" style="color:var(--text-light);">Privacy</a> &middot; <a href="#" class="text-decoration-none" style="color:var(--text-light);">Terms</a></span>
+    </footer>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/dashboard.js"></script>
+</body>
+</html>

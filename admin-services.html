@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services — Admin Panel | Stackly</title>
+  <meta name="description" content="Stackly admin panel — manage the firm's practice areas and engagement offerings." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/dashboard.css" />
+</head>
+<body class="dashboard">
+
+  <!-- Overlay -->
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <!-- Sidebar -->
+  <aside class="dash-sidebar" id="dashSidebar">
+    <a class="sidebar-brand" href="index.html">
+      <img src="assets/img/logo.webp" alt="Stackly" />
+      <span>Admin Panel</span>
+    </a>
+
+    <nav class="sidebar-nav">
+      <div class="sidebar-label">Main</div>
+      <ul>
+        <li><a class="sidebar-link" href="admin-dashboard.html"><i class="fa-solid fa-chart-pie"></i> Dashboard</a></li>
+        <li><a class="sidebar-link" href="admin-users.html"><i class="fa-solid fa-users"></i> Users</a></li>
+        <li><a class="sidebar-link active" href="admin-services.html"><i class="fa-solid fa-briefcase"></i> Services</a></li>
+        <li><a class="sidebar-link" href="admin-appointments.html"><i class="fa-regular fa-calendar-check"></i> Appointments</a><span class="ms-auto status-badge pending" style="padding:0.15rem 0.5rem;font-size:0.62rem;">12</span></li>
+        <li><a class="sidebar-link" href="admin-reports.html"><i class="fa-solid fa-file-invoice"></i> Reports</a></li>
+        <li><a class="sidebar-link" href="admin-analytics.html"><i class="fa-solid fa-chart-column"></i> Analytics</a></li>
+        <li><a class="sidebar-link" href="admin-messages.html"><i class="fa-regular fa-envelope"></i> Messages</a><span class="ms-auto status-badge pending" style="padding:0.15rem 0.5rem;font-size:0.62rem;">3</span></li>
+        <li><a class="sidebar-link" href="admin-logs.html"><i class="fa-solid fa-clock-rotate-left"></i> Activity Logs</a></li>
+      </ul>
+
+      <div class="sidebar-label" style="margin-top:1.5rem;">System</div>
+      <ul>
+        <li><a class="sidebar-link" href="admin-settings.html"><i class="fa-solid fa-gear"></i> Settings</a></li>
+        <li><a class="sidebar-link" href="logout.html"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a></li>
+      </ul>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="d-flex align-items-center gap-3 px-3">
+        <span class="avatar-initials md">AS</span>
+        <div class="flex-grow-1" style="min-width:0;">
+          <div style="font-size:0.82rem;font-weight:600;color:var(--white);">Alexander Stackly</div>
+          <div style="font-size:0.72rem;color:rgba(255,255,255,0.45);">Managing Partner</div>
+        </div>
+        <span class="status-badge active" style="font-size:0.6rem;padding:0.15rem 0.5rem;">Online</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main -->
+  <div class="dash-main">
+
+    <!-- Topbar -->
+    <header class="dash-topbar">
+      <button class="hamburger" id="sidebarToggle" aria-label="Toggle sidebar" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
+      <h1 class="topbar-title">Services</h1>
+
+      <form class="topbar-search" role="search" onsubmit="return false;">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="search" placeholder="Search anything..." aria-label="Search" />
+      </form>
+
+      <div class="topbar-actions">
+        <div class="dash-dropdown">
+          <button class="icon-btn" data-dropdown-toggle aria-label="Notifications">
+            <i class="fa-regular fa-bell"></i>
+            <span class="badge">5</span>
+          </button>
+          <div class="dash-dropdown-panel">
+            <div class="dash-dropdown-head">
+              <span>Notifications</span>
+              <a href="#" class="btn-link">Mark all read</a>
+            </div>
+            <div class="notif-list">
+              <a href="#" class="notif-item text-decoration-none">
+                <span class="notif-icon" style="background:rgba(171,135,82,0.12);color:var(--gold);"><i class="fa-solid fa-calendar-plus"></i></span>
+                <div class="notif-text">
+                  <div class="notif-title">New consultation request from Horizon Tech Inc.</div>
+                  <div class="notif-time">12 min ago</div>
+                </div>
+              </a>
+              <a href="#" class="notif-item text-decoration-none">
+                <span class="notif-icon" style="background:rgba(12,21,36,0.08);color:var(--primary);"><i class="fa-solid fa-user-plus"></i></span>
+                <div class="notif-text">
+                  <div class="notif-title">3 new client accounts awaiting review.</div>
+                  <div class="notif-time">1 hour ago</div>
+                </div>
+              </a>
+              <a href="#" class="notif-item text-decoration-none">
+                <span class="notif-icon" style="background:rgba(110,31,42,0.1);color:var(--oxblood);"><i class="fa-solid fa-file-circle-exclamation"></i></span>
+                <div class="notif-text">
+                  <div class="notif-title">Retainer renewal due for Meridian Group.</div>
+                  <div class="notif-time">3 hours ago</div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="dash-dropdown">
+          <button class="icon-btn" data-dropdown-toggle aria-label="Messages">
+            <i class="fa-regular fa-envelope"></i>
+            <span class="badge">3</span>
+          </button>
+          <div class="dash-dropdown-panel">
+            <div class="dash-dropdown-head">
+              <span>Messages</span>
+              <a href="admin-messages.html" class="btn-link">View all</a>
+            </div>
+            <div class="notif-list">
+              <a href="admin-messages.html" class="notif-item text-decoration-none">
+                <span class="avatar-initials sm gold-bg">MB</span>
+                <div class="notif-text">
+                  <div class="notif-title">Maria Belcher &mdash; Documents signed</div>
+                  <div class="notif-time">20 min ago</div>
+                </div>
+              </a>
+              <a href="admin-messages.html" class="notif-item text-decoration-none">
+                <span class="avatar-initials sm oxblood-bg">JT</span>
+                <div class="notif-text">
+                  <div class="notif-title">James Torres &mdash; Meeting confirmed</div>
+                  <div class="notif-time">2 hours ago</div>
+                </div>
+              </a>
+              <a href="admin-messages.html" class="notif-item text-decoration-none">
+                <span class="avatar-initials sm" style="background:#2E7D32;">RK</span>
+                <div class="notif-text">
+                  <div class="notif-title">Rita Khan &mdash; New enquiry</div>
+                  <div class="notif-time">Yesterday</div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="dash-dropdown">
+          <button class="avatar-initials md gold-bg" data-dropdown-toggle aria-label="Account menu" style="border:none;cursor:pointer;">AS</button>
+          <div class="dash-dropdown-panel profile-menu">
+            <div class="profile-head">
+              <span class="avatar-initials md gold-bg">AS</span>
+              <div>
+                <div class="name">Alexander Stackly</div>
+                <div class="role">Managing Partner</div>
+              </div>
+            </div>
+            <a href="admin-settings.html"><i class="fa-regular fa-user"></i> My Profile</a>
+            <a href="admin-settings.html"><i class="fa-solid fa-gear"></i> Account Settings</a>
+            <a href="admin-logs.html"><i class="fa-solid fa-chart-simple"></i> Activity Log</a>
+            <a href="logout.html" class="danger"><i class="fa-solid fa-arrow-right-from-bracket"></i> Sign Out</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Content -->
+    <main class="dash-content">
+
+      <div class="dash-hello d-flex flex-wrap align-items-end justify-content-between gap-3">
+        <div>
+          <h2>Service Management</h2>
+          <p>Manage the firm's practice areas and engagement offerings.</p>
+        </div>
+        <button class="btn btn-gold" onclick="return false;"><i class="fa-solid fa-plus me-2"></i>Add Service</button>
+      </div>
+
+      <!-- Stat cards -->
+      <div class="row g-3 mb-4">
+        <div class="col-sm-6 col-xl-3">
+          <div class="stat-card">
+            <span class="stat-icon navy"><i class="fa-solid fa-briefcase"></i></span>
+            <div class="stat-info">
+              <div class="stat-label">Total Services</div>
+              <div class="stat-value"><span data-count="36">0</span></div>
+              <span class="stat-trend up"><i class="fa-solid fa-arrow-trend-up"></i> +4 this quarter</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-xl-3">
+          <div class="stat-card">
+            <span class="stat-icon green"><i class="fa-solid fa-circle-check"></i></span>
+            <div class="stat-info">
+              <div class="stat-label">Active</div>
+              <div class="stat-value"><span data-count="28">0</span></div>
+              <span class="stat-trend up"><i class="fa-solid fa-arrow-trend-up"></i> 77.8%</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-xl-3">
+          <div class="stat-card">
+            <span class="stat-icon gold"><i class="fa-solid fa-hourglass-half"></i></span>
+            <div class="stat-info">
+              <div class="stat-label">Draft / Pending</div>
+              <div class="stat-value"><span data-count="5">0</span></div>
+              <span class="stat-trend down"><i class="fa-solid fa-arrow-trend-down"></i> 2 awaiting approval</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-xl-3">
+          <div class="stat-card">
+            <span class="stat-icon oxblood"><i class="fa-solid fa-circle-xmark"></i></span>
+            <div class="stat-info">
+              <div class="stat-label">Deactivated</div>
+              <div class="stat-value"><span data-count="3">0</span></div>
+              <span class="stat-trend down"><i class="fa-solid fa-arrow-trend-down"></i> 1 retired this month</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Services table -->
+      <div class="dash-card table-card mb-4">
+        <div class="table-toolbar">
+          <h3 style="font-family:var(--font-display);font-size:1.05rem;font-weight:700;color:var(--primary);margin:0;">All Services</h3>
+          <div class="search-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="search" placeholder="Search services..." data-table-search="servicesTable" aria-label="Search services" />
+          </div>
+          <select data-filter-col="1" data-table-search="servicesTable" aria-label="Filter by category">
+            <option value="">All categories</option>
+            <option value="Corporate Law">Corporate Law</option>
+            <option value="Litigation">Litigation</option>
+            <option value="M&amp;A Advisory">M&A Advisory</option>
+            <option value="Compliance">Compliance</option>
+            <option value="Intellectual Property">Intellectual Property</option>
+            <option value="Tax &amp; Wealth">Tax &amp; Wealth</option>
+          </select>
+        </div>
+
+        <div class="dash-table-wrap">
+          <table class="dash-table" id="servicesTable">
+            <thead>
+              <tr>
+                <th>Service</th>
+                <th>Category</th>
+                <th>Pricing</th>
+                <th>Bookings</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><div class="user-cell"><span class="avatar-initials sm gold-bg"><i class="fa-solid fa-scale-balanced"></i></span><div><div class="name">Mergers &amp; Acquisitions Counsel</div><div class="email">Full-cycle deal advisory &amp; due diligence</div></div></div></td>
+                <td>M&amp;A Advisory</td>
+                <td>$45,000 / deal</td>
+                <td>214</td>
+                <td><span class="status-badge active">Active</span></td>
+                <td><div class="table-actions"><button aria-label="View"><i class="fa-regular fa-eye"></i></button><button aria-label="Edit"><i class="fa-regular fa-pen-to-square"></i></button><button aria-label="More"><i class="fa-solid fa-ellipsis-vertical"></i></button></div></td>
+              </tr>
+              <tr>
+                <td><div class="user-cell"><span class="avatar-initials sm oxblood-bg"><i class="fa-solid fa-gavel"></i></span><div><div class="name">Commercial Litigation</div><div class="email">Dispute resolution &amp; trial representation</div></div></div></td>
+                <td>Litigation</td>
+                <td>$28,500 / retainer</td>
+                <td>187</td>
+                <td><span class="status-badge active">Active</span></td>
+                <td><div class="table-actions"><button aria-label="View"><i class="fa-regular fa-eye"></i></button><button aria-label="Edit"><i class="fa-regular fa-pen-to-square"></i></button><button aria-label="More"><i class="fa-solid fa-ellipsis-vertical"></i></button></div></td>
+              </tr>
+              <tr>
+                <td><div class="user-cell"><span class="avatar-initials sm" style="background:#5B4A9E;"><i class="fa-solid fa-building-columns"></i></span><div><div class="name">Corporate Formation &amp; Governance</div><div class="email">Incorporation, bylaws &amp; board advisory</div></div></div></td>
+                <td>Corporate Law</td>
+                <td>$9,800 / engagement</td>
+                <td>342</td>
+                <td><span class="status-badge active">Active</span></td>
+                <td><div class="table-actions"><button aria-label="View"><i class="fa-regular fa-eye"></i></button><button aria-label="Edit"><i class="fa-regular fa-pen-to-square"></i></button><button aria-label="More"><i class="fa-solid fa-ellipsis-vertical"></i></button></div></td>
+              </tr>
+              <tr>
+                <td><div class="user-cell"><span class="avatar-initials sm" style="background:#00695C;"><i class="fa-solid fa-lightbulb"></i></span><div><div class="name">Trademark Registration &amp; Portfolio</div><div class="email">Filing, prosecution &amp; IP portfolio care</div></div></div></td>
+                <td>Intellectual Property</td>
+                <td>$6,400 / matter</td>
+                <td>121</td>
+                <td><span class="status-badge active">Active</span></td>
+                <td><div class="table-actions"><button aria-label="View"><i class="fa-regular fa-eye"></i></button><button aria-label="Edit"><i class="fa-regular fa-pen-to-square"></i></button><button aria-label="More"><i class="fa-solid fa-ellipsis-vertical"></i></button></div></td>
+              </tr>
+              <tr>
+                <td><div class="user-cell"><span class="avatar-initials sm" style="background:#37474F;"><i class="fa-solid fa-piggy-bank"></i></span><div><div class="name">Tax Planning &amp; Wealth Structuring</div><div class="email">Estate, trust &amp; succession planning</div></div></div></td>
+                <td>Tax &amp; Wealth</td>
+                <td>$18,900 / retainer</td>
+                <td>96</td>
+                <td><span class="status-badge pending">Pending</span></td>
+                <td><div class="table-actions"><button aria-label="View"><i class="fa-regular fa-eye"></i></button><button aria-label="Edit"><i class="fa-regular fa-pen-to-square"></i></button><button aria-label="More"><i class="fa-solid fa-ellipsis-vertical"></i></button></div></td>
+              </tr>
+              <tr>
+                <td><div class="user-cell"><span class="avatar-initials sm gold-bg"><i class="fa-solid fa-clipboard-check"></i></span><div><div class="name">Regulatory Compliance Audit</div><div class="email">Annual readiness &amp; gap assessments</div></div></div></td>
+                <td>Compliance</td>
+                <td>$15,200 / audit</td>
+                <td>73</td>
+                <td><span class="status-badge active">Active</span></td>
+                <td><div class="table-actions"><button aria-label="View"><i class="fa-regular fa-eye"></i></button><button aria-label="Edit"><i class="fa-regular fa-pen-to-square"></i></button><button aria-label="More"><i class="fa-solid fa-ellipsis-vertical"></i></button></div></td>
+              </tr>
+              <tr>
+                <td><div class="user-cell"><span class="avatar-initials sm" style="background:var(--oxblood);"><i class="fa-solid fa-handshake"></i></span><div><div class="name">Employment &amp; Labor Defense</div><div class="email">Workplace claims &amp; policy counsel</div></div></div></td>
+                <td>Litigation</td>
+                <td>$12,400 / matter</td>
+                <td>58</td>
+                <td><span class="status-badge inactive">Inactive</span></td>
+                <td><div class="table-actions"><button aria-label="View"><i class="fa-regular fa-eye"></i></button><button aria-label="Edit"><i class="fa-regular fa-pen-to-square"></i></button><button aria-label="More"><i class="fa-solid fa-ellipsis-vertical"></i></button></div></td>
+              </tr>
+              <tr>
+                <td><div class="user-cell"><span class="avatar-initials sm" style="background:#2E7D32;"><i class="fa-solid fa-earth-americas"></i></span><div><div class="name">Cross-Border Deal Advisory</div><div class="email">International transactions &amp; jurisdiction maps</div></div></div></td>
+                <td>M&amp;A Advisory</td>
+                <td>$52,000 / deal</td>
+                <td>41</td>
+                <td><span class="status-badge pending">Pending</span></td>
+                <td><div class="table-actions"><button aria-label="View"><i class="fa-regular fa-eye"></i></button><button aria-label="Edit"><i class="fa-regular fa-pen-to-square"></i></button><button aria-label="More"><i class="fa-solid fa-ellipsis-vertical"></i></button></div></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="dash-pagination" data-pagination="servicesTable" data-per-page="5">
+          <span class="info"></span>
+          <div class="pages"></div>
+          <div style="display:flex;gap:0.3rem;">
+            <button class="page-btn" data-page="prev" aria-label="Previous page"><i class="fa-solid fa-chevron-left"></i></button>
+            <button class="page-btn" data-page="next" aria-label="Next page"><i class="fa-solid fa-chevron-right"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Categories + popular services -->
+      <div class="row g-3">
+        <div class="col-lg-5">
+          <div class="dash-card hoverable h-100">
+            <div class="dash-card-head">
+              <div>
+                <h3>Service Categories</h3>
+                <span class="muted">Bookings by practice area</span>
+              </div>
+            </div>
+            <div class="analytics-widget">
+              <div class="row-line"><span class="label">Corporate Law</span><span class="value">1,240</span></div>
+              <div class="progress"><div class="progress-bar" style="width:100%;"></div></div>
+            </div>
+            <div class="analytics-widget">
+              <div class="row-line"><span class="label">Litigation</span><span class="value">980</span></div>
+              <div class="progress"><div class="progress-bar navy" style="width:79%;"></div></div>
+            </div>
+            <div class="analytics-widget">
+              <div class="row-line"><span class="label">M&amp;A Advisory</span><span class="value">540</span></div>
+              <div class="progress"><div class="progress-bar oxblood" style="width:44%;"></div></div>
+            </div>
+            <div class="analytics-widget">
+              <div class="row-line"><span class="label">Compliance</span><span class="value">410</span></div>
+              <div class="progress"><div class="progress-bar green" style="width:33%;"></div></div>
+            </div>
+            <div class="analytics-widget">
+              <div class="row-line"><span class="label">Intellectual Property</span><span class="value">265</span></div>
+              <div class="progress"><div class="progress-bar navy" style="width:21%;"></div></div>
+            </div>
+            <div class="analytics-widget">
+              <div class="row-line"><span class="label">Tax &amp; Wealth</span><span class="value">190</span></div>
+              <div class="progress"><div class="progress-bar oxblood" style="width:15%;"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-7">
+          <div class="dash-card hoverable h-100">
+            <div class="dash-card-head">
+              <div>
+                <h3>Popular Services</h3>
+                <span class="muted">Highest booking volume this quarter</span>
+              </div>
+              <button class="btn-link btn text-decoration-none p-0" style="font-size:0.78rem;font-weight:600;color:var(--gold);">View all</button>
+            </div>
+            <div class="appt-item">
+              <span class="avatar-initials sm gold-bg"><i class="fa-solid fa-building-columns"></i></span>
+              <div class="appt-info">
+                <div class="title">Corporate Formation &amp; Governance</div>
+                <div class="meta">$9,800 per engagement</div>
+              </div>
+              <span class="status-badge active" style="font-size:0.66rem;">342 bookings</span>
+              <span class="status-badge active">Active</span>
+            </div>
+            <div class="appt-item">
+              <span class="avatar-initials sm oxblood-bg"><i class="fa-solid fa-scale-balanced"></i></span>
+              <div class="appt-info">
+                <div class="title">Mergers &amp; Acquisitions Counsel</div>
+                <div class="meta">$45,000 per deal</div>
+              </div>
+              <span class="status-badge active" style="font-size:0.66rem;">214 bookings</span>
+              <span class="status-badge active">Active</span>
+            </div>
+            <div class="appt-item">
+              <span class="avatar-initials sm" style="background:#5B4A9E;"><i class="fa-solid fa-gavel"></i></span>
+              <div class="appt-info">
+                <div class="title">Commercial Litigation</div>
+                <div class="meta">$28,500 per retainer</div>
+              </div>
+              <span class="status-badge active" style="font-size:0.66rem;">187 bookings</span>
+              <span class="status-badge active">Active</span>
+            </div>
+            <div class="appt-item mb-0">
+              <span class="avatar-initials sm" style="background:#00695C;"><i class="fa-solid fa-lightbulb"></i></span>
+              <div class="appt-info">
+                <div class="title">Trademark Registration &amp; Portfolio</div>
+                <div class="meta">$6,400 per matter</div>
+              </div>
+              <span class="status-badge active" style="font-size:0.66rem;">121 bookings</span>
+              <span class="status-badge pending">Pending</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer style="border-top:1px solid rgba(12,21,36,0.06);padding:1.25rem 1.75rem;font-size:0.78rem;color:var(--text-light);display:flex;flex-wrap:wrap;gap:0.5rem;justify-content:space-between;">
+      <span>&copy; 2026 Stackly LLP. All rights reserved.</span>
+      <span><a href="index.html" class="text-decoration-none" style="color:var(--gold);">Back to Website</a> &middot; <a href="#" class="text-decoration-none" style="color:var(--text-light);">Privacy</a> &middot; <a href="#" class="text-decoration-none" style="color:var(--text-light);">Terms</a></span>
+    </footer>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/dashboard.js"></script>
+</body>
+</html>

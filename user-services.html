@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Services — Client Portal | Stackly</title>
+  <meta name="description" content="Track your active engagements with the firm — ongoing services, progress, and completed work with Stackly." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/dashboard.css" />
+</head>
+<body class="dashboard">
+
+  <!-- Overlay -->
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <!-- Sidebar -->
+  <aside class="dash-sidebar" id="dashSidebar">
+    <a class="sidebar-brand" href="index.html">
+      <img src="assets/img/logo.webp" alt="Stackly" />
+      <span>Client Portal</span>
+    </a>
+
+    <nav class="sidebar-nav">
+      <div class="sidebar-label">Main</div>
+      <ul>
+        <li><a class="sidebar-link" href="user-dashboard.html"><i class="fa-solid fa-chart-pie"></i> Dashboard</a></li>
+        <li><a class="sidebar-link" href="user-profile.html"><i class="fa-regular fa-user"></i> My Profile</a></li>
+        <li><a class="sidebar-link active" href="user-services.html"><i class="fa-solid fa-briefcase"></i> My Services</a></li>
+        <li><a class="sidebar-link" href="user-appointments.html"><i class="fa-regular fa-calendar-check"></i> My Appointments</a><span class="ms-auto status-badge pending" style="padding:0.15rem 0.5rem;font-size:0.62rem;">2</span></li>
+        <li><a class="sidebar-link" href="user-notifications.html"><i class="fa-regular fa-bell"></i> Notifications</a><span class="ms-auto status-badge pending" style="padding:0.15rem 0.5rem;font-size:0.62rem;">3</span></li>
+        <li><a class="sidebar-link" href="user-documents.html"><i class="fa-solid fa-folder-open"></i> Documents</a></li>
+        <li><a class="sidebar-link" href="user-payments.html"><i class="fa-solid fa-credit-card"></i> Payment History</a></li>
+        <li><a class="sidebar-link" href="user-support.html"><i class="fa-solid fa-headset"></i> Support</a></li>
+      </ul>
+
+      <div class="sidebar-label" style="margin-top:1.5rem;">Account</div>
+      <ul>
+        <li><a class="sidebar-link" href="user-settings.html"><i class="fa-solid fa-gear"></i> Settings</a></li>
+        <li><a class="sidebar-link" href="logout.html"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a></li>
+      </ul>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="d-flex align-items-center gap-3 px-3">
+        <span class="avatar-initials md gold-bg">JP</span>
+        <div class="flex-grow-1" style="min-width:0;">
+          <div style="font-size:0.82rem;font-weight:600;color:var(--white);">Jonathan Pierce</div>
+          <div style="font-size:0.72rem;color:rgba(255,255,255,0.45);">Preferred Client</div>
+        </div>
+        <span class="status-badge active" style="font-size:0.6rem;padding:0.15rem 0.5rem;">Online</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main -->
+  <div class="dash-main">
+
+    <!-- Topbar -->
+    <header class="dash-topbar">
+      <button class="hamburger" id="sidebarToggle" aria-label="Toggle sidebar" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
+      <h1 class="topbar-title">My Services</h1>
+
+      <form class="topbar-search" role="search" onsubmit="return false;">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="search" placeholder="Search my portal..." aria-label="Search" />
+      </form>
+
+      <div class="topbar-actions">
+        <div class="dash-dropdown">
+          <button class="icon-btn" data-dropdown-toggle aria-label="Notifications">
+            <i class="fa-regular fa-bell"></i>
+            <span class="badge">3</span>
+          </button>
+          <div class="dash-dropdown-panel">
+            <div class="dash-dropdown-head">
+              <span>Notifications</span>
+              <a href="user-notifications.html" class="btn-link">View all</a>
+            </div>
+            <div class="notif-list">
+              <a href="user-notifications.html" class="notif-item text-decoration-none">
+                <span class="notif-icon" style="background:rgba(171,135,82,0.12);color:var(--gold);"><i class="fa-solid fa-calendar-check"></i></span>
+                <div class="notif-text">
+                  <div class="notif-title">Your consultation is confirmed for Aug 6 at 2:00 PM.</div>
+                  <div class="notif-time">30 min ago</div>
+                </div>
+              </a>
+              <a href="user-notifications.html" class="notif-item text-decoration-none">
+                <span class="notif-icon" style="background:rgba(12,21,36,0.08);color:var(--primary);"><i class="fa-solid fa-file-lines"></i></span>
+                <div class="notif-text">
+                  <div class="notif-title">New document added to your case file.</div>
+                  <div class="notif-time">3 hours ago</div>
+                </div>
+              </a>
+              <a href="user-notifications.html" class="notif-item text-decoration-none">
+                <span class="notif-icon" style="background:rgba(110,31,42,0.1);color:var(--oxblood);"><i class="fa-solid fa-file-invoice-dollar"></i></span>
+                <div class="notif-text">
+                  <div class="notif-title">Invoice #4821 is ready for review.</div>
+                  <div class="notif-time">Yesterday</div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="dash-dropdown">
+          <button class="avatar-initials md gold-bg" data-dropdown-toggle aria-label="Account menu" style="border:none;cursor:pointer;">JP</button>
+          <div class="dash-dropdown-panel profile-menu">
+            <div class="profile-head">
+              <span class="avatar-initials md gold-bg">JP</span>
+              <div>
+                <div class="name">Jonathan Pierce</div>
+                <div class="role">Preferred Client</div>
+              </div>
+            </div>
+            <a href="user-profile.html"><i class="fa-regular fa-user"></i> My Profile</a>
+            <a href="user-settings.html"><i class="fa-solid fa-gear"></i> Account Settings</a>
+            <a href="user-appointments.html"><i class="fa-regular fa-calendar-check"></i> My Appointments</a>
+            <a href="logout.html" class="danger"><i class="fa-solid fa-arrow-right-from-bracket"></i> Sign Out</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Content -->
+    <main class="dash-content">
+
+      <div class="dash-hello d-flex flex-wrap align-items-end justify-content-between gap-3">
+        <div>
+          <h2>My Services</h2>
+          <p>Track your active engagements with the firm.</p>
+        </div>
+        <a href="practice-areas.html" class="btn btn-gold"><i class="fa-solid fa-plus me-2"></i>Explore Services</a>
+      </div>
+
+      <!-- Stat cards -->
+      <div class="row g-3 mb-4">
+        <div class="col-sm-6 col-xl-3">
+          <div class="stat-card">
+            <span class="stat-icon gold"><i class="fa-solid fa-briefcase"></i></span>
+            <div class="stat-info">
+              <div class="stat-label">Active Services</div>
+              <div class="stat-value"><span data-count="3">0</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-xl-3">
+          <div class="stat-card">
+            <span class="stat-icon navy"><i class="fa-solid fa-hourglass-half"></i></span>
+            <div class="stat-info">
+              <div class="stat-label">In Review</div>
+              <div class="stat-value"><span data-count="1">0</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-xl-3">
+          <div class="stat-card">
+            <span class="stat-icon green"><i class="fa-solid fa-circle-check"></i></span>
+            <div class="stat-info">
+              <div class="stat-label">Completed</div>
+              <div class="stat-value"><span data-count="6">0</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-xl-3">
+          <div class="stat-card">
+            <span class="stat-icon oxblood"><i class="fa-solid fa-sack-dollar"></i></span>
+            <div class="stat-info">
+              <div class="stat-label">Total Spent</div>
+              <div class="stat-value"><span data-count="18400" data-prefix="$">0</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Active services -->
+      <div class="row g-3 mb-4">
+        <div class="col-lg-4">
+          <div class="dash-card hoverable h-100">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+              <span class="stat-icon gold"><i class="fa-solid fa-scale-balanced"></i></span>
+              <span class="status-badge active">Active</span>
+            </div>
+            <h3 style="font-family:var(--font-display);font-weight:700;color:var(--primary);font-size:1.15rem;">Corporate Law</h3>
+            <p class="muted" style="font-size:0.85rem;color:var(--text-muted);margin:0.35rem 0 1.1rem;">Ongoing corporate governance and advisory support.</p>
+            <div class="analytics-widget">
+              <div class="row-line"><span class="label">Progress</span><span class="value">72%</span></div>
+              <div class="progress"><div class="progress-bar" style="width:72%;"></div></div>
+            </div>
+            <div style="border-top:1px solid rgba(12,21,36,0.06);padding-top:0.9rem;margin-top:1.2rem;display:flex;align-items:center;justify-content:space-between;gap:0.5rem;">
+              <span style="font-size:0.76rem;color:var(--text-light);">Client since Mar 2024</span>
+              <a href="user-services.html" class="btn-link text-decoration-none" style="font-size:0.82rem;font-weight:600;color:var(--gold);">View details</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="dash-card hoverable h-100">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+              <span class="stat-icon navy"><i class="fa-solid fa-file-signature"></i></span>
+              <span class="status-badge pending">In Review</span>
+            </div>
+            <h3 style="font-family:var(--font-display);font-weight:700;color:var(--primary);font-size:1.15rem;">Contract Review</h3>
+            <p class="muted" style="font-size:0.85rem;color:var(--text-muted);margin:0.35rem 0 1.1rem;">Draft term sheet under review by counsel.</p>
+            <div class="analytics-widget">
+              <div class="row-line"><span class="label">Progress</span><span class="value">45%</span></div>
+              <div class="progress"><div class="progress-bar navy" style="width:45%;"></div></div>
+            </div>
+            <div style="border-top:1px solid rgba(12,21,36,0.06);padding-top:0.9rem;margin-top:1.2rem;display:flex;align-items:center;justify-content:space-between;gap:0.5rem;">
+              <span style="font-size:0.76rem;color:var(--text-light);">David Okafor</span>
+              <a href="user-services.html" class="btn-link text-decoration-none" style="font-size:0.82rem;font-weight:600;color:var(--gold);">View details</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="dash-card hoverable h-100">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+              <span class="stat-icon oxblood"><i class="fa-solid fa-magnifying-glass-chart"></i></span>
+              <span class="status-badge pending">Scheduled</span>
+            </div>
+            <h3 style="font-family:var(--font-display);font-weight:700;color:var(--primary);font-size:1.15rem;">Compliance Advisory</h3>
+            <p class="muted" style="font-size:0.85rem;color:var(--text-muted);margin:0.35rem 0 1.1rem;">Compliance audit scheduled for August.</p>
+            <div class="analytics-widget">
+              <div class="row-line"><span class="label">Progress</span><span class="value">20%</span></div>
+              <div class="progress"><div class="progress-bar oxblood" style="width:20%;"></div></div>
+            </div>
+            <div style="border-top:1px solid rgba(12,21,36,0.06);padding-top:0.9rem;margin-top:1.2rem;display:flex;align-items:center;justify-content:space-between;gap:0.5rem;">
+              <span style="font-size:0.76rem;color:var(--text-light);">Starts Aug 6, 2026</span>
+              <a href="user-services.html" class="btn-link text-decoration-none" style="font-size:0.82rem;font-weight:600;color:var(--gold);">View details</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Completed services + timeline -->
+      <div class="row g-3">
+        <div class="col-lg-7">
+          <div class="dash-card h-100">
+            <div class="dash-card-head">
+              <div>
+                <h3>Completed Services</h3>
+                <span class="muted">Delivered over the last 6 months</span>
+              </div>
+            </div>
+            <div class="appt-item">
+              <span class="avatar-initials sm gold-bg">SA</span>
+              <div class="appt-info">
+                <div class="title">Shareholders Agreement</div>
+                <div class="meta"><i class="fa-regular fa-calendar me-1"></i>Jul 2026</div>
+              </div>
+              <span class="status-badge active">Completed</span>
+              <button class="icon-btn" style="width:34px;height:34px;font-size:0.78rem;" aria-label="Download Shareholders Agreement"><i class="fa-solid fa-download"></i></button>
+            </div>
+            <div class="appt-item">
+              <span class="avatar-initials sm oxblood-bg">NE</span>
+              <div class="appt-info">
+                <div class="title">NDA Execution</div>
+                <div class="meta"><i class="fa-regular fa-calendar me-1"></i>Jun 2026</div>
+              </div>
+              <span class="status-badge active">Completed</span>
+              <button class="icon-btn" style="width:34px;height:34px;font-size:0.78rem;" aria-label="Download NDA Execution"><i class="fa-solid fa-download"></i></button>
+            </div>
+            <div class="appt-item">
+              <span class="avatar-initials sm" style="background:#2E7D32;">TR</span>
+              <div class="appt-info">
+                <div class="title">Tax Review</div>
+                <div class="meta"><i class="fa-regular fa-calendar me-1"></i>May 2026</div>
+              </div>
+              <span class="status-badge active">Completed</span>
+              <button class="icon-btn" style="width:34px;height:34px;font-size:0.78rem;" aria-label="Download Tax Review"><i class="fa-solid fa-download"></i></button>
+            </div>
+            <div class="appt-item">
+              <span class="avatar-initials sm" style="background:var(--primary);">EC</span>
+              <div class="appt-info">
+                <div class="title">Employment Contract</div>
+                <div class="meta"><i class="fa-regular fa-calendar me-1"></i>Apr 2026</div>
+              </div>
+              <span class="status-badge active">Completed</span>
+              <button class="icon-btn" style="width:34px;height:34px;font-size:0.78rem;" aria-label="Download Employment Contract"><i class="fa-solid fa-download"></i></button>
+            </div>
+            <div class="appt-item">
+              <span class="avatar-initials sm gold-bg">TF</span>
+              <div class="appt-info">
+                <div class="title">Trademark Filing</div>
+                <div class="meta"><i class="fa-regular fa-calendar me-1"></i>Mar 2026</div>
+              </div>
+              <span class="status-badge active">Completed</span>
+              <button class="icon-btn" style="width:34px;height:34px;font-size:0.78rem;" aria-label="Download Trademark Filing"><i class="fa-solid fa-download"></i></button>
+            </div>
+            <div class="appt-item mb-0">
+              <span class="avatar-initials sm oxblood-bg">DD</span>
+              <div class="appt-info">
+                <div class="title">Due Diligence Pack</div>
+                <div class="meta"><i class="fa-regular fa-calendar me-1"></i>Feb 2026</div>
+              </div>
+              <span class="status-badge active">Completed</span>
+              <button class="icon-btn" style="width:34px;height:34px;font-size:0.78rem;" aria-label="Download Due Diligence Pack"><i class="fa-solid fa-download"></i></button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-5">
+          <div class="dash-card h-100">
+            <div class="dash-card-head">
+              <div>
+                <h3>Service Timeline</h3>
+                <span class="muted">Corporate Law engagement</span>
+              </div>
+            </div>
+            <div class="activity-list">
+              <div class="activity-item">
+                <span class="activity-dot"><i class="fa-solid fa-handshake"></i></span>
+                <div class="activity-body">
+                  <div class="title">Kickoff &amp; scope agreement</div>
+                  <div class="desc">Corporate governance mandate confirmed with the firm.</div>
+                  <div class="time">Mar 2024</div>
+                </div>
+              </div>
+              <div class="activity-item">
+                <span class="activity-dot" style="background:rgba(12,21,36,0.08);color:var(--primary);"><i class="fa-solid fa-file-lines"></i></span>
+                <div class="activity-body">
+                  <div class="title">Governance framework drafted</div>
+                  <div class="desc">Board charter and committee structure prepared.</div>
+                  <div class="time">May 2024</div>
+                </div>
+              </div>
+              <div class="activity-item">
+                <span class="activity-dot" style="background:rgba(110,31,42,0.1);color:var(--oxblood);"><i class="fa-solid fa-gavel"></i></span>
+                <div class="activity-body">
+                  <div class="title">Board resolutions prepared</div>
+                  <div class="desc">Resolutions for the 2026 AGM finalized.</div>
+                  <div class="time">Feb 2026</div>
+                </div>
+              </div>
+              <div class="activity-item">
+                <span class="activity-dot" style="background:rgba(46,125,50,0.1);color:#2E7D32;"><i class="fa-solid fa-circle-check"></i></span>
+                <div class="activity-body">
+                  <div class="title">Review with Margaret Chen</div>
+                  <div class="desc">Senior Counsel review of corporate filings.</div>
+                  <div class="time">Jun 2026</div>
+                </div>
+              </div>
+              <div class="activity-item mb-0">
+                <span class="activity-dot" style="background:rgba(171,135,82,0.12);color:var(--gold);"><i class="fa-solid fa-file-circle-check"></i></span>
+                <div class="activity-body">
+                  <div class="title">Annual compliance filing</div>
+                  <div class="desc">Next step — filing ahead of the deadline.</div>
+                  <div class="time">Aug 2026</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer style="border-top:1px solid rgba(12,21,36,0.06);padding:1.25rem 1.75rem;font-size:0.78rem;color:var(--text-light);display:flex;flex-wrap:wrap;gap:0.5rem;justify-content:space-between;">
+      <span>&copy; 2026 Stackly LLP. All rights reserved.</span>
+      <span><a href="index.html" class="text-decoration-none" style="color:var(--gold);">Back to Website</a> &middot; <a href="#" class="text-decoration-none" style="color:var(--text-light);">Privacy</a> &middot; <a href="#" class="text-decoration-none" style="color:var(--text-light);">Terms</a></span>
+    </footer>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/dashboard.js"></script>
+</body>
+</html>

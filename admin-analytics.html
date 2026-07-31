@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Analytics — Admin Panel | Stackly</title>
+  <meta name="description" content="Stackly admin panel — deep-dive insights into firm performance and client behavior." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/dashboard.css" />
+</head>
+<body class="dashboard">
+
+  <!-- Overlay -->
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <!-- Sidebar -->
+  <aside class="dash-sidebar" id="dashSidebar">
+    <a class="sidebar-brand" href="index.html">
+      <img src="assets/img/logo.webp" alt="Stackly" />
+      <span>Admin Panel</span>
+    </a>
+
+    <nav class="sidebar-nav">
+      <div class="sidebar-label">Main</div>
+      <ul>
+        <li><a class="sidebar-link" href="admin-dashboard.html"><i class="fa-solid fa-chart-pie"></i> Dashboard</a></li>
+        <li><a class="sidebar-link" href="admin-users.html"><i class="fa-solid fa-users"></i> Users</a></li>
+        <li><a class="sidebar-link" href="admin-services.html"><i class="fa-solid fa-briefcase"></i> Services</a></li>
+        <li><a class="sidebar-link" href="admin-appointments.html"><i class="fa-regular fa-calendar-check"></i> Appointments</a><span class="ms-auto status-badge pending" style="padding:0.15rem 0.5rem;font-size:0.62rem;">12</span></li>
+        <li><a class="sidebar-link" href="admin-reports.html"><i class="fa-solid fa-file-invoice"></i> Reports</a></li>
+        <li><a class="sidebar-link active" href="admin-analytics.html"><i class="fa-solid fa-chart-column"></i> Analytics</a></li>
+        <li><a class="sidebar-link" href="admin-messages.html"><i class="fa-regular fa-envelope"></i> Messages</a><span class="ms-auto status-badge pending" style="padding:0.15rem 0.5rem;font-size:0.62rem;">3</span></li>
+        <li><a class="sidebar-link" href="admin-logs.html"><i class="fa-solid fa-clock-rotate-left"></i> Activity Logs</a></li>
+      </ul>
+
+      <div class="sidebar-label" style="margin-top:1.5rem;">System</div>
+      <ul>
+        <li><a class="sidebar-link" href="admin-settings.html"><i class="fa-solid fa-gear"></i> Settings</a></li>
+        <li><a class="sidebar-link" href="logout.html"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a></li>
+      </ul>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="d-flex align-items-center gap-3 px-3">
+        <span class="avatar-initials md">AS</span>
+        <div class="flex-grow-1" style="min-width:0;">
+          <div style="font-size:0.82rem;font-weight:600;color:var(--white);">Alexander Stackly</div>
+          <div style="font-size:0.72rem;color:rgba(255,255,255,0.45);">Managing Partner</div>
+        </div>
+        <span class="status-badge active" style="font-size:0.6rem;padding:0.15rem 0.5rem;">Online</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main -->
+  <div class="dash-main">
+
+    <!-- Topbar -->
+    <header class="dash-topbar">
+      <button class="hamburger" id="sidebarToggle" aria-label="Toggle sidebar" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
+      <h1 class="topbar-title">Analytics</h1>
+
+      <form class="topbar-search" role="search" onsubmit="return false;">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="search" placeholder="Search anything..." aria-label="Search" />
+      </form>
+
+      <div class="topbar-actions">
+        <div class="dash-dropdown">
+          <button class="icon-btn" data-dropdown-toggle aria-label="Notifications">
+            <i class="fa-regular fa-bell"></i>
+            <span class="badge">5</span>
+          </button>
+          <div class="dash-dropdown-panel">
+            <div class="dash-dropdown-head">
+              <span>Notifications</span>
+              <a href="#" class="btn-link">Mark all read</a>
+            </div>
+            <div class="notif-list">
+              <a href="#" class="notif-item text-decoration-none">
+                <span class="notif-icon" style="background:rgba(171,135,82,0.12);color:var(--gold);"><i class="fa-solid fa-calendar-plus"></i></span>
+                <div class="notif-text">
+                  <div class="notif-title">New consultation request from Horizon Tech Inc.</div>
+                  <div class="notif-time">12 min ago</div>
+                </div>
+              </a>
+              <a href="#" class="notif-item text-decoration-none">
+                <span class="notif-icon" style="background:rgba(12,21,36,0.08);color:var(--primary);"><i class="fa-solid fa-user-plus"></i></span>
+                <div class="notif-text">
+                  <div class="notif-title">3 new client accounts awaiting review.</div>
+                  <div class="notif-time">1 hour ago</div>
+                </div>
+              </a>
+              <a href="#" class="notif-item text-decoration-none">
+                <span class="notif-icon" style="background:rgba(110,31,42,0.1);color:var(--oxblood);"><i class="fa-solid fa-file-circle-exclamation"></i></span>
+                <div class="notif-text">
+                  <div class="notif-title">Retainer renewal due for Meridian Group.</div>
+                  <div class="notif-time">3 hours ago</div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="dash-dropdown">
+          <button class="icon-btn" data-dropdown-toggle aria-label="Messages">
+            <i class="fa-regular fa-envelope"></i>
+            <span class="badge">3</span>
+          </button>
+          <div class="dash-dropdown-panel">
+            <div class="dash-dropdown-head">
+              <span>Messages</span>
+              <a href="admin-messages.html" class="btn-link">View all</a>
+            </div>
+            <div class="notif-list">
+              <a href="admin-messages.html" class="notif-item text-decoration-none">
+                <span class="avatar-initials sm gold-bg">MB</span>
+                <div class="notif-text">
+                  <div class="notif-title">Maria Belcher &mdash; Documents signed</div>
+                  <div class="notif-time">20 min ago</div>
+                </div>
+              </a>
+              <a href="admin-messages.html" class="notif-item text-decoration-none">
+                <span class="avatar-initials sm oxblood-bg">JT</span>
+                <div class="notif-text">
+                  <div class="notif-title">James Torres &mdash; Meeting confirmed</div>
+                  <div class="notif-time">2 hours ago</div>
+                </div>
+              </a>
+              <a href="admin-messages.html" class="notif-item text-decoration-none">
+                <span class="avatar-initials sm" style="background:#2E7D32;">RK</span>
+                <div class="notif-text">
+                  <div class="notif-title">Rita Khan &mdash; New enquiry</div>
+                  <div class="notif-time">Yesterday</div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="dash-dropdown">
+          <button class="avatar-initials md gold-bg" data-dropdown-toggle aria-label="Account menu" style="border:none;cursor:pointer;">AS</button>
+          <div class="dash-dropdown-panel profile-menu">
+            <div class="profile-head">
+              <span class="avatar-initials md gold-bg">AS</span>
+              <div>
+                <div class="name">Alexander Stackly</div>
+                <div class="role">Managing Partner</div>
+              </div>
+            </div>
+            <a href="admin-settings.html"><i class="fa-regular fa-user"></i> My Profile</a>
+            <a href="admin-settings.html"><i class="fa-solid fa-gear"></i> Account Settings</a>
+            <a href="admin-logs.html"><i class="fa-solid fa-chart-simple"></i> Activity Log</a>
+            <a href="logout.html" class="danger"><i class="fa-solid fa-arrow-right-from-bracket"></i> Sign Out</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Content -->
+    <main class="dash-content">
+
+      <div class="dash-hello d-flex flex-wrap align-items-end justify-content-between gap-3">
+        <div>
+          <h2>Analytics</h2>
+          <p>Deep-dive insights into firm performance and client behavior.</p>
+        </div>
+      </div>
+
+      <!-- Stat cards -->
+      <div class="row g-3 mb-4">
+        <div class="col-sm-6 col-xl-3">
+          <div class="stat-card">
+            <span class="stat-icon green"><i class="fa-solid fa-sack-dollar"></i></span>
+            <div class="stat-info">
+              <div class="stat-label">Revenue</div>
+              <div class="stat-value"><span data-count="4800" data-prefix="$" data-suffix="K">0</span></div>
+              <span class="stat-trend up"><i class="fa-solid fa-arrow-trend-up"></i> 12% this quarter</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-xl-3">
+          <div class="stat-card">
+            <span class="stat-icon navy"><i class="fa-solid fa-user-plus"></i></span>
+            <div class="stat-info">
+              <div class="stat-label">New Clients</div>
+              <div class="stat-value"><span data-count="212">0</span></div>
+              <span class="stat-trend up"><i class="fa-solid fa-arrow-trend-up"></i> +212 this month</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-xl-3">
+          <div class="stat-card">
+            <span class="stat-icon oxblood"><i class="fa-solid fa-scale-balanced"></i></span>
+            <div class="stat-info">
+              <div class="stat-label">Active Cases</div>
+              <div class="stat-value"><span data-count="92">0</span></div>
+              <span class="stat-trend up"><i class="fa-solid fa-arrow-trend-up"></i> 14 in litigation</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-xl-3">
+          <div class="stat-card">
+            <span class="stat-icon gold"><i class="fa-solid fa-hourglass-half"></i></span>
+            <div class="stat-info">
+              <div class="stat-label">Avg. Resolution</div>
+              <div class="stat-value"><span data-count="14" data-suffix="d">0</span></div>
+              <span class="stat-trend down"><i class="fa-solid fa-arrow-trend-down"></i> 2d faster than Q1</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Charts row -->
+      <div class="row g-3 mb-4">
+        <div class="col-lg-7">
+          <div class="dash-card hoverable h-100">
+            <div class="dash-card-head">
+              <div>
+                <h3>Revenue by Month</h3>
+                <span class="muted">Gross billings &mdash; last 7 months</span>
+              </div>
+              <select aria-label="Revenue period" style="border:1px solid rgba(12,21,36,0.12);border-radius:var(--radius);background:var(--white);padding:0.4rem 0.7rem;font-size:0.78rem;color:var(--text);cursor:pointer;">
+                <option>Last 7 months</option>
+                <option>This year</option>
+                <option>Last 30 days</option>
+              </select>
+            </div>
+            <div class="chart-box">
+              <div class="bar-chart">
+                <div class="bar-col"><div class="bar" style="height:38%;"><span class="bar-value">$284K</span></div><span>Jan</span></div>
+                <div class="bar-col"><div class="bar" style="height:46%;"><span class="bar-value">$344K</span></div><span>Feb</span></div>
+                <div class="bar-col"><div class="bar" style="height:42%;"><span class="bar-value">$314K</span></div><span>Mar</span></div>
+                <div class="bar-col"><div class="bar" style="height:58%;"><span class="bar-value">$434K</span></div><span>Apr</span></div>
+                <div class="bar-col"><div class="bar" style="height:64%;"><span class="bar-value">$478K</span></div><span>May</span></div>
+                <div class="bar-col"><div class="bar" style="height:70%;"><span class="bar-value">$524K</span></div><span>Jun</span></div>
+                <div class="bar-col"><div class="bar" style="height:84%; background:linear-gradient(180deg,var(--primary),var(--primary));"><span class="bar-value">$628K</span></div><span>Jul</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-5">
+          <div class="dash-card hoverable h-100">
+            <div class="dash-card-head">
+              <div>
+                <h3>Client Distribution</h3>
+                <span class="muted">By engagement type</span>
+              </div>
+            </div>
+            <div class="d-flex flex-column flex-sm-row align-items-center gap-4" style="height:calc(100% - 3.5rem);">
+              <div class="donut-wrap">
+                <div class="donut-center">
+                  <div class="value">2,847</div>
+                  <div class="label">Clients</div>
+                </div>
+              </div>
+              <ul class="legend-list">
+                <li><span class="legend-dot" style="background:var(--gold);"></span> Corporate — 36%</li>
+                <li><span class="legend-dot" style="background:var(--primary);"></span> Individual — 26%</li>
+                <li><span class="legend-dot" style="background:var(--oxblood);"></span> Institutional — 20%</li>
+                <li><span class="legend-dot" style="background:rgba(12,21,36,0.15);"></span> Other — 18%</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Practice areas + funnel -->
+      <div class="row g-3 mb-4">
+        <div class="col-lg-6">
+          <div class="dash-card hoverable h-100">
+            <div class="dash-card-head">
+              <div>
+                <h3>Bookings by Practice Area</h3>
+                <span class="muted">Share of total engagements</span>
+              </div>
+            </div>
+            <div class="analytics-widget">
+              <div class="row-line"><span class="label">Corporate Law</span><span class="value">1,240 &middot; 86%</span></div>
+              <div class="progress"><div class="progress-bar" style="width:86%;"></div></div>
+            </div>
+            <div class="analytics-widget">
+              <div class="row-line"><span class="label">Litigation</span><span class="value">980 &middot; 68%</span></div>
+              <div class="progress"><div class="progress-bar navy" style="width:68%;"></div></div>
+            </div>
+            <div class="analytics-widget">
+              <div class="row-line"><span class="label">M&amp;A Advisory</span><span class="value">540 &middot; 52%</span></div>
+              <div class="progress"><div class="progress-bar oxblood" style="width:52%;"></div></div>
+            </div>
+            <div class="analytics-widget">
+              <div class="row-line"><span class="label">Compliance</span><span class="value">410 &middot; 38%</span></div>
+              <div class="progress"><div class="progress-bar green" style="width:38%;"></div></div>
+            </div>
+            <div class="analytics-widget">
+              <div class="row-line"><span class="label">Intellectual Property</span><span class="value">265 &middot; 24%</span></div>
+              <div class="progress"><div class="progress-bar" style="width:24%;"></div></div>
+            </div>
+            <div class="analytics-widget mb-0">
+              <div class="row-line"><span class="label">Tax &amp; Wealth</span><span class="value">142 &middot; 14%</span></div>
+              <div class="progress"><div class="progress-bar navy" style="width:14%;"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="dash-card hoverable h-100">
+            <div class="dash-card-head">
+              <div>
+                <h3>Conversion Funnel</h3>
+                <span class="muted">Client journey stages</span>
+              </div>
+            </div>
+            <div class="analytics-widget">
+              <div class="row-line"><span class="label">Leads &rarr; Consultations</span><span class="value">1,400 &rarr; 760 &middot; 54%</span></div>
+              <div class="progress"><div class="progress-bar" style="width:54%;"></div></div>
+            </div>
+            <div class="analytics-widget">
+              <div class="row-line"><span class="label">Consultations &rarr; Retainers</span><span class="value">760 &rarr; 410 &middot; 54%</span></div>
+              <div class="progress"><div class="progress-bar oxblood" style="width:54%;"></div></div>
+            </div>
+            <div class="analytics-widget">
+              <div class="row-line"><span class="label">Retainers &rarr; Closed Engagements</span><span class="value">410 &rarr; 312 &middot; 76%</span></div>
+              <div class="progress"><div class="progress-bar green" style="width:76%;"></div></div>
+            </div>
+            <p class="muted" style="font-size:0.78rem;margin:1.25rem 0 0;"><strong style="color:var(--primary);">Insight:</strong> Consultation-to-retainer conversion holds steady at 54%; faster early follow-ups could lift closed engagements by roughly 12%.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Counsel + goals -->
+      <div class="row g-3">
+        <div class="col-lg-7">
+          <div class="dash-card table-card h-100">
+            <div class="table-toolbar">
+              <h3 style="font-family:var(--font-display);font-size:1.05rem;font-weight:700;color:var(--primary);margin:0;">Top Performing Counsel</h3>
+              <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="search" placeholder="Search counsel..." data-table-search="counselTable" aria-label="Search counsel" />
+              </div>
+            </div>
+
+            <div class="dash-table-wrap">
+              <table class="dash-table" id="counselTable">
+                <thead>
+                  <tr>
+                    <th>Counsel</th>
+                    <th>Engagements</th>
+                    <th>Revenue</th>
+                    <th>Rating</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><div class="user-cell"><span class="avatar-initials sm gold-bg">MC</span><div><div class="name">Margaret Chen</div><div class="email">Senior Counsel</div></div></div></td>
+                    <td>148</td>
+                    <td>$1.26M</td>
+                    <td><span style="color:var(--gold);"><i class="fa-solid fa-star"></i> 4.9</span></td>
+                    <td><span class="status-badge active">Active</span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="user-cell"><span class="avatar-initials sm oxblood-bg">EV</span><div><div class="name">Elena Vasquez</div><div class="email">Partner</div></div></div></td>
+                    <td>96</td>
+                    <td>$1.02M</td>
+                    <td><span style="color:var(--gold);"><i class="fa-solid fa-star"></i> 4.8</span></td>
+                    <td><span class="status-badge active">Active</span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="user-cell"><span class="avatar-initials sm" style="background:#2E7D32;">DO</span><div><div class="name">David Okafor</div><div class="email">Associate</div></div></div></td>
+                    <td>72</td>
+                    <td>$684K</td>
+                    <td><span style="color:var(--gold);"><i class="fa-solid fa-star"></i> 4.7</span></td>
+                    <td><span class="status-badge active">Active</span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="user-cell"><span class="avatar-initials sm" style="background:#5B4A9E;">AS</span><div><div class="name">Alexander Stackly</div><div class="email">Managing Partner</div></div></div></td>
+                    <td>54</td>
+                    <td>$742K</td>
+                    <td><span style="color:var(--gold);"><i class="fa-solid fa-star"></i> 4.9</span></td>
+                    <td><span class="status-badge active">Active</span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="user-cell"><span class="avatar-initials sm" style="background:#00695C;">RF</span><div><div class="name">Rachel Fontaine</div><div class="email">Associate</div></div></div></td>
+                    <td>41</td>
+                    <td>$388K</td>
+                    <td><span style="color:var(--gold);"><i class="fa-solid fa-star"></i> 4.5</span></td>
+                    <td><span class="status-badge pending">Pending</span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="user-cell"><span class="avatar-initials sm" style="background:#37474F;">TA</span><div><div class="name">Thomas Adler</div><div class="email">Of Counsel</div></div></div></td>
+                    <td>23</td>
+                    <td>$214K</td>
+                    <td><span style="color:var(--gold);"><i class="fa-solid fa-star"></i> 4.6</span></td>
+                    <td><span class="status-badge inactive">Inactive</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="dash-pagination" data-pagination="counselTable" data-per-page="4">
+              <span class="info"></span>
+              <div class="pages"></div>
+              <div style="display:flex;gap:0.3rem;">
+                <button class="page-btn" data-page="prev" aria-label="Previous page"><i class="fa-solid fa-chevron-left"></i></button>
+                <button class="page-btn" data-page="next" aria-label="Next page"><i class="fa-solid fa-chevron-right"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-5">
+          <div class="dash-card hoverable h-100">
+            <div class="dash-card-head">
+              <div>
+                <h3>Goal Tracking</h3>
+                <span class="muted">Progress against annual targets</span>
+              </div>
+            </div>
+            <div class="analytics-widget">
+              <div class="row-line"><span class="label">Revenue goal</span><span class="value">82%</span></div>
+              <div class="progress"><div class="progress-bar" style="width:82%;"></div></div>
+            </div>
+            <div class="analytics-widget">
+              <div class="row-line"><span class="label">Client acquisition</span><span class="value">94%</span></div>
+              <div class="progress"><div class="progress-bar navy" style="width:94%;"></div></div>
+            </div>
+            <div class="analytics-widget">
+              <div class="row-line"><span class="label">Team utilization</span><span class="value">61%</span></div>
+              <div class="progress"><div class="progress-bar oxblood" style="width:61%;"></div></div>
+            </div>
+            <div style="background:var(--ivory);border:1px solid rgba(171,135,82,0.2);border-radius:var(--radius);padding:0.9rem 1rem;">
+              <div style="font-size:0.8rem;font-weight:600;color:var(--primary);margin-bottom:0.15rem;">On track to hit Q4 revenue target</div>
+              <p class="muted" style="font-size:0.75rem;margin:0;">Firm-wide collections are 12% ahead of last year's pace.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer style="border-top:1px solid rgba(12,21,36,0.06);padding:1.25rem 1.75rem;font-size:0.78rem;color:var(--text-light);display:flex;flex-wrap:wrap;gap:0.5rem;justify-content:space-between;">
+      <span>&copy; 2026 Stackly LLP. All rights reserved.</span>
+      <span><a href="index.html" class="text-decoration-none" style="color:var(--gold);">Back to Website</a> &middot; <a href="#" class="text-decoration-none" style="color:var(--text-light);">Privacy</a> &middot; <a href="#" class="text-decoration-none" style="color:var(--text-light);">Terms</a></span>
+    </footer>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/dashboard.js"></script>
+</body>
+</html>

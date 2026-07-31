@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Practice Areas — Sterling &amp; Associates</title>
+  <title>Practice Areas — Stackly</title>
   <meta name="description" content="Full-service corporate law firm offering expertise in corporate law, M&A, litigation, IP, tax, compliance, and more." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -11,26 +11,26 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
   <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
 </head>
 <body>
 
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg" id="mainNav">
     <div class="container">
-      <a class="navbar-brand" href="index.html"><img src="assets/img/logo.webp" alt="Sterling &amp; Associates" /></a>
+      <a class="navbar-brand" href="index.html"><img src="assets/img/logo.webp" alt="Stackly" /></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"><i class="fa-solid fa-bars"></i></button>
       <div class="collapse navbar-collapse" id="navMenu">
-        <ul class="navbar-nav ms-auto align-items-lg-center">
+        <ul class="navbar-nav align-items-lg-center">
           <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
           <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
           <li class="nav-item"><a class="nav-link active" href="practice-areas.html">Practice Areas</a></li>
-          <li class="nav-item"><a class="nav-link" href="industries.html">Industries</a></li>
           <li class="nav-item"><a class="nav-link" href="team.html">Our Team</a></li>
           <li class="nav-item"><a class="nav-link" href="insights.html">Insights</a></li>
           <li class="nav-item"><a class="nav-link" href="careers.html">Careers</a></li>
           <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-          <li class="nav-item ms-lg-2"><a class="nav-link nav-cta" href="contact.html"><i class="fa-regular fa-calendar me-2"></i>Consultation</a></li>
         </ul>
+        <div class="navbar-login"><a class="nav-link nav-cta" href="login.html"><i class="fa-solid fa-arrow-right-to-bracket me-2"></i>Login</a></div>
       </div>
     </div>
   </nav>
@@ -40,71 +40,242 @@
     <div class="page-banner-bg"></div>
     <div class="page-banner-overlay"></div>
     <div class="container">
-      <h1 class="gsap-fade">Practice Areas</h1>
-      <nav aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="index.html">Home</a></li><li class="breadcrumb-item active">Practice Areas</li></ol></nav>
+      <h1>Practice Areas</h1>
+      <nav aria-label="breadcrumb" data-aos="fade-up" data-aos-delay="100"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="index.html">Home</a></li><li class="breadcrumb-item active">Practice Areas</li></ol></nav>
     </div>
   </section>
 
-  <!-- Intro -->
+  <!-- Hero Section -->
   <section class="section-padding">
     <div class="container text-center">
-      <span class="section-label gsap-fade">Full-Service Counsel</span>
-      <h2 class="section-title gsap-fade">Comprehensive Legal Expertise</h2>
-      <p class="section-subtitle mx-auto mt-2 gsap-fade" style="max-width:700px;">From boardroom strategy to courtroom advocacy, our eight integrated practice areas deliver end-to-end legal support for every stage of your business journey.</p>
+      <span class="section-label" data-aos="fade-up">Practice Areas</span>
+      <h2 class="section-title">Comprehensive Legal Expertise</h2>
+      <p class="section-subtitle mx-auto mt-2" style="max-width:700px;" data-aos="fade-up">From boardroom strategy to courtroom advocacy, our integrated practice areas deliver end-to-end legal support for every stage of your business journey.</p>
     </div>
   </section>
 
-  <!-- Practice Area Cards -->
-  <section class="section-padding">
+  <!-- Practice Areas Overview -->
+  <section class="section-padding bg-navy-800">
     <div class="container">
-      <div class="row g-4">
-        <div class="col-md-6 col-lg-4 gsap-fade">
-          <div class="practice-card"><div class="icon"><i class="fa-solid fa-building"></i></div><h5>Corporate Law</h5><p>Entity formation, corporate governance, shareholder agreements, joint ventures, and restructuring. We advise boards and C-suites on complex corporate matters across jurisdictions.</p><span class="arrow-link">Learn More <i class="fa-solid fa-arrow-right ms-1"></i></span></div>
+      <div class="row g-5 align-items-center">
+        <div class="col-lg-6">
+          <span class="section-label" data-aos="fade-up">Overview</span>
+          <h2 class="section-title">Your Trusted Legal Partner.</h2>
+          <p class="section-subtitle mt-3" data-aos="fade-up">At Stackly, we provide comprehensive legal services tailored to meet the complex needs of modern businesses. Our team of experienced attorneys brings deep expertise across every major practice area, delivering strategic counsel that protects your interests and drives your success.</p>
+          <p class="section-subtitle mt-2" data-aos="fade-up">Whether you are a startup navigating your first funding round or a multinational corporation facing a cross-border dispute, we have the experience, resources, and dedication to deliver exceptional outcomes.</p>
         </div>
-        <div class="col-md-6 col-lg-4 gsap-fade">
-          <div class="practice-card"><div class="icon"><i class="fa-solid fa-chart-line"></i></div><h5>Mergers &amp; Acquisitions</h5><p>End-to-end M&A advisory including target identification, due diligence, deal structuring, negotiation, regulatory approval, and post-merger integration for public and private transactions.</p><span class="arrow-link">Learn More <i class="fa-solid fa-arrow-right ms-1"></i></span></div>
-        </div>
-        <div class="col-md-6 col-lg-4 gsap-fade">
-          <div class="practice-card"><div class="icon"><i class="fa-solid fa-file-signature"></i></div><h5>Contract Drafting &amp; Review</h5><p>Drafting, reviewing, and negotiating complex commercial contracts including supply agreements, service contracts, licensing deals, NDAs, and distribution partnerships.</p><span class="arrow-link">Learn More <i class="fa-solid fa-arrow-right ms-1"></i></span></div>
-        </div>
-        <div class="col-md-6 col-lg-4 gsap-fade">
-          <div class="practice-card"><div class="icon"><i class="fa-solid fa-users-between-lines"></i></div><h5>Employment Law</h5><p>Employment contracts, executive compensation, workplace policies, non-compete agreements, discrimination defense, and labor relations for employers across industries.</p><span class="arrow-link">Learn More <i class="fa-solid fa-arrow-right ms-1"></i></span></div>
-        </div>
-        <div class="col-md-6 col-lg-4 gsap-fade">
-          <div class="practice-card"><div class="icon"><i class="fa-solid fa-lightbulb"></i></div><h5>Intellectual Property</h5><p>Patent prosecution, trademark registration, copyright protection, IP portfolio management, trade secret protection, and licensing strategy for technology and creative industries.</p><span class="arrow-link">Learn More <i class="fa-solid fa-arrow-right ms-1"></i></span></div>
-        </div>
-        <div class="col-md-6 col-lg-4 gsap-fade">
-          <div class="practice-card"><div class="icon"><i class="fa-solid fa-hand-holding-dollar"></i></div><h5>Tax Advisory</h5><p>Corporate tax structuring, international tax planning, transfer pricing, estate planning, and tax controversy representation. Strategic advice that optimizes your tax position.</p><span class="arrow-link">Learn More <i class="fa-solid fa-arrow-right ms-1"></i></span></div>
-        </div>
-        <div class="col-md-6 col-lg-4 gsap-fade">
-          <div class="practice-card"><div class="icon"><i class="fa-solid fa-shield"></i></div><h5>Compliance &amp; Regulatory</h5><p>Regulatory compliance frameworks, anti-corruption programs (FCPA/UK Bribery Act), data privacy (GDPR/CCPA), internal investigations, and regulatory defense across sectors.</p><span class="arrow-link">Learn More <i class="fa-solid fa-arrow-right ms-1"></i></span></div>
-        </div>
-        <div class="col-md-6 col-lg-4 gsap-fade">
-          <div class="practice-card"><div class="icon"><i class="fa-solid fa-scale-balanced"></i></div><h5>Litigation &amp; Dispute Resolution</h5><p>High-stakes commercial litigation, international arbitration, mediation, class action defense, and cross-border dispute resolution. We protect your interests in courts worldwide.</p><span class="arrow-link">Learn More <i class="fa-solid fa-arrow-right ms-1"></i></span></div>
-        </div>
-        <div class="col-md-6 col-lg-4 gsap-fade">
-          <div class="practice-card"><div class="icon"><i class="fa-solid fa-building-columns"></i></div><h5>Banking &amp; Finance</h5><p>Fintech regulation, securities law compliance, fund formation, private equity transactions, debt financing, and financial services regulatory counsel for institutions and innovators.</p><span class="arrow-link">Learn More <i class="fa-solid fa-arrow-right ms-1"></i></span></div>
+        <div class="col-lg-5 offset-lg-1">
+          <img class="why-image -right" src="assets/img/practice-corporate-law.webp" alt="Legal expertise" loading="lazy" style="min-height:350px;" / data-aos="fade-right">
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Approach -->
+  <!-- Featured Practice Areas -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="text-center mb-5">
+        <span class="section-label" data-aos="fade-up">What We Do</span>
+        <h2 class="section-title">Featured Practice Areas</h2>
+        <p class="section-subtitle mx-auto mt-2" data-aos="fade-up">Our attorneys bring deep expertise across a broad spectrum of legal disciplines, ensuring comprehensive support for every business need.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3" data-aos="fade-up">
+          <div class="practice-card card-image-top"><div class="card-img"><img src="assets/img/practice-corporate-law.webp" alt="Corporate Law" loading="lazy" /></div><div class="card-body"><div class="icon"><i class="fa-solid fa-building"></i></div><h5>Corporate Law</h5><p>Entity formation, corporate governance, shareholder agreements, joint ventures, and restructuring for businesses of all sizes.</p><span class="arrow-link">Learn More <i class="fa-solid fa-arrow-right ms-1"></i></span></div></div>
+        </div>
+        <div class="col-md-6 col-lg-3" data-aos="fade-up">
+          <div class="practice-card card-image-top"><div class="card-img"><img src="assets/img/practice-contract-review.webp" alt="Contract Drafting and Review" loading="lazy" /></div><div class="card-body"><div class="icon"><i class="fa-solid fa-file-signature"></i></div><h5>Contract Drafting &amp; Review</h5><p>Drafting, reviewing, and negotiating commercial contracts including supply agreements, service contracts, NDAs, and licensing deals.</p><span class="arrow-link">Learn More <i class="fa-solid fa-arrow-right ms-1"></i></span></div></div>
+        </div>
+        <div class="col-md-6 col-lg-3" data-aos="fade-up">
+          <div class="practice-card card-image-top"><div class="card-img"><img src="assets/img/practice-business-formation.webp" alt="Business Formation" loading="lazy" /></div><div class="card-body"><div class="icon"><i class="fa-solid fa-rocket"></i></div><h5>Business Formation</h5><p>LLC, corporation, and partnership formation with customized operating agreements, bylaws, and founder documentation.</p><span class="arrow-link">Learn More <i class="fa-solid fa-arrow-right ms-1"></i></span></div></div>
+        </div>
+        <div class="col-md-6 col-lg-3" data-aos="fade-up">
+          <div class="practice-card card-image-top"><div class="card-img"><img src="assets/img/practice-employment-law.webp" alt="Employment and Labor Law" loading="lazy" /></div><div class="card-body"><div class="icon"><i class="fa-solid fa-users-between-lines"></i></div><h5>Employment &amp; Labor Law</h5><p>Employment contracts, workplace policies, non-compete agreements, discrimination defense, and labor relations counsel.</p><span class="arrow-link">Learn More <i class="fa-solid fa-arrow-right ms-1"></i></span></div></div>
+        </div>
+        <div class="col-md-6 col-lg-3" data-aos="fade-up">
+          <div class="practice-card card-image-top"><div class="card-img"><img src="assets/img/practice-ip-law.webp" alt="Intellectual Property" loading="lazy" /></div><div class="card-body"><div class="icon"><i class="fa-solid fa-lightbulb"></i></div><h5>Intellectual Property</h5><p>Patent prosecution, trademark registration, copyright protection, IP portfolio management, and trade secret protection.</p><span class="arrow-link">Learn More <i class="fa-solid fa-arrow-right ms-1"></i></span></div></div>
+        </div>
+        <div class="col-md-6 col-lg-3" data-aos="fade-up">
+          <div class="practice-card card-image-top"><div class="card-img"><img src="assets/img/practice-tax-compliance.webp" alt="Tax and Regulatory Compliance" loading="lazy" /></div><div class="card-body"><div class="icon"><i class="fa-solid fa-hand-holding-dollar"></i></div><h5>Tax &amp; Regulatory Compliance</h5><p>Corporate tax structuring, international tax planning, regulatory compliance frameworks, and data privacy (GDPR/CCPA).</p><span class="arrow-link">Learn More <i class="fa-solid fa-arrow-right ms-1"></i></span></div></div>
+        </div>
+        <div class="col-md-6 col-lg-3" data-aos="fade-up">
+          <div class="practice-card card-image-top"><div class="card-img"><img src="assets/img/practice-mergers-acquisitions.webp" alt="Mergers and Acquisitions" loading="lazy" /></div><div class="card-body"><div class="icon"><i class="fa-solid fa-chart-line"></i></div><h5>Mergers &amp; Acquisitions</h5><p>End-to-end M&A advisory including due diligence, deal structuring, negotiation, regulatory approval, and post-merger integration.</p><span class="arrow-link">Learn More <i class="fa-solid fa-arrow-right ms-1"></i></span></div></div>
+        </div>
+        <div class="col-md-6 col-lg-3" data-aos="fade-up">
+          <div class="practice-card card-image-top"><div class="card-img"><img src="assets/img/practice-commercial-litigation.webp" alt="Commercial Litigation" loading="lazy" /></div><div class="card-body"><div class="icon"><i class="fa-solid fa-scale-balanced"></i></div><h5>Commercial Litigation</h5><p>High-stakes commercial litigation, international arbitration, mediation, class action defense, and cross-border dispute resolution.</p><span class="arrow-link">Learn More <i class="fa-solid fa-arrow-right ms-1"></i></span></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Legal Process -->
   <section class="section-padding bg-navy-800">
     <div class="container">
-      <div class="row g-5 align-items-center">
-        <div class="col-lg-5">
-          <span class="section-label gsap-fade">Our Approach</span>
-          <h2 class="section-title gsap-fade">How We Deliver<br/>Results.</h2>
-          <p class="section-subtitle mt-3 gsap-fade">Every engagement follows our proven methodology: understand deeply, strategize creatively, execute precisely.</p>
-          <div class="mt-4">
-            <div class="why-feature gsap-fade"><div class="icon-box"><i class="fa-solid fa-magnifying-glass"></i></div><div><h6>Discovery</h6><p>We immerse ourselves in your business to understand your goals, risks, and opportunities from every angle.</p></div></div>
-            <div class="why-feature gsap-fade"><div class="icon-box"><i class="fa-solid fa-pen-ruler"></i></div><div><h6>Strategy</h6><p>Our cross-practice teams design tailored solutions that align with your commercial objectives and risk tolerance.</p></div></div>
-            <div class="why-feature gsap-fade"><div class="icon-box"><i class="fa-solid fa-check-double"></i></div><div><h6>Execution</h6><p>We deliver with precision, transparency, and relentless focus on achieving the best possible outcome.</p></div></div>
+      <div class="text-center mb-5">
+        <span class="section-label" data-aos="fade-up">How We Work</span>
+        <h2 class="section-title">Our Legal Process</h2>
+        <p class="section-subtitle mx-auto mt-2" data-aos="fade-up">A proven methodology that ensures clarity, efficiency, and optimal outcomes for every client engagement.</p>
+      </div>
+      <div class="process-flow mx-auto" style="max-width:800px;">
+        <div class="process-step" data-aos="fade-up">
+          <div class="process-step-number">1</div>
+          <div class="process-step-content">
+            <h5>Initial Consultation</h5>
+            <p>We begin with a no-obligation conversation to understand your situation, goals, and concerns. This helps us determine how we can best serve you.</p>
           </div>
         </div>
-        <div class="col-lg-6 offset-lg-1">
-          <img class="why-image gsap-fade-right" src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&q=80" alt="Legal strategy" loading="lazy" />
+        <div class="process-step" data-aos="fade-up">
+          <div class="process-step-number">2</div>
+          <div class="process-step-content">
+            <h5>Case Assessment</h5>
+            <p>Our team conducts a thorough analysis of your matter, identifying risks, opportunities, and the most effective path forward.</p>
+          </div>
+        </div>
+        <div class="process-step" data-aos="fade-up">
+          <div class="process-step-number">3</div>
+          <div class="process-step-content">
+            <h5>Legal Strategy</h5>
+            <p>We develop a tailored legal strategy aligned with your business objectives, risk tolerance, and timeline.</p>
+          </div>
+        </div>
+        <div class="process-step" data-aos="fade-up">
+          <div class="process-step-number">4</div>
+          <div class="process-step-content">
+            <h5>Documentation &amp; Filing</h5>
+            <p>Our attorneys handle all documentation, filings, negotiations, and correspondence with precision and attention to detail.</p>
+          </div>
+        </div>
+        <div class="process-step" data-aos="fade-up">
+          <div class="process-step-number">5</div>
+          <div class="process-step-content">
+            <h5>Resolution &amp; Ongoing Support</h5>
+            <p>We see every matter through to resolution and remain available for ongoing counsel as your needs evolve.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Industries We Serve -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="text-center mb-5">
+        <span class="section-label" data-aos="fade-up">Industries</span>
+        <h2 class="section-title">Industries We Serve</h2>
+        <p class="section-subtitle mx-auto mt-2" data-aos="fade-up">Deep sector expertise that drives meaningful legal outcomes across diverse industries.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3" data-aos="fade-up">
+          <div class="industry-card card-image-top"><div class="card-img"><img src="assets/img/industry-technology.webp" alt="Technology Industry" loading="lazy" /></div><div class="card-body"><div class="icon"><i class="fa-solid fa-laptop-code"></i></div><h5>Technology</h5><p>SaaS agreements, software licensing, data privacy, and cybersecurity for tech companies at every stage.</p></div></div>
+        </div>
+        <div class="col-md-6 col-lg-3" data-aos="fade-up">
+          <div class="industry-card card-image-top"><div class="card-img"><img src="assets/img/industry-healthcare.webp" alt="Healthcare Industry" loading="lazy" /></div><div class="card-body"><div class="icon"><i class="fa-solid fa-heart-pulse"></i></div><h5>Healthcare</h5><p>Regulatory compliance, HIPAA privacy, life sciences IP, clinical trial agreements, and healthcare M&A.</p></div></div>
+        </div>
+        <div class="col-md-6 col-lg-3" data-aos="fade-up">
+          <div class="industry-card card-image-top"><div class="card-img"><img src="assets/img/practice-real-estate.webp" alt="Real Estate Industry" loading="lazy" /></div><div class="card-body"><div class="icon"><i class="fa-solid fa-city"></i></div><h5>Real Estate</h5><p>Commercial leasing, property acquisitions, REIT compliance, land use, zoning, and construction law.</p></div></div>
+        </div>
+        <div class="col-md-6 col-lg-3" data-aos="fade-up">
+          <div class="industry-card card-image-top"><div class="card-img"><img src="assets/img/industry-manufacturing.webp" alt="Manufacturing Industry" loading="lazy" /></div><div class="card-body"><div class="icon"><i class="fa-solid fa-industry"></i></div><h5>Manufacturing</h5><p>Supply chain contracts, regulatory compliance, product liability defense, and international trade law.</p></div></div>
+        </div>
+        <div class="col-md-6 col-lg-3" data-aos="fade-up">
+          <div class="industry-card card-image-top"><div class="card-img"><img src="assets/img/industry-finance.webp" alt="Finance Industry" loading="lazy" /></div><div class="card-body"><div class="icon"><i class="fa-solid fa-building-columns"></i></div><h5>Finance</h5><p>Financial services regulation, securities law compliance, fund formation, and private equity transactions.</p></div></div>
+        </div>
+        <div class="col-md-6 col-lg-3" data-aos="fade-up">
+          <div class="industry-card card-image-top"><div class="card-img"><img src="assets/img/industry-ecommerce.webp" alt="Retail and E-Commerce Industry" loading="lazy" /></div><div class="card-body"><div class="icon"><i class="fa-solid fa-cart-shopping"></i></div><h5>Retail &amp; E-Commerce</h5><p>Terms of service, marketplace compliance, consumer protection, and cross-border trade for online businesses.</p></div></div>
+        </div>
+        <div class="col-md-6 col-lg-3" data-aos="fade-up">
+          <div class="industry-card card-image-top"><div class="card-img"><img src="assets/img/industry-education.webp" alt="Education Industry" loading="lazy" /></div><div class="card-body"><div class="icon"><i class="fa-solid fa-graduation-cap"></i></div><h5>Education</h5><p>Education law compliance, institutional governance, accreditation matters, and student privacy regulations.</p></div></div>
+        </div>
+        <div class="col-md-6 col-lg-3" data-aos="fade-up">
+          <div class="industry-card card-image-top"><div class="card-img"><img src="assets/img/industry-startups.webp" alt="Startups and SMEs Industry" loading="lazy" /></div><div class="card-body"><div class="icon"><i class="fa-solid fa-rocket"></i></div><h5>Startups &amp; SMEs</h5><p>Entity formation, founder agreements, venture capital financing, IP strategy, and exit planning for growing businesses.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Clients Choose Us -->
+  <section class="section-padding bg-navy-800">
+    <div class="container">
+      <div class="text-center mb-5">
+        <span class="section-label" data-aos="fade-up">Why Choose Us</span>
+        <h2 class="section-title">Why Clients Trust Stackly</h2>
+        <p class="section-subtitle mx-auto mt-2" data-aos="fade-up">What sets us apart is our unwavering commitment to excellence, integrity, and client success.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4" data-aos="fade-up">
+          <div class="why-feature"><div class="icon-box"><i class="fa-solid fa-gavel"></i></div><div><h6>Experienced Legal Team</h6><p>Our attorneys average 18+ years of experience across diverse sectors, bringing deep knowledge and proven results to every case.</p></div></div>
+        </div>
+        <div class="col-md-6 col-lg-4" data-aos="fade-up">
+          <div class="why-feature"><div class="icon-box"><i class="fa-solid fa-chart-pie"></i></div><div><h6>Business-Focused Advice</h6><p>We don't just practice law — we understand business. Every strategy is designed to protect and grow your enterprise.</p></div></div>
+        </div>
+        <div class="col-md-6 col-lg-4" data-aos="fade-up">
+          <div class="why-feature"><div class="icon-box"><i class="fa-solid fa-comments"></i></div><div><h6>Transparent Communication</h6><p>No surprises. We provide clear, honest, and timely updates so you are always informed and in control.</p></div></div>
+        </div>
+        <div class="col-md-6 col-lg-4" data-aos="fade-up">
+          <div class="why-feature"><div class="icon-box"><i class="fa-solid fa-bolt"></i></div><div><h6>Fast Response Time</h6><p>We operate on client time. Same-day acknowledgments and rapid-response protocols keep your matters moving forward.</p></div></div>
+        </div>
+        <div class="col-md-6 col-lg-4" data-aos="fade-up">
+          <div class="why-feature"><div class="icon-box"><i class="fa-solid fa-lock"></i></div><div><h6>Confidential Representation</h6><p>Your trust is our foundation. We maintain the highest standards of discretion and attorney-client privilege.</p></div></div>
+        </div>
+        <div class="col-md-6 col-lg-4" data-aos="fade-up">
+          <div class="why-feature"><div class="icon-box"><i class="fa-solid fa-hand-holding-heart"></i></div><div><h6>Tailored Legal Solutions</h6><p>Every engagement is unique. We customize our approach to your specific needs, delivering personalized attention at every step.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Success Highlights -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="row g-4 text-center">
+        <div class="col-6 col-lg-3" data-aos="fade-up">
+          <h3 class="display-heading" style="font-size:2.5rem;color:var(--gold);"><span data-count="500">0</span>+</h3>
+          <p style="font-size:0.9rem;font-weight:500;color:var(--text);margin:0;">Cases Handled</p>
+        </div>
+        <div class="col-6 col-lg-3" data-aos="fade-up">
+          <h3 class="display-heading" style="font-size:2.5rem;color:var(--gold);"><span data-count="300">0</span>+</h3>
+          <p style="font-size:0.9rem;font-weight:500;color:var(--text);margin:0;">Happy Clients</p>
+        </div>
+        <div class="col-6 col-lg-3" data-aos="fade-up">
+          <h3 class="display-heading" style="font-size:2.5rem;color:var(--gold);"><span data-count="15">0</span>+</h3>
+          <p style="font-size:0.9rem;font-weight:500;color:var(--text);margin:0;">Years of Experience</p>
+        </div>
+        <div class="col-6 col-lg-3" data-aos="fade-up">
+          <h3 class="display-heading" style="font-size:2.5rem;color:var(--gold);"><span data-count="98">0</span>%</h3>
+          <p style="font-size:0.9rem;font-weight:500;color:var(--text);margin:0;">Client Satisfaction</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section-padding bg-navy-800">
+    <div class="container">
+      <div class="text-center mb-5">
+        <span class="section-label" data-aos="fade-up">FAQs</span>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-subtitle mx-auto mt-2" data-aos="fade-up">Common questions about our legal services and how we can help your business.</p>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="accordion faq-accordion" id="faqAccordion" data-aos="fade-up">
+            <div class="accordion-item">
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">How do I schedule a consultation?</button></h2>
+              <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion"><div class="accordion-body">You can schedule a consultation by calling our office at +1 (212) 555-0900, emailing us at info@stackly.com, or filling out the contact form on our website. A senior partner will respond within 2 business hours during normal business days.</div></div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">What documents should I bring to my first meeting?</button></h2>
+              <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion"><div class="accordion-body">For your initial consultation, please bring any relevant contracts, correspondence, or legal documents related to your matter. For corporate clients, incorporation documents, shareholder agreements, and recent financial statements are helpful. We will advise you on specific documents after your initial inquiry.</div></div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">Do you offer legal support for startups?</button></h2>
+              <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion"><div class="accordion-body">Absolutely. We have a dedicated startup practice that provides entity formation, founder agreements, cap table management, venture capital financing, IP strategy, and exit planning. We work with startups from seed stage through Series C and beyond.</div></div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">How are legal fees structured?</button></h2>
+              <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion"><div class="accordion-body">We offer flexible fee structures including hourly billing, flat fees for defined scopes of work, and contingency arrangements where appropriate. During your initial consultation, we will discuss the fee structure that best suits your matter and budget.</div></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -113,13 +284,32 @@
   <!-- CTA -->
   <section class="section-padding cta-section">
     <div class="container text-center">
-      <span class="section-label gsap-fade">Find the Right Counsel</span>
-      <h2 class="mb-3 gsap-fade">Not Sure Which Practice Area Fits?</h2>
-      <p class="text-muted mx-auto mb-4 gsap-fade" style="max-width:560px;line-height:1.8;">Speak with a senior partner who will listen to your situation and guide you to the right expertise — no obligation.</p>
-      <div class="d-flex flex-wrap justify-content-center gap-3 gsap-fade">
-        <a href="contact.html" class="btn btn-gold btn-lg"><i class="fa-regular fa-comment me-2"></i>Speak With a Partner</a>
-        <a href="team.html" class="btn btn-outline-light btn-lg"><i class="fa-regular fa-users me-2"></i>Meet Our Team</a>
+      <span class="section-label" data-aos="fade-up">Get In Touch</span>
+      <h2 class="mb-3">Need Expert Legal Assistance?</h2>
+      <p class="text-muted mx-auto mb-4" style="max-width:560px;line-height:1.8;" data-aos="fade-up">Schedule a no-obligation consultation with a senior partner and discover how our expertise can help your business thrive.</p>
+      <div class="d-flex flex-wrap justify-content-center gap-3" data-aos="fade-up">
+        <a href="contact.html" class="btn btn-gold btn-lg"><i class="fa-regular fa-calendar me-2"></i>Book a Consultation</a>
+        <a href="contact.html" class="btn btn-outline-light btn-lg"><i class="fa-regular fa-users me-2"></i>Contact Our Team</a>
       </div>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <section class="section-padding newsletter-section" id="newsletter">
+    <div class="container">
+      <div class="text-center mb-4">
+        <span class="section-label" data-aos="fade-up">Stay Informed</span>
+        <h2 class="section-title">Subscribe to Our Newsletter</h2>
+        <p class="section-subtitle mx-auto mt-2" data-aos="fade-up">Receive legal updates, business compliance tips, and industry insights delivered to your inbox.</p>
+      </div>
+      <form class="newsletter-form" novalidate data-aos="fade-up">
+        <div class="newsletter-input-group">
+          <input type="email" class="newsletter-input" placeholder="Enter your email address" required aria-label="Email address" />
+          <button type="submit" class="newsletter-btn">Subscribe</button>
+        </div>
+        <div class="newsletter-message" id="newsletterMessage"></div>
+      </form>
+      <p class="newsletter-disclaimer text-center" data-aos="fade-up">No spam. Unsubscribe anytime. We respect your privacy.</p>
     </div>
   </section>
 
@@ -127,17 +317,17 @@
   <footer class="footer">
     <div class="container">
       <div class="row g-4">
-        <div class="col-lg-4">
-          <div class="footer-brand"><img src="assets/img/logo.webp" alt="Sterling &amp; Associates" /></div>
-          <p class="mt-3">Premier corporate legal counsel serving industry leaders across the globe.</p>
+        <div class="col-sm-6 col-lg">
+          <div class="footer-brand"><img src="assets/img/logo.webp" alt="Stackly" /></div>
+          <p class="mt-3">Premier corporate legal counsel serving industry leaders across the globe. Trusted, innovative, relentlessly client-focused.</p>
           <div class="social-links">
-            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-            <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
-            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="404.html" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="404.html" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="404.html" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="404.html" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
           </div>
         </div>
-        <div class="col-6 col-lg-2 offset-lg-2">
+        <div class="col-sm-6 col-lg">
           <h6>Practice Areas</h6>
           <ul>
             <li><a href="practice-areas.html">Corporate Law</a></li>
@@ -148,7 +338,7 @@
             <li><a href="practice-areas.html">Tax &amp; Wealth</a></li>
           </ul>
         </div>
-        <div class="col-6 col-lg-2">
+        <div class="col-sm-6 col-lg">
           <h6>Quick Links</h6>
           <ul>
             <li><a href="about.html">About the Firm</a></li>
@@ -158,20 +348,30 @@
             <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
-        <div class="col-lg-2">
-          <h6>Offices</h6>
+        <div class="col-sm-6 col-lg">
+          <h6>Office</h6>
+          <ul class="footer-contact">
+            <li><i class="fa-regular fa-location-dot"></i> 120 Broadway, Suite 2100, New York, NY 10271, USA</li>
+            <li><i class="fa-regular fa-phone"></i> <a href="tel:+12125550900">+1 (212) 555-0900</a></li>
+            <li><i class="fa-regular fa-envelope"></i> <a href="mailto:info@stackly.com">info@stackly.com</a></li>
+            <li><i class="fa-regular fa-clock"></i> Mon &ndash; Fri: 8:30 AM &ndash; 6:30 PM</li>
+            <li><i class="fa-regular fa-map"></i> <a href="contact.html">Get Directions <i class="fa-solid fa-arrow-right ms-1" style="font-size:0.7rem;"></i></a></li>
+          </ul>
+        </div>
+        <div class="col-sm-6 col-lg">
+          <h6>Connect</h6>
           <ul>
-            <li><a href="contact.html">New York</a></li>
-            <li><a href="contact.html">London</a></li>
-            <li><a href="contact.html">Singapore</a></li>
-            <li><a href="contact.html">Dubai</a></li>
-            <li><a href="contact.html">San Francisco</a></li>
+            <li><a href="contact.html"><i class="fa-regular fa-calendar-check me-2"></i>Schedule a Consultation</a></li>
+            <li><a href="tel:+12125550900"><i class="fa-regular fa-phone me-2"></i>Call Us</a></li>
+            <li><a href="mailto:info@stackly.com"><i class="fa-regular fa-envelope me-2"></i>Email Us</a></li>
+            <li><a href="contact.html"><i class="fa-regular fa-building me-2"></i>Visit Our Office</a></li>
+            <li><a href="about.html"><i class="fa-regular fa-circle-question me-2"></i>FAQ</a></li>
           </ul>
         </div>
       </div>
       <hr class="footer-divider" />
       <div class="row">
-        <div class="col-md-6"><p class="footer-bottom mb-0">&copy; 2026 Sterling &amp; Associates LLP. All rights reserved.</p></div>
+        <div class="col-md-6"><p class="footer-bottom mb-0">&copy; 2026 Stackly LLP. All rights reserved.</p></div>
         <div class="col-md-6 text-md-end"><p class="footer-bottom mb-0">Attorney Advertising &bull; <a href="#">Disclaimer</a> &bull; <a href="#">Terms of Use</a></p></div>
       </div>
     </div>
@@ -182,6 +382,8 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/split-type@0.3.4"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script src="assets/js/main.js"></script>
 </body>
 </html>

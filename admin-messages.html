@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Messages — Admin Panel | Stackly</title>
+  <meta name="description" content="Stackly admin panel — conversations with clients, counsel, and staff." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/dashboard.css" />
+</head>
+<body class="dashboard">
+
+  <!-- Overlay -->
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <!-- Sidebar -->
+  <aside class="dash-sidebar" id="dashSidebar">
+    <a class="sidebar-brand" href="index.html">
+      <img src="assets/img/logo.webp" alt="Stackly" />
+      <span>Admin Panel</span>
+    </a>
+
+    <nav class="sidebar-nav">
+      <div class="sidebar-label">Main</div>
+      <ul>
+        <li><a class="sidebar-link" href="admin-dashboard.html"><i class="fa-solid fa-chart-pie"></i> Dashboard</a></li>
+        <li><a class="sidebar-link" href="admin-users.html"><i class="fa-solid fa-users"></i> Users</a></li>
+        <li><a class="sidebar-link" href="admin-services.html"><i class="fa-solid fa-briefcase"></i> Services</a></li>
+        <li><a class="sidebar-link" href="admin-appointments.html"><i class="fa-regular fa-calendar-check"></i> Appointments</a><span class="ms-auto status-badge pending" style="padding:0.15rem 0.5rem;font-size:0.62rem;">12</span></li>
+        <li><a class="sidebar-link" href="admin-reports.html"><i class="fa-solid fa-file-invoice"></i> Reports</a></li>
+        <li><a class="sidebar-link" href="admin-analytics.html"><i class="fa-solid fa-chart-column"></i> Analytics</a></li>
+        <li><a class="sidebar-link active" href="admin-messages.html"><i class="fa-regular fa-envelope"></i> Messages</a><span class="ms-auto status-badge pending" style="padding:0.15rem 0.5rem;font-size:0.62rem;">3</span></li>
+        <li><a class="sidebar-link" href="admin-logs.html"><i class="fa-solid fa-clock-rotate-left"></i> Activity Logs</a></li>
+      </ul>
+
+      <div class="sidebar-label" style="margin-top:1.5rem;">System</div>
+      <ul>
+        <li><a class="sidebar-link" href="admin-settings.html"><i class="fa-solid fa-gear"></i> Settings</a></li>
+        <li><a class="sidebar-link" href="logout.html"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a></li>
+      </ul>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="d-flex align-items-center gap-3 px-3">
+        <span class="avatar-initials md">AS</span>
+        <div class="flex-grow-1" style="min-width:0;">
+          <div style="font-size:0.82rem;font-weight:600;color:var(--white);">Alexander Stackly</div>
+          <div style="font-size:0.72rem;color:rgba(255,255,255,0.45);">Managing Partner</div>
+        </div>
+        <span class="status-badge active" style="font-size:0.6rem;padding:0.15rem 0.5rem;">Online</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main -->
+  <div class="dash-main">
+
+    <!-- Topbar -->
+    <header class="dash-topbar">
+      <button class="hamburger" id="sidebarToggle" aria-label="Toggle sidebar" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
+      <h1 class="topbar-title">Messages</h1>
+
+      <form class="topbar-search" role="search" onsubmit="return false;">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="search" placeholder="Search anything..." aria-label="Search" />
+      </form>
+
+      <div class="topbar-actions">
+        <div class="dash-dropdown">
+          <button class="icon-btn" data-dropdown-toggle aria-label="Notifications">
+            <i class="fa-regular fa-bell"></i>
+            <span class="badge">5</span>
+          </button>
+          <div class="dash-dropdown-panel">
+            <div class="dash-dropdown-head">
+              <span>Notifications</span>
+              <a href="#" class="btn-link">Mark all read</a>
+            </div>
+            <div class="notif-list">
+              <a href="#" class="notif-item text-decoration-none">
+                <span class="notif-icon" style="background:rgba(171,135,82,0.12);color:var(--gold);"><i class="fa-solid fa-calendar-plus"></i></span>
+                <div class="notif-text">
+                  <div class="notif-title">New consultation request from Horizon Tech Inc.</div>
+                  <div class="notif-time">12 min ago</div>
+                </div>
+              </a>
+              <a href="#" class="notif-item text-decoration-none">
+                <span class="notif-icon" style="background:rgba(12,21,36,0.08);color:var(--primary);"><i class="fa-solid fa-user-plus"></i></span>
+                <div class="notif-text">
+                  <div class="notif-title">3 new client accounts awaiting review.</div>
+                  <div class="notif-time">1 hour ago</div>
+                </div>
+              </a>
+              <a href="#" class="notif-item text-decoration-none">
+                <span class="notif-icon" style="background:rgba(110,31,42,0.1);color:var(--oxblood);"><i class="fa-solid fa-file-circle-exclamation"></i></span>
+                <div class="notif-text">
+                  <div class="notif-title">Retainer renewal due for Meridian Group.</div>
+                  <div class="notif-time">3 hours ago</div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="dash-dropdown">
+          <button class="icon-btn" data-dropdown-toggle aria-label="Messages">
+            <i class="fa-regular fa-envelope"></i>
+            <span class="badge">3</span>
+          </button>
+          <div class="dash-dropdown-panel">
+            <div class="dash-dropdown-head">
+              <span>Messages</span>
+              <a href="admin-messages.html" class="btn-link">View all</a>
+            </div>
+            <div class="notif-list">
+              <a href="admin-messages.html" class="notif-item text-decoration-none">
+                <span class="avatar-initials sm gold-bg">MB</span>
+                <div class="notif-text">
+                  <div class="notif-title">Maria Belcher &mdash; Documents signed</div>
+                  <div class="notif-time">20 min ago</div>
+                </div>
+              </a>
+              <a href="admin-messages.html" class="notif-item text-decoration-none">
+                <span class="avatar-initials sm oxblood-bg">JT</span>
+                <div class="notif-text">
+                  <div class="notif-title">James Torres &mdash; Meeting confirmed</div>
+                  <div class="notif-time">2 hours ago</div>
+                </div>
+              </a>
+              <a href="admin-messages.html" class="notif-item text-decoration-none">
+                <span class="avatar-initials sm" style="background:#2E7D32;">RK</span>
+                <div class="notif-text">
+                  <div class="notif-title">Rita Khan &mdash; New enquiry</div>
+                  <div class="notif-time">Yesterday</div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="dash-dropdown">
+          <button class="avatar-initials md gold-bg" data-dropdown-toggle aria-label="Account menu" style="border:none;cursor:pointer;">AS</button>
+          <div class="dash-dropdown-panel profile-menu">
+            <div class="profile-head">
+              <span class="avatar-initials md gold-bg">AS</span>
+              <div>
+                <div class="name">Alexander Stackly</div>
+                <div class="role">Managing Partner</div>
+              </div>
+            </div>
+            <a href="admin-settings.html"><i class="fa-regular fa-user"></i> My Profile</a>
+            <a href="admin-settings.html"><i class="fa-solid fa-gear"></i> Account Settings</a>
+            <a href="admin-logs.html"><i class="fa-solid fa-chart-simple"></i> Activity Log</a>
+            <a href="logout.html" class="danger"><i class="fa-solid fa-arrow-right-from-bracket"></i> Sign Out</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Content -->
+    <main class="dash-content">
+
+      <div class="dash-hello d-flex flex-wrap align-items-end justify-content-between gap-3">
+        <div>
+          <h2>Messages</h2>
+          <p>Conversations with clients, counsel, and staff.</p>
+        </div>
+      </div>
+
+      <div class="row g-3">
+        <div class="col-lg-4">
+          <div class="dash-card table-card">
+            <div class="table-toolbar">
+              <h3 style="font-family:var(--font-display);font-size:1.05rem;font-weight:700;color:var(--primary);margin:0;">Inbox</h3>
+              <button class="btn btn-gold btn-sm ms-auto" style="font-size:0.75rem;" onclick="return false;"><i class="fa-solid fa-pen me-1"></i>Compose</button>
+            </div>
+            <ul class="chat-list">
+              <li class="chat-item active">
+                <span class="avatar-initials sm gold-bg">MC</span>
+                <div class="chat-info">
+                  <div class="name">Margaret Chen</div>
+                  <div class="snippet">Review draft ready &mdash; sending the revised engagement letter now.</div>
+                </div>
+                <span class="chat-time">10:12</span>
+              </li>
+              <li class="chat-item">
+                <span class="avatar-initials sm oxblood-bg">MB</span>
+                <div class="chat-info">
+                  <div class="name">Maria Belcher</div>
+                  <div class="snippet">Documents signed &mdash; forwarding final copies to your office.</div>
+                </div>
+                <span class="chat-time">09:45</span>
+                <span class="unread-dot"></span>
+              </li>
+              <li class="chat-item">
+                <span class="avatar-initials sm" style="background:#2E7D32;">JT</span>
+                <div class="chat-info">
+                  <div class="name">James Torres</div>
+                  <div class="snippet">Meeting confirmed for Thursday at 2 PM. See you then.</div>
+                </div>
+                <span class="chat-time">09:12</span>
+                <span class="unread-dot"></span>
+              </li>
+              <li class="chat-item">
+                <span class="avatar-initials sm" style="background:#5B4A9E;">HT</span>
+                <div class="chat-info">
+                  <div class="name">Horizon Tech Inc.</div>
+                  <div class="snippet">Compliance review request received for Q3 &mdash; next steps?</div>
+                </div>
+                <span class="chat-time">Yesterday</span>
+                <span class="unread-dot"></span>
+              </li>
+              <li class="chat-item">
+                <span class="avatar-initials sm" style="background:#00695C;">RK</span>
+                <div class="chat-info">
+                  <div class="name">Rita Khan</div>
+                  <div class="snippet">New enquiry &mdash; corporate advisory services for her startup.</div>
+                </div>
+                <span class="chat-time">Yesterday</span>
+              </li>
+              <li class="chat-item">
+                <span class="avatar-initials sm" style="background:#37474F;">DO</span>
+                <div class="chat-info">
+                  <div class="name">David Okafor</div>
+                  <div class="snippet">Meridian v. Cobalt &mdash; hearing prep notes attached.</div>
+                </div>
+                <span class="chat-time">Mon</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-lg-8">
+          <div class="dash-card">
+            <div class="dash-card-head">
+              <div class="d-flex align-items-center gap-3">
+                <span class="avatar-initials md gold-bg">MC</span>
+                <div>
+                  <div style="font-size:0.95rem;font-weight:600;color:var(--primary);">Margaret Chen</div>
+                  <div style="font-size:0.76rem;color:var(--text-muted);">Senior Counsel</div>
+                </div>
+              </div>
+              <div class="d-flex" style="gap:0.5rem;">
+                <button class="icon-btn" aria-label="Call"><i class="fa-solid fa-phone"></i></button>
+                <button class="icon-btn" aria-label="Video call"><i class="fa-solid fa-video"></i></button>
+                <button class="icon-btn" aria-label="More options"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+              </div>
+            </div>
+            <div class="chat-thread">
+              <div class="chat-bubble sent">Good morning Margaret &mdash; could you share the updated engagement letter for Horizon Tech?<span class="chat-meta">9:48 AM</span></div>
+              <div class="chat-bubble received">Good morning. Yes, sending the revised draft now.<span class="chat-meta">9:52 AM</span></div>
+              <div class="chat-bubble sent">Thank you. I also flagged the retainer renewal for Meridian Group.<span class="chat-meta">9:55 AM</span></div>
+              <div class="chat-bubble sent">Can you confirm the review timeline for both?<span class="chat-meta">9:56 AM</span></div>
+              <div class="chat-bubble received">Happy to confirm &mdash; preliminary review by end of day, final drafts by tomorrow noon.<span class="chat-meta">10:12 AM</span></div>
+            </div>
+            <div class="chat-composer">
+              <input type="text" placeholder="Type a message..." aria-label="Type a message" />
+              <button class="btn btn-gold" onclick="return false;"><i class="fa-solid fa-paper-plane me-2"></i>Send</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dash-card mt-4">
+        <div class="dash-card-head">
+          <div>
+            <h3>Quick Actions</h3>
+            <span class="muted">Shortcuts for this conversation</span>
+          </div>
+        </div>
+        <div class="filter-chips">
+          <button class="filter-chip active" onclick="return false;"><i class="fa-solid fa-video me-1"></i>Schedule Video Call</button>
+          <button class="filter-chip" onclick="return false;"><i class="fa-solid fa-folder-open me-1"></i>Share Documents</button>
+          <button class="filter-chip" onclick="return false;"><i class="fa-regular fa-calendar-check me-1"></i>Create Appointment</button>
+          <button class="filter-chip" onclick="return false;"><i class="fa-solid fa-arrow-up-right-from-square me-1"></i>Escalate to Partner</button>
+        </div>
+      </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer style="border-top:1px solid rgba(12,21,36,0.06);padding:1.25rem 1.75rem;font-size:0.78rem;color:var(--text-light);display:flex;flex-wrap:wrap;gap:0.5rem;justify-content:space-between;">
+      <span>&copy; 2026 Stackly LLP. All rights reserved.</span>
+      <span><a href="index.html" class="text-decoration-none" style="color:var(--gold);">Back to Website</a> &middot; <a href="#" class="text-decoration-none" style="color:var(--text-light);">Privacy</a> &middot; <a href="#" class="text-decoration-none" style="color:var(--text-light);">Terms</a></span>
+    </footer>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/dashboard.js"></script>
+</body>
+</html>
