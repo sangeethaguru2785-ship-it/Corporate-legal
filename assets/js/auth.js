@@ -10,7 +10,7 @@
 
   var PATTERNS = {
     name: /^[A-Za-z\s]+$/,
-    email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+    email: /^[A-Za-z0-9]+(?:\.[A-Za-z0-9]+)*@[A-Za-z0-9]+(?:\.[A-Za-z0-9]+)*\.[A-Za-z]{2,}$/,
     phone: /^\d{10}$/,
     password: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]).{8,}$/
   };
@@ -40,6 +40,17 @@
 
   stacklyAuth.dashboardFor = function (role) {
     return role === 'admin' ? 'admin-dashboard.html' : 'user-dashboard.html';
+  };
+
+  /* Derive a display name from the login email (the only identity entered at
+     sign-in). E.g. jane.doe@example.com -> "Jane Doe". No hardcoded names. */
+  stacklyAuth.nameFromEmail = function (email) {
+    var local = String(email || '').split('@')[0] || '';
+    var parts = local.replace(/[._\-]+/g, ' ').split(' ').filter(Boolean);
+    var name = parts.map(function (part) {
+      return part.charAt(0).toUpperCase() + part.slice(1).toLowerCase();
+    }).join(' ');
+    return name || local;
   };
 
   /* --- Password visibility toggle --- */
@@ -132,7 +143,7 @@
       else if (!PATTERNS.name.test(value)) error = 'Name may only contain letters and spaces.';
     } else if (rule === 'email') {
       if (!value) error = 'Email address is required.';
-      else if (!PATTERNS.email.test(value)) error = 'Please enter a valid email address.';
+      else if (!PATTERNS.email.test(value)) error = 'Please enter a valid email address using only letters, numbers, dots, and the @ symbol (e.g. abc@gmail.com).';
     } else if (rule === 'phone') {
       if (!value) error = 'Phone number is required.';
       else if (!PATTERNS.phone.test(value)) error = 'Phone number must be exactly 10 digits.';
@@ -184,15 +195,20 @@
     var emailInput = $id('loginEmail');
     var passwordInput = $id('loginPassword');
     var rememberInput = $id('rememberMe');
+    var rememberWrap = $id('rememberWrap');
+    var rememberError = $id('rememberError');
     var submitBtn = $id('loginSubmit');
-    var forgotLink = $id('forgotLink');
 
     applyRoleParam('loginRoleFieldset', 'login');
 
-    try {
-      var savedEmail = localStorage.getItem('stackly_remember_email');
-      if (savedEmail) { emailInput.value = savedEmail; rememberInput.checked = true; }
-    } catch (e) { /* storage unavailable */ }
+    function setRememberState(valid) {
+      if (rememberInput) rememberInput.setAttribute('aria-invalid', valid ? 'false' : 'true');
+      if (rememberWrap) rememberWrap.classList.toggle('invalid', !valid);
+      if (rememberError) {
+        rememberError.textContent = valid ? '' : 'Please select Remember Me to sign in.';
+        rememberError.classList.toggle('show', !valid);
+      }
+    }
 
     bindFieldValidation(emailInput);
     bindFieldValidation(passwordInput);
@@ -201,12 +217,9 @@
       if (roleFieldset.querySelector('input:checked')) setRoleState(roleFieldset, '');
     });
 
-    if (forgotLink) {
-      forgotLink.addEventListener('click', function (e) {
-        e.preventDefault();
-        showAlert(alertEl, 'success', 'A password reset link has been sent to your email address.');
-      });
-    }
+    rememberInput.addEventListener('change', function () {
+      if (rememberInput.checked) setRememberState(true);
+    });
 
     form.addEventListener('submit', function (e) {
       e.preventDefault();
@@ -227,6 +240,14 @@
         return;
       }
 
+      if (!rememberInput.checked) {
+        setRememberState(false);
+        if (rememberWrap) shakeField(rememberWrap);
+        rememberInput.focus();
+        showAlert(alertEl, 'error', 'Please select Remember Me to sign in.');
+        return;
+      }
+
       var selectedRole = roleFieldset.querySelector('input[type="radio"]:checked').value;
 
       try {
@@ -237,8 +258,8 @@
       submitBtn.classList.add('loading');
       setTimeout(function () {
         submitBtn.classList.remove('loading');
-        var userName = selectedRole === 'admin' ? 'Alexander Stackly' : 'Jonathan Pierce';
-        stacklyAuth.setSession(selectedRole, { name: userName, email: emailInput.value.trim(), role: selectedRole });
+        var email = emailInput.value.trim();
+        stacklyAuth.setSession(selectedRole, { name: stacklyAuth.nameFromEmail(email), email: email, role: selectedRole });
         showAlert(alertEl, 'success', 'Sign in successful. Redirecting to your dashboard\u2026');
         setTimeout(function () { window.location.href = stacklyAuth.dashboardFor(selectedRole); }, 900);
       }, 1200);

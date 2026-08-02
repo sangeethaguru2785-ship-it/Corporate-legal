@@ -184,17 +184,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function ensureHeroPlaying() {
       heroVideo01.classList.add('active');
-      var p1 = heroVideo01.play();
-      var p2 = heroVideo02.play();
-      if (p1) p1.catch(function () {});
-      if (p2) p2.catch(function () {});
+      var p = heroVideo01.play();
+      if (p) p.catch(function () {});
     }
 
     // Start immediately on load; retry as data becomes available so the
     // first frame shows as soon as the browser has it (no placeholder).
+    // heroVideo02 stays quiet until showHeroVideo starts it at switch time,
+    // so heroVideo01 gets full bandwidth priority for its first frame.
     ensureHeroPlaying();
     heroVideo01.addEventListener('canplay', ensureHeroPlaying);
-    heroVideo02.addEventListener('canplay', ensureHeroPlaying);
   }
 
   // ----- Newsletter form validation -----
@@ -206,7 +205,7 @@ document.addEventListener('DOMContentLoaded', function () {
     newsletterForm.addEventListener('submit', function (e) {
       e.preventDefault();
       var email = newsletterInput.value.trim();
-      var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      var emailPattern = /^[A-Za-z0-9]+(?:\.[A-Za-z0-9]+)*@[A-Za-z0-9]+(?:\.[A-Za-z0-9]+)*\.[A-Za-z]{2,}$/;
 
       newsletterInput.classList.remove('error');
       newsletterMsg.className = 'newsletter-message';
@@ -223,7 +222,7 @@ document.addEventListener('DOMContentLoaded', function () {
       if (!emailPattern.test(email)) {
         newsletterInput.classList.add('error');
         newsletterMsg.className = 'newsletter-message error';
-        newsletterMsg.textContent = 'Please enter a valid email address.';
+        newsletterMsg.textContent = 'Please enter a valid email address using only letters, numbers, dots, and the @ symbol (e.g. abc@gmail.com).';
         newsletterInput.focus();
         return;
       }

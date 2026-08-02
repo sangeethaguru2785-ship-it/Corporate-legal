@@ -7,12 +7,17 @@
 
   var body = document.body;
 
-  /* --- Sidebar toggle (mobile) --- */
+  /* --- Sidebar toggle (mobile) ---
+     The top bar no longer has a hamburger, so the page title toggles the
+     off-canvas sidebar on tablets and phones. */
   function initSidebar() {
     var toggle = document.getElementById('sidebarToggle');
     var sidebar = document.getElementById('dashSidebar');
     var overlay = document.getElementById('sidebarOverlay');
-    if (!toggle || !sidebar || !overlay) return;
+    if (!sidebar || !overlay) return;
+
+    if (!toggle) toggle = document.querySelector('.dash-topbar .topbar-title');
+    if (!toggle) return;
 
     function close() {
       sidebar.classList.remove('open');
@@ -26,6 +31,7 @@
     }
 
     toggle.addEventListener('click', function () {
+      if (window.innerWidth >= 992) return;
       sidebar.classList.contains('open') ? close() : open();
     });
     overlay.addEventListener('click', close);
@@ -197,6 +203,104 @@
     });
   }
 
+  /* --- Logged-in user display (name from login session) --- */
+  function initUserDisplay() {
+    var user = null;
+    try {
+      var raw = localStorage.getItem('stackly_user');
+      if (raw) user = JSON.parse(raw);
+    } catch (e) { /* storage unavailable */ }
+    if (!user) return;
+
+    var name = typeof user.name === 'string' ? user.name.trim() : '';
+    if (!name) return;
+    var firstName = name.split(/\s+/)[0];
+    var email = typeof user.email === 'string' ? user.email.trim() : '';
+    var roleLabel = user.role === 'admin' ? 'Firm Administrator' : 'Client';
+    var initials = name.split(/\s+/).slice(0, 2).map(function (w) { return w.charAt(0); }).join('').toUpperCase();
+
+    document.querySelectorAll('[data-user-name]').forEach(function (el) {
+      el.textContent = name;
+    });
+    document.querySelectorAll('[data-user-firstname]').forEach(function (el) {
+      el.textContent = firstName;
+    });
+    document.querySelectorAll('[data-user-email]').forEach(function (el) {
+      el.textContent = email;
+    });
+    document.querySelectorAll('[data-user-role]').forEach(function (el) {
+      el.textContent = roleLabel;
+    });
+    document.querySelectorAll('[data-user-initials]').forEach(function (el) {
+      el.textContent = initials;
+    });
+    document.querySelectorAll('[data-user-first-initial]').forEach(function (el) {
+      el.textContent = name.charAt(0).toUpperCase();
+    });
+    document.querySelectorAll('[data-user-name-input]').forEach(function (el) {
+      el.value = name;
+    });
+    document.querySelectorAll('[data-user-email-input]').forEach(function (el) {
+      el.value = email;
+    });
+    document.querySelectorAll('[data-user-avatar]').forEach(function (el) {
+      el.setAttribute('alt', name);
+    });
+  }
+
+  /* --- Sign Out: clear the session immediately, then navigate straight to
+     the Login page using location.replace() so the dashboard is removed from
+     browser history and cannot be revisited with the Back button. --- */
+  function initSignOut() {
+    document.addEventListener('click', function (e) {
+      var el = e.target.closest('a[href="login.html"], a[href="logout.html"]');
+      if (!el) return;
+      e.preventDefault();
+      if (window.stacklyAuth && window.stacklyAuth.clearSession) window.stacklyAuth.clearSession();
+      window.location.replace('login.html');
+    }, true);
+  }
+
+  /* --- BFCache guard: browsers restore cached pages on Back without firing
+     DOMContentLoaded, so re-check the session when a cached dashboard is shown
+     and bounce signed-out users to the login page. --- */
+  function initSessionGuard() {
+    window.addEventListener('pageshow', function (e) {
+      if (e.persisted) {
+        try {
+          if (!localStorage.getItem('stackly_role')) window.location.replace('login.html');
+        } catch (err) { /* storage unavailable */ }
+      }
+    });
+  }
+
+  /* --- Testing guard: only the main sidebar + notification UI keep working ---
+     Every other clickable element (links, buttons, cards, icons, actions)
+     redirects to the 404 error page for testing. */
+  function initTestNavGuard() {
+    var sidebar = document.getElementById('dashSidebar');
+    var notifPage = /user-notifications\.html$/.test(window.location.pathname);
+
+    var SELECTOR = 'a, button, [role="button"], .quick-action, .stat-card, .appt-item, .activity-item, .notif-item';
+
+    function isAllowed(el) {
+      if (el.matches('a[href="login.html"], a[href="logout.html"]')) return true;
+      if (el.matches('[data-dropdown-toggle]')) return true;
+      if (sidebar && sidebar.contains(el)) return true;
+      if (el.closest('.dash-dropdown')) return true;
+      if (notifPage && (el.closest('#notifChips') || el.closest('#notifList'))) return true;
+      return false;
+    }
+
+    document.addEventListener('click', function (e) {
+      var el = e.target.closest(SELECTOR);
+      if (!el || isAllowed(el)) return;
+      e.preventDefault();
+      e.stopPropagation();
+      window.location.href = '404.html';
+    }, true);
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
     /* --- Session guard: dashboards require a stored role --- */
     try {
@@ -211,5 +315,9 @@
     initCounters();
     initTableSearch();
     initPagination();
+    initUserDisplay();
+    initSignOut();
+    initSessionGuard();
+    initTestNavGuard();
   });
 })();

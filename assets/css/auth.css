@@ -5,12 +5,15 @@
 
 /* ----- Layout ----- */
 .auth-body { background: var(--ivory); }
-.auth-layout { display: flex; min-height: 100vh; }
+.auth-layout { display: flex; height: 100vh; overflow: hidden; }
 
 /* ----- Showcase panel ----- */
 .auth-showcase {
   width: min(46%, 640px);
-  position: relative;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  flex-shrink: 0;
   display: flex;
   align-items: center;
   padding: 3.5rem;
@@ -65,9 +68,10 @@
 .showcase-stat .lbl { margin-top: 0.4rem; font-size: 0.68rem; letter-spacing: 1.6px; text-transform: uppercase; color: rgba(255,255,255,0.68); }
 
 /* ----- Form panel ----- */
-.auth-panel { flex: 1; display: flex; align-items: center; justify-content: center; padding: 3rem 1.5rem; }
+.auth-panel { flex: 1; display: flex; overflow-y: auto; padding: 3rem 1.5rem; }
 .auth-card {
   width: min(100%, 460px);
+  margin: auto;
   background: var(--white);
   border: 1px solid rgba(12,21,36,0.06);
   border-top: 3px solid var(--gold);
@@ -219,6 +223,8 @@
 .auth-terms a { color: var(--gold); font-weight: 600; }
 .auth-terms .auth-error { display: none; font-size: 0.76rem; color: var(--oxblood); margin: 0.45rem 0 0; }
 .auth-terms.invalid .auth-error { display: block; animation: slide-down 0.25s var(--transition-smooth); }
+.auth-error.show { display: block; animation: slide-down 0.25s var(--transition-smooth); }
+.auth-row-between.shake { animation: auth-shake 0.4s var(--transition-smooth); }
 
 /* ----- Buttons ----- */
 .btn-auth {
@@ -250,9 +256,10 @@
 
 /* ----- Responsive ----- */
 @media (max-width: 991.98px) {
+  .auth-layout { height: auto; min-height: 100vh; overflow: visible; }
   .auth-showcase { display: none; }
   .auth-mobile-brand { display: block; }
-  .auth-panel { padding: 2.5rem 1rem; }
+  .auth-panel { overflow: visible; padding: 2.5rem 1rem; }
   .auth-card { padding: 2.25rem 2rem; }
 }
 @media (max-width: 575.98px) {
