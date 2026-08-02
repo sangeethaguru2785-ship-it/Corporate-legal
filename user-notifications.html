@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Notifications — Client Portal | Stackly</title>
-  <meta name="description" content="Stay up to date on your legal matters with notifications from Stackly." />
-
+  <title>Notifications — Stackly Client Portal</title>
+  <meta name="description" content="Review your notifications, alerts, and firm updates in the Stackly client portal." />
+  <meta name="robots" content="noindex" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -16,291 +16,156 @@
 </head>
 <body class="dashboard">
 
-  <!-- Overlay -->
-  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+  <div class="dash-shell">
 
-  <!-- Sidebar -->
-  <aside class="dash-sidebar" id="dashSidebar">
-    <a class="sidebar-brand" href="index.html">
-      <img src="assets/img/logo.webp" alt="Stackly" />
-      <span>Client Portal</span>
-    </a>
+    <!-- Sidebar -->
+    <aside class="dash-sidebar" id="dashSidebar">
+      <a class="sidebar-brand" href="index.html"><img src="assets/img/logo.webp" alt="Stackly" /></a>
 
-    <nav class="sidebar-nav">
-      <div class="sidebar-label">Main</div>
-      <ul>
-        <li><a class="sidebar-link" href="user-dashboard.html"><i class="fa-solid fa-chart-pie"></i> Dashboard</a></li>
-        <li><a class="sidebar-link" href="user-profile.html"><i class="fa-regular fa-user"></i> My Profile</a></li>
-        <li><a class="sidebar-link" href="user-services.html"><i class="fa-solid fa-briefcase"></i> My Services</a></li>
-        <li><a class="sidebar-link" href="user-appointments.html"><i class="fa-regular fa-calendar-check"></i> My Appointments</a><span class="ms-auto status-badge pending" style="padding:0.15rem 0.5rem;font-size:0.62rem;">2</span></li>
-        <li><a class="sidebar-link active" href="user-notifications.html"><i class="fa-regular fa-bell"></i> Notifications</a><span class="ms-auto status-badge pending" style="padding:0.15rem 0.5rem;font-size:0.62rem;">3</span></li>
-        <li><a class="sidebar-link" href="user-documents.html"><i class="fa-solid fa-folder-open"></i> Documents</a></li>
-        <li><a class="sidebar-link" href="user-payments.html"><i class="fa-solid fa-credit-card"></i> Payment History</a></li>
-        <li><a class="sidebar-link" href="user-support.html"><i class="fa-solid fa-headset"></i> Support</a></li>
-      </ul>
-
-      <div class="sidebar-label" style="margin-top:1.5rem;">Account</div>
-      <ul>
-        <li><a class="sidebar-link" href="user-settings.html"><i class="fa-solid fa-gear"></i> Settings</a></li>
-        <li><a class="sidebar-link" href="logout.html"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a></li>
-      </ul>
-    </nav>
-
-    <div class="sidebar-footer">
-      <div class="d-flex align-items-center gap-3 px-3">
-        <span class="avatar-initials md gold-bg">JP</span>
-        <div class="flex-grow-1" style="min-width:0;">
-          <div style="font-size:0.82rem;font-weight:600;color:var(--white);">Jonathan Pierce</div>
-          <div style="font-size:0.72rem;color:rgba(255,255,255,0.45);">Preferred Client</div>
-        </div>
-        <span class="status-badge active" style="font-size:0.6rem;padding:0.15rem 0.5rem;">Online</span>
-      </div>
-    </div>
-  </aside>
-
-  <!-- Main -->
-  <div class="dash-main">
-
-    <!-- Topbar -->
-    <header class="dash-topbar">
-      <button class="hamburger" id="sidebarToggle" aria-label="Toggle sidebar" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
-      <h1 class="topbar-title">Notifications</h1>
-
-      <form class="topbar-search" role="search" onsubmit="return false;">
-        <i class="fa-solid fa-magnifying-glass"></i>
-        <input type="search" placeholder="Search my portal..." aria-label="Search" />
-      </form>
-
-      <div class="topbar-actions">
-        <div class="dash-dropdown">
-          <button class="icon-btn" data-dropdown-toggle aria-label="Notifications">
-            <i class="fa-regular fa-bell"></i>
-            <span class="badge">3</span>
-          </button>
-          <div class="dash-dropdown-panel">
-            <div class="dash-dropdown-head">
-              <span>Notifications</span>
-              <a href="user-notifications.html" class="btn-link">View all</a>
-            </div>
-            <div class="notif-list">
-              <a href="user-notifications.html" class="notif-item text-decoration-none">
-                <span class="notif-icon" style="background:rgba(171,135,82,0.12);color:var(--gold);"><i class="fa-solid fa-calendar-check"></i></span>
-                <div class="notif-text">
-                  <div class="notif-title">Your consultation is confirmed for Aug 6 at 2:00 PM.</div>
-                  <div class="notif-time">30 min ago</div>
-                </div>
-              </a>
-              <a href="user-notifications.html" class="notif-item text-decoration-none">
-                <span class="notif-icon" style="background:rgba(12,21,36,0.08);color:var(--primary);"><i class="fa-solid fa-file-lines"></i></span>
-                <div class="notif-text">
-                  <div class="notif-title">New document added to your case file.</div>
-                  <div class="notif-time">3 hours ago</div>
-                </div>
-              </a>
-              <a href="user-notifications.html" class="notif-item text-decoration-none">
-                <span class="notif-icon" style="background:rgba(110,31,42,0.1);color:var(--oxblood);"><i class="fa-solid fa-file-invoice-dollar"></i></span>
-                <div class="notif-text">
-                  <div class="notif-title">Invoice #4821 is ready for review.</div>
-                  <div class="notif-time">Yesterday</div>
-                </div>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="dash-dropdown">
-          <button class="avatar-initials md gold-bg" data-dropdown-toggle aria-label="Account menu" style="border:none;cursor:pointer;">JP</button>
-          <div class="dash-dropdown-panel profile-menu">
-            <div class="profile-head">
-              <span class="avatar-initials md gold-bg">JP</span>
-              <div>
-                <div class="name">Jonathan Pierce</div>
-                <div class="role">Preferred Client</div>
-              </div>
-            </div>
-            <a href="user-profile.html"><i class="fa-regular fa-user"></i> My Profile</a>
-            <a href="user-settings.html"><i class="fa-solid fa-gear"></i> Account Settings</a>
-            <a href="user-appointments.html"><i class="fa-regular fa-calendar-check"></i> My Appointments</a>
-            <a href="logout.html" class="danger"><i class="fa-solid fa-arrow-right-from-bracket"></i> Sign Out</a>
-          </div>
+      <div class="sidebar-profile">
+        <span class="avatar-initials gold-bg md" data-user-first-initial></span>
+        <div class="sidebar-profile-meta">
+          <div class="sidebar-profile-name" data-user-name></div>
+          <div class="sidebar-profile-email" data-user-email></div>
         </div>
       </div>
-    </header>
 
-    <!-- Content -->
-    <main class="dash-content">
+      <nav class="sidebar-nav" aria-label="Sidebar navigation">
+        <ul>
+          <li class="sidebar-label">Main</li>
+          <li><a class="sidebar-link" href="user-dashboard.html"><i class="fa-solid fa-gauge-high"></i>Dashboard</a></li>
+          <li><a class="sidebar-link" href="user-appointments.html"><i class="fa-solid fa-calendar-check"></i>Appointments</a></li>
+          <li><a class="sidebar-link" href="user-documents.html"><i class="fa-solid fa-file-lines"></i>Documents</a></li>
+          <li><a class="sidebar-link" href="user-payments.html"><i class="fa-solid fa-credit-card"></i>Payments</a></li>
+          <li><a class="sidebar-link" href="user-services.html"><i class="fa-solid fa-scale-balanced"></i>Services</a></li>
+          <li><a class="sidebar-link active" href="user-notifications.html"><i class="fa-regular fa-bell"></i>Notifications</a></li>
+          <li><a class="sidebar-link" href="user-support.html"><i class="fa-solid fa-headset"></i>Support</a></li>
+        </ul>
+      </nav>
 
-      <div class="dash-hello d-flex flex-wrap align-items-end justify-content-between gap-3">
-        <div>
+      <div class="sidebar-footer">
+        <ul>
+          <li><a class="sidebar-link" href="index.html"><i class="fa-solid fa-house"></i>Go to Home</a></li>
+          <li><a class="sidebar-link" href="user-profile.html"><i class="fa-solid fa-user"></i>My Profile</a></li>
+          <li><a class="sidebar-link" href="user-settings.html"><i class="fa-solid fa-gear"></i>Settings</a></li>
+          <li><a class="sidebar-link" href="login.html"><i class="fa-solid fa-arrow-right-from-bracket"></i>Sign Out</a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- Main -->
+    <main class="dash-main">
+
+      <!-- Topbar -->
+      <header class="dash-topbar">
+        <h2 class="topbar-title">Notifications</h2>
+      </header>
+
+      <!-- Content -->
+      <div class="dash-content">
+
+        <div class="dash-hello">
           <h2>Notifications</h2>
-          <p>Stay up to date on your matters.</p>
+          <p>Stay up to date on matters, documents, billing, and firm updates.</p>
         </div>
-        <button class="btn btn-outline-primary" onclick="return false;"><i class="fa-regular fa-circle-check me-2"></i>Mark all read</button>
+
+        <!-- Filter chips -->
+        <div class="filter-chips mb-4" id="notifChips">
+          <button type="button" class="filter-chip active" data-filter="all"><i class="fa-solid fa-layer-group"></i>All</button>
+          <button type="button" class="filter-chip" data-filter="unread"><i class="fa-regular fa-envelope"></i>Unread</button>
+          <button type="button" class="filter-chip" data-filter="matters"><i class="fa-solid fa-scale-balanced"></i>Matters</button>
+          <button type="button" class="filter-chip" data-filter="billing"><i class="fa-solid fa-credit-card"></i>Billing</button>
+          <button type="button" class="filter-chip" data-filter="system"><i class="fa-solid fa-gear"></i>System</button>
+        </div>
+
+        <div class="dash-card" id="notifList">
+          <div class="notif-item" data-type="matters" data-unread="1">
+            <span class="notif-icon" style="background:rgba(171,135,82,0.12);color:var(--gold);"><i class="fa-solid fa-file-circle-check"></i></span>
+            <div class="notif-text">
+              <div class="notif-title">Your board resolution draft is ready for review.</div>
+              <div class="desc muted" style="font-size:0.78rem;">Matter #124 &mdash; please review and return any comments by Friday.</div>
+              <div class="notif-time">Today, 9:14 AM</div>
+            </div>
+          </div>
+          <div class="notif-item" data-type="matters" data-unread="1">
+            <span class="notif-icon" style="background:rgba(12,21,36,0.08);color:var(--primary);"><i class="fa-solid fa-calendar-check"></i></span>
+            <div class="notif-text">
+              <div class="notif-title">Appointment confirmed with Sarah Chen.</div>
+              <div class="desc muted" style="font-size:0.78rem;">M&amp;A Due Diligence review on Aug 12 at 10:00 AM.</div>
+              <div class="notif-time">Yesterday, 4:30 PM</div>
+            </div>
+          </div>
+          <div class="notif-item" data-type="billing">
+            <span class="notif-icon" style="background:rgba(110,31,42,0.1);color:var(--oxblood);"><i class="fa-solid fa-circle-exclamation"></i></span>
+            <div class="notif-text">
+              <div class="notif-title">Reminder: retainer invoice due in 5 days.</div>
+              <div class="desc muted" style="font-size:0.78rem;">Invoice #2026-084 of $2,750.00 is due on Aug 12.</div>
+              <div class="notif-time">Yesterday, 10:02 AM</div>
+            </div>
+          </div>
+          <div class="notif-item" data-type="system">
+            <span class="notif-icon" style="background:rgba(46,125,50,0.1);color:#2E7D32;"><i class="fa-solid fa-shield-halved"></i></span>
+            <div class="notif-text">
+              <div class="notif-title">Your account security was updated.</div>
+              <div class="desc muted" style="font-size:0.78rem;">New sign-in from a trusted device was added successfully.</div>
+              <div class="notif-time">Aug 3, 2026</div>
+            </div>
+          </div>
+          <div class="notif-item" data-type="matters">
+            <span class="notif-icon" style="background:rgba(171,135,82,0.12);color:var(--gold);"><i class="fa-solid fa-file-lines"></i></span>
+            <div class="notif-text">
+              <div class="notif-title">New document shared with you.</div>
+              <div class="desc muted" style="font-size:0.78rem;">Vendor Agreement Terms was added to Matter #118.</div>
+              <div class="notif-time">Jul 28, 2026</div>
+            </div>
+          </div>
+          <div class="notif-item" data-type="billing">
+            <span class="notif-icon" style="background:rgba(46,125,50,0.1);color:#2E7D32;"><i class="fa-solid fa-credit-card"></i></span>
+            <div class="notif-text">
+              <div class="notif-title">Payment received.</div>
+              <div class="desc muted" style="font-size:0.78rem;">Retainer top-up of $5,000.00 was confirmed for invoice #2026-081.</div>
+              <div class="notif-time">Aug 4, 2026</div>
+            </div>
+          </div>
+          <div class="empty-state" id="notifEmpty" style="display:none;">
+            <i class="fa-regular fa-bell-slash"></i>
+            <h5>No notifications</h5>
+            <p>There are no notifications in this view right now.</p>
+          </div>
+        </div>
+
       </div>
-
-      <!-- Filter chips -->
-      <div class="filter-chips mb-3">
-        <span class="filter-chip active">All</span>
-        <span class="filter-chip">Appointments</span>
-        <span class="filter-chip">Documents</span>
-        <span class="filter-chip">Billing</span>
-        <span class="filter-chip">Messages</span>
-      </div>
-
-      <!-- Notifications list -->
-      <div class="dash-card mb-4">
-        <div class="dash-card-head">
-          <div>
-            <h3>All Notifications</h3>
-            <span class="muted">Unread items are highlighted</span>
-          </div>
-        </div>
-        <div class="notif-item" style="border-left:3px solid var(--gold);background:rgba(171,135,82,0.04);">
-          <span class="notif-icon" style="background:rgba(171,135,82,0.12);color:var(--gold);"><i class="fa-solid fa-calendar-check"></i></span>
-          <div class="notif-text">
-            <div class="notif-title">Appointment confirmed &mdash; Aug 6 at 2:00 PM.</div>
-            <div class="notif-time">30 min ago</div>
-          </div>
-        </div>
-        <div class="notif-item" style="border-left:3px solid var(--gold);background:rgba(171,135,82,0.04);">
-          <span class="notif-icon" style="background:rgba(12,21,36,0.08);color:var(--primary);"><i class="fa-solid fa-file-lines"></i></span>
-          <div class="notif-text">
-            <div class="notif-title">New document: Shareholders Agreement v3.</div>
-            <div class="notif-time">3 hours ago</div>
-          </div>
-        </div>
-        <div class="notif-item" style="border-left:3px solid var(--gold);background:rgba(171,135,82,0.04);">
-          <span class="notif-icon" style="background:rgba(110,31,42,0.1);color:var(--oxblood);"><i class="fa-solid fa-file-invoice-dollar"></i></span>
-          <div class="notif-text">
-            <div class="notif-title">Invoice #4821 ready for review.</div>
-            <div class="notif-time">Yesterday</div>
-          </div>
-        </div>
-        <div class="notif-item">
-          <span class="notif-icon" style="background:rgba(46,125,50,0.1);color:#2E7D32;"><i class="fa-solid fa-sack-dollar"></i></span>
-          <div class="notif-text">
-            <div class="notif-title">Payment of $12,400 received.</div>
-            <div class="notif-time">2 days ago</div>
-          </div>
-        </div>
-        <div class="notif-item">
-          <span class="notif-icon" style="background:rgba(110,31,42,0.1);color:var(--oxblood);"><i class="fa-solid fa-comment"></i></span>
-          <div class="notif-text">
-            <div class="notif-title">Message from Margaret Chen.</div>
-            <div class="notif-time">2 days ago</div>
-          </div>
-        </div>
-        <div class="notif-item">
-          <span class="notif-icon" style="background:rgba(171,135,82,0.12);color:var(--gold);"><i class="fa-solid fa-bell"></i></span>
-          <div class="notif-text">
-            <div class="notif-title">Appointment reminder: Jun 12 consultation.</div>
-            <div class="notif-time">Jun 10</div>
-          </div>
-        </div>
-        <div class="notif-item">
-          <span class="notif-icon" style="background:rgba(12,21,36,0.08);color:var(--primary);"><i class="fa-solid fa-file-shield"></i></span>
-          <div class="notif-text">
-            <div class="notif-title">Document signed: NDA.</div>
-            <div class="notif-time">Jun 9</div>
-          </div>
-        </div>
-        <div class="notif-item">
-          <span class="notif-icon" style="background:rgba(110,31,42,0.1);color:var(--oxblood);"><i class="fa-solid fa-shield-halved"></i></span>
-          <div class="notif-text">
-            <div class="notif-title">Account security alert: new device login.</div>
-            <div class="notif-time">Jun 5</div>
-          </div>
-        </div>
-        <div class="notif-item" style="border-bottom:none;">
-          <span class="notif-icon" style="background:rgba(46,125,50,0.1);color:#2E7D32;"><i class="fa-solid fa-hand-sparkles"></i></span>
-          <div class="notif-text">
-            <div class="notif-title">Welcome to Stackly.</div>
-            <div class="notif-time">Mar 2024</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Preferences + summary -->
-      <div class="row g-3">
-        <div class="col-lg-7">
-          <div class="dash-card h-100">
-            <div class="dash-card-head">
-              <div>
-                <h3>Notification Preferences</h3>
-                <span class="muted">Choose what you'd like to hear about</span>
-              </div>
-            </div>
-            <div class="d-flex align-items-center justify-content-between py-3" style="border-bottom:1px solid rgba(12,21,36,0.04);">
-              <label class="form-check-label" for="prefAppointments" style="font-size:0.88rem;color:var(--text);">Appointment reminders</label>
-              <div class="form-check form-switch" style="margin:0;min-height:0;padding-left:0;flex-shrink:0;display:inline-flex;align-items:center;">
-                <input class="form-check-input" type="checkbox" role="switch" id="prefAppointments" checked style="float:none;margin:0;cursor:pointer;" />
-              </div>
-            </div>
-            <div class="d-flex align-items-center justify-content-between py-3" style="border-bottom:1px solid rgba(12,21,36,0.04);">
-              <label class="form-check-label" for="prefDocuments" style="font-size:0.88rem;color:var(--text);">Document updates</label>
-              <div class="form-check form-switch" style="margin:0;min-height:0;padding-left:0;flex-shrink:0;display:inline-flex;align-items:center;">
-                <input class="form-check-input" type="checkbox" role="switch" id="prefDocuments" checked style="float:none;margin:0;cursor:pointer;" />
-              </div>
-            </div>
-            <div class="d-flex align-items-center justify-content-between py-3" style="border-bottom:1px solid rgba(12,21,36,0.04);">
-              <label class="form-check-label" for="prefBilling" style="font-size:0.88rem;color:var(--text);">Billing &amp; invoices</label>
-              <div class="form-check form-switch" style="margin:0;min-height:0;padding-left:0;flex-shrink:0;display:inline-flex;align-items:center;">
-                <input class="form-check-input" type="checkbox" role="switch" id="prefBilling" checked style="float:none;margin:0;cursor:pointer;" />
-              </div>
-            </div>
-            <div class="d-flex align-items-center justify-content-between py-3" style="border-bottom:1px solid rgba(12,21,36,0.04);">
-              <label class="form-check-label" for="prefNewsletter" style="font-size:0.88rem;color:var(--text);">Firm newsletter</label>
-              <div class="form-check form-switch" style="margin:0;min-height:0;padding-left:0;flex-shrink:0;display:inline-flex;align-items:center;">
-                <input class="form-check-input" type="checkbox" role="switch" id="prefNewsletter" style="float:none;margin:0;cursor:pointer;" />
-              </div>
-            </div>
-            <div class="text-end mt-4">
-              <a href="user-settings.html" class="btn btn-gold"><i class="fa-solid fa-floppy-disk me-2"></i>Save Preferences</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-5">
-          <div class="dash-card h-100">
-            <div class="dash-card-head">
-              <div>
-                <h3>Notification Summary</h3>
-                <span class="muted">Distribution over the last 90 days</span>
-              </div>
-            </div>
-            <div class="analytics-widget">
-              <div class="row-line"><span class="label"><i class="fa-solid fa-calendar-check me-2" style="color:var(--primary);"></i>Appointments</span><span class="value">38%</span></div>
-              <div class="progress"><div class="progress-bar navy" style="width:38%;"></div></div>
-            </div>
-            <div class="analytics-widget">
-              <div class="row-line"><span class="label"><i class="fa-solid fa-file-lines me-2" style="color:var(--gold);"></i>Documents</span><span class="value">27%</span></div>
-              <div class="progress"><div class="progress-bar" style="width:27%;"></div></div>
-            </div>
-            <div class="analytics-widget">
-              <div class="row-line"><span class="label"><i class="fa-solid fa-file-invoice-dollar me-2" style="color:var(--oxblood);"></i>Billing</span><span class="value">22%</span></div>
-              <div class="progress"><div class="progress-bar oxblood" style="width:22%;"></div></div>
-            </div>
-            <div class="analytics-widget mb-0">
-              <div class="row-line"><span class="label"><i class="fa-solid fa-comment me-2" style="color:#2E7D32;"></i>Messages</span><span class="value">13%</span></div>
-              <div class="progress"><div class="progress-bar green" style="width:13%;"></div></div>
-            </div>
-            <div class="mt-4" style="padding:0.9rem 1rem;background:var(--ivory);border-radius:var(--radius);font-size:0.78rem;color:var(--text-muted);">
-              <i class="fa-solid fa-box-archive me-2" style="color:var(--gold);"></i>Old notifications are archived after 90 days.
-            </div>
-          </div>
-        </div>
-      </div>
-
     </main>
-
-    <!-- Footer -->
-    <footer style="border-top:1px solid rgba(12,21,36,0.06);padding:1.25rem 1.75rem;font-size:0.78rem;color:var(--text-light);display:flex;flex-wrap:wrap;gap:0.5rem;justify-content:space-between;">
-      <span>&copy; 2026 Stackly LLP. All rights reserved.</span>
-      <span><a href="index.html" class="text-decoration-none" style="color:var(--gold);">Back to Website</a> &middot; <a href="#" class="text-decoration-none" style="color:var(--text-light);">Privacy</a> &middot; <a href="#" class="text-decoration-none" style="color:var(--text-light);">Terms</a></span>
-    </footer>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="assets/js/dashboard.js"></script>
+  <script src="assets/js/validation.js"></script>
+  <script>
+    (function () {
+      var chips = document.getElementById('notifChips');
+      if (!chips) return;
+      var items = Array.prototype.slice.call(document.querySelectorAll('#notifList .notif-item'));
+      chips.addEventListener('click', function (e) {
+        var chip = e.target.closest('.filter-chip');
+        if (!chip) return;
+        chips.querySelectorAll('.filter-chip').forEach(function (c) { c.classList.remove('active'); });
+        chip.classList.add('active');
+        var filter = chip.getAttribute('data-filter');
+        var visible = 0;
+        items.forEach(function (item) {
+          var show = filter === 'all';
+          if (filter === 'unread') show = item.getAttribute('data-unread') === '1';
+          if (filter !== 'all' && filter !== 'unread') show = item.getAttribute('data-type') === filter;
+          item.style.display = show ? '' : 'none';
+          if (show) visible++;
+        });
+        var empty = document.getElementById('notifEmpty');
+        if (empty) empty.style.display = visible === 0 ? '' : 'none';
+      });
+    })();
+  </script>
 </body>
 </html>

@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Create Account — Stackly</title>
-  <meta name="description" content="Create an account to access the Stackly client or admin portal and manage your matters online." />
+  <title>Sign Up — Stackly</title>
+  <meta name="description" content="Create a Stackly client or admin portal account to access your matters, documents, and firm updates." />
   <meta name="robots" content="noindex" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -28,12 +28,12 @@
 
         <div class="showcase-copy">
           <span class="section-label" data-aos="fade-up">Client &amp; Admin Portal</span>
-          <h1 class="showcase-title">Your legal team, <span class="gold-text">now online.</span></h1>
-          <p class="showcase-text" data-aos="fade-up">Create an account to follow your matters, review documents, and stay connected with your counsel &mdash; wherever you are.</p>
+          <h1 class="showcase-title">Your counsel, <span class="gold-text">at your side.</span></h1>
+          <p class="showcase-text" data-aos="fade-up">Create an account for secure access to your matters, documents, and firm updates &mdash; trusted counsel since 1979.</p>
           <ul class="showcase-list" data-aos="fade-up">
-            <li><i class="fa-solid fa-arrow-trend-up"></i> Track case progress in real time</li>
-            <li><i class="fa-solid fa-file-signature"></i> Review and sign documents securely</li>
-            <li><i class="fa-solid fa-calendar-check"></i> Book and manage appointments online</li>
+            <li><i class="fa-solid fa-shield-halved"></i> Bank-grade encrypted portal</li>
+            <li><i class="fa-solid fa-file-circle-check"></i> Real-time case updates</li>
+            <li><i class="fa-solid fa-headset"></i> Direct access to your counsel</li>
           </ul>
         </div>
 
@@ -63,7 +63,7 @@
         </div>
 
         <div class="auth-head">
-          <h2>Create Account</h2>
+          <h2>Create Your Account</h2>
           <p>Join the Stackly portal in under a minute.</p>
         </div>
 
@@ -104,7 +104,7 @@
             <label for="signupName">Full Name</label>
             <div class="auth-input-wrap">
               <i class="fa-solid fa-user"></i>
-              <input type="text" class="auth-input" id="signupName" name="name" placeholder="e.g. Jonathan Pierce" autocomplete="name" aria-describedby="signupNameError" />
+              <input type="text" class="auth-input" id="signupName" name="name" placeholder="Jane Doe" autocomplete="name" aria-describedby="signupNameError" />
               <span class="auth-check-icon"><i class="fa-solid fa-circle-check"></i></span>
             </div>
             <p class="auth-error" id="signupNameError"></p>
@@ -124,7 +124,7 @@
             <label for="signupPhone">Phone Number</label>
             <div class="auth-input-wrap">
               <i class="fa-solid fa-phone"></i>
-              <input type="tel" class="auth-input" id="signupPhone" name="phone" placeholder="10-digit number" maxlength="10" inputmode="numeric" autocomplete="tel" aria-describedby="signupPhoneError" />
+              <input type="tel" class="auth-input" id="signupPhone" name="phone" placeholder="10-digit mobile" autocomplete="tel" inputmode="numeric" maxlength="10" aria-describedby="signupPhoneError" />
               <span class="auth-check-icon"><i class="fa-solid fa-circle-check"></i></span>
             </div>
             <p class="auth-error" id="signupPhoneError"></p>
@@ -134,12 +134,12 @@
             <label for="signupPassword">Password</label>
             <div class="auth-input-wrap has-toggle">
               <i class="fa-solid fa-lock"></i>
-              <input type="password" class="auth-input" id="signupPassword" name="password" placeholder="Min. 8 characters" autocomplete="new-password" aria-describedby="signupPasswordError" />
+              <input type="password" class="auth-input" id="signupPassword" name="password" placeholder="Create a strong password" autocomplete="new-password" aria-describedby="signupPasswordError" />
               <button type="button" class="password-toggle" data-toggle-password="signupPassword" aria-label="Show password" aria-pressed="false">
                 <i class="fa-regular fa-eye"></i>
               </button>
             </div>
-            <div class="password-strength" id="passwordStrength" data-level="0">
+            <div class="password-strength" id="passwordStrength">
               <div class="bars">
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -155,7 +155,7 @@
             <label for="signupConfirm">Confirm Password</label>
             <div class="auth-input-wrap has-toggle">
               <i class="fa-solid fa-lock"></i>
-              <input type="password" class="auth-input" id="signupConfirm" name="confirm" placeholder="Re-enter your password" data-match="signupPassword" autocomplete="new-password" aria-describedby="signupConfirmError" />
+              <input type="password" class="auth-input" id="signupConfirm" name="confirm" placeholder="Re-enter your password" autocomplete="new-password" data-match="signupPassword" aria-describedby="signupConfirmError" />
               <button type="button" class="password-toggle" data-toggle-password="signupConfirm" aria-label="Show password" aria-pressed="false">
                 <i class="fa-regular fa-eye"></i>
               </button>
@@ -167,9 +167,9 @@
             <label class="auth-checkbox">
               <input type="checkbox" id="termsCheck" name="terms" />
               <span class="checkmark"><i class="fa-solid fa-check"></i></span>
-              <span>I agree to the <a href="#" onclick="return false;">Terms &amp; Conditions</a> and <a href="#" onclick="return false;">Privacy Policy</a>.</span>
+              <span>I agree to the <a href="404.html">Terms &amp; Conditions</a> and <a href="404.html">Privacy Policy</a>.</span>
             </label>
-            <p class="auth-error" id="termsError"></p>
+            <p class="auth-error"></p>
           </div>
 
           <button type="submit" class="btn-auth" id="signupSubmit">

@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Support — Client Portal | Stackly</title>
-  <meta name="description" content="Get help with your legal matters, documents, billing, and appointments through Stackly." />
-
+  <title>Support — Stackly Client Portal</title>
+  <meta name="description" content="Get help, contact your counsel, and find answers to common questions in the Stackly client portal." />
+  <meta name="robots" content="noindex" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -16,289 +16,182 @@
 </head>
 <body class="dashboard">
 
-  <!-- Overlay -->
-  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+  <div class="dash-shell">
 
-  <!-- Sidebar -->
-  <aside class="dash-sidebar" id="dashSidebar">
-    <a class="sidebar-brand" href="index.html">
-      <img src="assets/img/logo.webp" alt="Stackly" />
-      <span>Client Portal</span>
-    </a>
+    <!-- Sidebar -->
+    <aside class="dash-sidebar" id="dashSidebar">
+      <a class="sidebar-brand" href="index.html"><img src="assets/img/logo.webp" alt="Stackly" /></a>
 
-    <nav class="sidebar-nav">
-      <div class="sidebar-label">Main</div>
-      <ul>
-        <li><a class="sidebar-link" href="user-dashboard.html"><i class="fa-solid fa-chart-pie"></i> Dashboard</a></li>
-        <li><a class="sidebar-link" href="user-profile.html"><i class="fa-regular fa-user"></i> My Profile</a></li>
-        <li><a class="sidebar-link" href="user-services.html"><i class="fa-solid fa-briefcase"></i> My Services</a></li>
-        <li><a class="sidebar-link" href="user-appointments.html"><i class="fa-regular fa-calendar-check"></i> My Appointments</a><span class="ms-auto status-badge pending" style="padding:0.15rem 0.5rem;font-size:0.62rem;">2</span></li>
-        <li><a class="sidebar-link" href="user-notifications.html"><i class="fa-regular fa-bell"></i> Notifications</a><span class="ms-auto status-badge pending" style="padding:0.15rem 0.5rem;font-size:0.62rem;">3</span></li>
-        <li><a class="sidebar-link" href="user-documents.html"><i class="fa-solid fa-folder-open"></i> Documents</a></li>
-        <li><a class="sidebar-link" href="user-payments.html"><i class="fa-solid fa-credit-card"></i> Payment History</a></li>
-        <li><a class="sidebar-link active" href="user-support.html"><i class="fa-solid fa-headset"></i> Support</a></li>
-      </ul>
-
-      <div class="sidebar-label" style="margin-top:1.5rem;">Account</div>
-      <ul>
-        <li><a class="sidebar-link" href="user-settings.html"><i class="fa-solid fa-gear"></i> Settings</a></li>
-        <li><a class="sidebar-link" href="logout.html"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a></li>
-      </ul>
-    </nav>
-
-    <div class="sidebar-footer">
-      <div class="d-flex align-items-center gap-3 px-3">
-        <span class="avatar-initials md gold-bg">JP</span>
-        <div class="flex-grow-1" style="min-width:0;">
-          <div style="font-size:0.82rem;font-weight:600;color:var(--white);">Jonathan Pierce</div>
-          <div style="font-size:0.72rem;color:rgba(255,255,255,0.45);">Preferred Client</div>
+      <div class="sidebar-profile">
+        <span class="avatar-initials gold-bg md" data-user-first-initial></span>
+        <div class="sidebar-profile-meta">
+          <div class="sidebar-profile-name" data-user-name></div>
+          <div class="sidebar-profile-email" data-user-email></div>
         </div>
-        <span class="status-badge active" style="font-size:0.6rem;padding:0.15rem 0.5rem;">Online</span>
       </div>
-    </div>
-  </aside>
 
-  <!-- Main -->
-  <div class="dash-main">
+      <nav class="sidebar-nav" aria-label="Sidebar navigation">
+        <ul>
+          <li class="sidebar-label">Main</li>
+          <li><a class="sidebar-link" href="user-dashboard.html"><i class="fa-solid fa-gauge-high"></i>Dashboard</a></li>
+          <li><a class="sidebar-link" href="user-appointments.html"><i class="fa-solid fa-calendar-check"></i>Appointments</a></li>
+          <li><a class="sidebar-link" href="user-documents.html"><i class="fa-solid fa-file-lines"></i>Documents</a></li>
+          <li><a class="sidebar-link" href="user-payments.html"><i class="fa-solid fa-credit-card"></i>Payments</a></li>
+          <li><a class="sidebar-link" href="user-services.html"><i class="fa-solid fa-scale-balanced"></i>Services</a></li>
+          <li><a class="sidebar-link" href="user-notifications.html"><i class="fa-regular fa-bell"></i>Notifications</a></li>
+          <li><a class="sidebar-link active" href="user-support.html"><i class="fa-solid fa-headset"></i>Support</a></li>
+        </ul>
+      </nav>
 
-    <!-- Topbar -->
-    <header class="dash-topbar">
-      <button class="hamburger" id="sidebarToggle" aria-label="Toggle sidebar" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
-      <h1 class="topbar-title">Support</h1>
+      <div class="sidebar-footer">
+        <ul>
+          <li><a class="sidebar-link" href="index.html"><i class="fa-solid fa-house"></i>Go to Home</a></li>
+          <li><a class="sidebar-link" href="user-profile.html"><i class="fa-solid fa-user"></i>My Profile</a></li>
+          <li><a class="sidebar-link" href="user-settings.html"><i class="fa-solid fa-gear"></i>Settings</a></li>
+          <li><a class="sidebar-link" href="login.html"><i class="fa-solid fa-arrow-right-from-bracket"></i>Sign Out</a></li>
+        </ul>
+      </div>
+    </aside>
 
-      <form class="topbar-search" role="search" onsubmit="return false;">
-        <i class="fa-solid fa-magnifying-glass"></i>
-        <input type="search" placeholder="Search my portal..." aria-label="Search" />
-      </form>
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
-      <div class="topbar-actions">
-        <div class="dash-dropdown">
-          <button class="icon-btn" data-dropdown-toggle aria-label="Notifications">
-            <i class="fa-regular fa-bell"></i>
-            <span class="badge">3</span>
-          </button>
-          <div class="dash-dropdown-panel">
-            <div class="dash-dropdown-head">
-              <span>Notifications</span>
-              <a href="user-notifications.html" class="btn-link">View all</a>
+    <!-- Main -->
+    <main class="dash-main">
+
+      <!-- Topbar -->
+      <header class="dash-topbar">
+        <h2 class="topbar-title">Support</h2>
+      </header>
+
+      <!-- Content -->
+      <div class="dash-content">
+
+        <div class="dash-hello">
+          <h2>Support</h2>
+          <p>Reach your counsel or the firm's client services team &mdash; we respond within 4 business hours.</p>
+        </div>
+
+        <!-- Contact channels -->
+        <div class="row g-4 mt-1">
+          <div class="col-md-6 col-xl-3">
+            <div class="dash-card hoverable h-100">
+              <span class="stat-icon gold mb-3"><i class="fa-solid fa-phone"></i></span>
+              <h5 style="font-family:var(--font-display);color:var(--primary);">Call Us</h5>
+              <p class="muted" style="font-size:0.85rem;">+1 (212) 555-0900<br />Mon&ndash;Fri, 9:00 AM&ndash;6:00 PM ET</p>
+              <a href="tel:+12125550900" class="btn btn-outline-primary btn-sm">Call Now</a>
             </div>
-            <div class="notif-list">
-              <a href="user-notifications.html" class="notif-item text-decoration-none">
-                <span class="notif-icon" style="background:rgba(171,135,82,0.12);color:var(--gold);"><i class="fa-solid fa-calendar-check"></i></span>
-                <div class="notif-text">
-                  <div class="notif-title">Your consultation is confirmed for Aug 6 at 2:00 PM.</div>
-                  <div class="notif-time">30 min ago</div>
-                </div>
-              </a>
-              <a href="user-notifications.html" class="notif-item text-decoration-none">
-                <span class="notif-icon" style="background:rgba(12,21,36,0.08);color:var(--primary);"><i class="fa-solid fa-file-lines"></i></span>
-                <div class="notif-text">
-                  <div class="notif-title">New document added to your case file.</div>
-                  <div class="notif-time">3 hours ago</div>
-                </div>
-              </a>
-              <a href="user-notifications.html" class="notif-item text-decoration-none">
-                <span class="notif-icon" style="background:rgba(110,31,42,0.1);color:var(--oxblood);"><i class="fa-solid fa-file-invoice-dollar"></i></span>
-                <div class="notif-text">
-                  <div class="notif-title">Invoice #4821 is ready for review.</div>
-                  <div class="notif-time">Yesterday</div>
-                </div>
-              </a>
+          </div>
+          <div class="col-md-6 col-xl-3">
+            <div class="dash-card hoverable h-100">
+              <span class="stat-icon navy mb-3"><i class="fa-solid fa-envelope"></i></span>
+              <h5 style="font-family:var(--font-display);color:var(--primary);">Email Us</h5>
+              <p class="muted" style="font-size:0.85rem;">support@stackly.com<br />Response within 4 business hours</p>
+              <a href="mailto:support@stackly.com" class="btn btn-outline-primary btn-sm">Send Email</a>
+            </div>
+          </div>
+          <div class="col-md-6 col-xl-3">
+            <div class="dash-card hoverable h-100">
+              <span class="stat-icon green mb-3"><i class="fa-solid fa-comments"></i></span>
+              <h5 style="font-family:var(--font-display);color:var(--primary);">Live Chat</h5>
+              <p class="muted" style="font-size:0.85rem;">Chat with a client services specialist.<br />Available during business hours</p>
+              <a href="#supportRequest" class="btn btn-outline-primary btn-sm">Start Chat</a>
+            </div>
+          </div>
+          <div class="col-md-6 col-xl-3">
+            <div class="dash-card hoverable h-100">
+              <span class="stat-icon oxblood mb-3"><i class="fa-solid fa-building-columns"></i></span>
+              <h5 style="font-family:var(--font-display);color:var(--primary);">Visit the Office</h5>
+              <p class="muted" style="font-size:0.85rem;">120 Broadway, Suite 2100<br />New York, NY 10271</p>
+              <a href="https://maps.google.com/?q=120+Broadway+New+York" target="_blank" rel="noopener" class="btn btn-outline-primary btn-sm">Get Directions</a>
             </div>
           </div>
         </div>
 
-        <div class="dash-dropdown">
-          <button class="avatar-initials md gold-bg" data-dropdown-toggle aria-label="Account menu" style="border:none;cursor:pointer;">JP</button>
-          <div class="dash-dropdown-panel profile-menu">
-            <div class="profile-head">
-              <span class="avatar-initials md gold-bg">JP</span>
-              <div>
-                <div class="name">Jonathan Pierce</div>
-                <div class="role">Preferred Client</div>
+        <!-- Request form + FAQ -->
+        <div class="row g-4 mt-1">
+          <div class="col-lg-5">
+            <div class="dash-card h-100" id="supportRequest">
+              <div class="dash-card-head">
+                <h3>Submit a Request</h3>
+                <span class="muted">What do you need help with?</span>
               </div>
-            </div>
-            <a href="user-profile.html"><i class="fa-regular fa-user"></i> My Profile</a>
-            <a href="user-settings.html"><i class="fa-solid fa-gear"></i> Account Settings</a>
-            <a href="user-appointments.html"><i class="fa-regular fa-calendar-check"></i> My Appointments</a>
-            <a href="logout.html" class="danger"><i class="fa-solid fa-arrow-right-from-bracket"></i> Sign Out</a>
-          </div>
-        </div>
-      </div>
-    </header>
-
-    <!-- Content -->
-    <main class="dash-content">
-
-      <div class="dash-hello d-flex flex-wrap align-items-end justify-content-between gap-3">
-        <div>
-          <h2>Support Center</h2>
-          <p>We&rsquo;re here to help with anything you need.</p>
-        </div>
-      </div>
-
-      <!-- Quick help cards -->
-      <div class="row g-3 mb-4">
-        <div class="col-sm-6 col-xl-3">
-          <a href="user-appointments.html" class="quick-action h-100"><i class="fa-regular fa-calendar-plus"></i> Book an Appointment</a>
-        </div>
-        <div class="col-sm-6 col-xl-3">
-          <a href="user-documents.html" class="quick-action h-100"><i class="fa-solid fa-folder-open"></i> Documents Help</a>
-        </div>
-        <div class="col-sm-6 col-xl-3">
-          <a href="user-payments.html" class="quick-action h-100"><i class="fa-solid fa-credit-card"></i> Billing Questions</a>
-        </div>
-        <div class="col-sm-6 col-xl-3">
-          <a href="user-support.html" class="quick-action h-100"><i class="fa-solid fa-comment-dots"></i> General Enquiries</a>
-        </div>
-      </div>
-
-      <!-- FAQ -->
-      <div class="dash-card mb-4">
-        <div class="dash-card-head">
-          <div>
-            <h3>Frequently Asked Questions</h3>
-            <span class="muted">Common answers to help you get started</span>
-          </div>
-        </div>
-        <div class="accordion accordion-flush faq-accordion" id="faqAccordion">
-          <div class="accordion-item">
-            <h2 class="accordion-header">
-              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse1" aria-expanded="true" aria-controls="faqCollapse1">How do I schedule a consultation?</button>
-            </h2>
-            <div id="faqCollapse1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
-              <div class="accordion-body">You can book a consultation from the My Appointments page. Choose your preferred counsel, select a time slot, and confirm. You&rsquo;ll receive a confirmation notice in the portal and by email.</div>
-            </div>
-          </div>
-          <div class="accordion-item">
-            <h2 class="accordion-header">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse2" aria-expanded="false" aria-controls="faqCollapse2">What documents do I need for a consultation?</button>
-            </h2>
-            <div id="faqCollapse2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-              <div class="accordion-body">For most matters, bring any relevant contracts, correspondence, and identification. Your counsel will confirm exactly what is needed after booking, and you can upload files securely in advance from the Documents page.</div>
-            </div>
-          </div>
-          <div class="accordion-item">
-            <h2 class="accordion-header">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse3" aria-expanded="false" aria-controls="faqCollapse3">How does invoicing and billing work?</button>
-            </h2>
-            <div id="faqCollapse3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-              <div class="accordion-body">Invoices are issued for each completed engagement and appear in Payment History. You can pay online by card, and a receipt is generated automatically. Outstanding balances are shown at the top of the Payment History page.</div>
-            </div>
-          </div>
-          <div class="accordion-item">
-            <h2 class="accordion-header">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse4" aria-expanded="false" aria-controls="faqCollapse4">Can I change or cancel an appointment?</button>
-            </h2>
-            <div id="faqCollapse4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-              <div class="accordion-body">Yes. Appointments can be rescheduled or cancelled from the My Appointments page up to 24 hours before the start time. Fees may apply for late cancellations, which will be reflected on your invoice.</div>
-            </div>
-          </div>
-          <div class="accordion-item">
-            <h2 class="accordion-header">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse5" aria-expanded="false" aria-controls="faqCollapse5">How do I securely share documents with my counsel?</button>
-            </h2>
-            <div id="faqCollapse5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-              <div class="accordion-body">Use the &ldquo;Share a document&rdquo; form on the Documents page. Files are transferred over an encrypted channel and your counsel receives a secure, access-controlled link. All uploads are logged in your document history.</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Contact us + direct contact -->
-      <div class="row g-3">
-        <div class="col-lg-7">
-          <div class="dash-card hoverable h-100">
-            <div class="dash-card-head">
-              <div>
-                <h3>Contact Us</h3>
-                <span class="muted">Send a message to our support team</span>
-              </div>
-            </div>
-            <form onsubmit="return false;">
-              <div class="row g-3">
-                <div class="col-md-6">
-                  <label for="contactName" class="form-label" style="font-size:0.78rem;font-weight:600;color:var(--text-muted);">Full Name</label>
-                  <input id="contactName" class="form-control" type="text" value="Jonathan Pierce" style="border:1px solid rgba(12,21,36,0.12);border-radius:var(--radius);padding:0.6rem 0.9rem;font-size:0.88rem;color:var(--text);" />
-                </div>
-                <div class="col-md-6">
-                  <label for="contactEmail" class="form-label" style="font-size:0.78rem;font-weight:600;color:var(--text-muted);">Email</label>
-                  <input id="contactEmail" class="form-control" type="email" value="j.pierce@email.com" style="border:1px solid rgba(12,21,36,0.12);border-radius:var(--radius);padding:0.6rem 0.9rem;font-size:0.88rem;color:var(--text);" />
-                </div>
-                <div class="col-12">
-                  <label for="contactSubject" class="form-label" style="font-size:0.78rem;font-weight:600;color:var(--text-muted);">Subject</label>
-                  <select id="contactSubject" class="form-select" style="border:1px solid rgba(12,21,36,0.12);border-radius:var(--radius);padding:0.6rem 0.9rem;font-size:0.88rem;color:var(--text);">
-                    <option>Appointments</option>
-                    <option>Billing</option>
-                    <option>Documents</option>
-                    <option>General</option>
+              <form id="supportForm">
+                <div class="mb-3">
+                  <label for="supportTopic" class="form-label">Topic</label>
+                  <select class="form-select" id="supportTopic">
+                    <option>Matter or case question</option>
+                    <option>Billing or invoice</option>
+                    <option>Document access</option>
+                    <option>Account and security</option>
+                    <option>Other</option>
                   </select>
                 </div>
-                <div class="col-12">
-                  <label for="contactMessage" class="form-label" style="font-size:0.78rem;font-weight:600;color:var(--text-muted);">Message</label>
-                  <textarea id="contactMessage" class="form-control" rows="4" placeholder="How can we help you?" style="border:1px solid rgba(12,21,36,0.12);border-radius:var(--radius);padding:0.6rem 0.9rem;font-size:0.88rem;color:var(--text);"></textarea>
+                <div class="mb-3">
+                  <label for="supportMessage" class="form-label">Message</label>
+                  <textarea class="form-control" id="supportMessage" rows="5" placeholder="Describe your request in as much detail as possible"></textarea>
                 </div>
-                <div class="col-12">
-                  <button class="btn btn-gold" onclick="return false;"><i class="fa-solid fa-paper-plane me-2"></i>Send Message</button>
+                <button type="submit" class="btn btn-gold w-100"><i class="fa-solid fa-paper-plane me-2"></i>Submit Request</button>
+              </form>
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="dash-card h-100">
+              <div class="dash-card-head">
+                <h3>Frequently Asked Questions</h3>
+                <span class="muted">Quick answers</span>
+              </div>
+              <div class="accordion" id="supportAccordion">
+                <div class="accordion-item mb-2 border rounded">
+                  <h2 class="accordion-header" id="faqOneHead">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faqOne" aria-expanded="true" aria-controls="faqOne">
+                      How do I book or reschedule an appointment?
+                    </button>
+                  </h2>
+                  <div id="faqOne" class="accordion-collapse collapse show" aria-labelledby="faqOneHead" data-bs-parent="#supportAccordion">
+                    <div class="accordion-body">Go to the Appointments page, choose a service and counsel, and pick a time. Confirmation typically arrives within 4 business hours.</div>
+                  </div>
+                </div>
+                <div class="accordion-item mb-2 border rounded">
+                  <h2 class="accordion-header" id="faqTwoHead">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqTwo" aria-expanded="false" aria-controls="faqTwo">
+                      Where can I find my invoices and receipts?
+                    </button>
+                  </h2>
+                  <div id="faqTwo" class="accordion-collapse collapse" aria-labelledby="faqTwoHead" data-bs-parent="#supportAccordion">
+                    <div class="accordion-body">Open the Payments page to review invoices, outstanding balances, and payment history. You can download a PDF receipt from each paid invoice.</div>
+                  </div>
+                </div>
+                <div class="accordion-item mb-2 border rounded">
+                  <h2 class="accordion-header" id="faqThreeHead">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqThree" aria-expanded="false" aria-controls="faqThree">
+                      How do I upload documents for my matter?
+                    </button>
+                  </h2>
+                  <div id="faqThree" class="accordion-collapse collapse" aria-labelledby="faqThreeHead" data-bs-parent="#supportAccordion">
+                    <div class="accordion-body">Use the Upload a Document card on the Documents page. Supported formats are PDF, DOCX, and XLSX, up to 25 MB.</div>
+                  </div>
+                </div>
+                <div class="accordion-item border rounded">
+                  <h2 class="accordion-header" id="faqFourHead">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqFour" aria-expanded="false" aria-controls="faqFour">
+                      Can I change my contact details?
+                    </button>
+                  </h2>
+                  <div id="faqFour" class="accordion-collapse collapse" aria-labelledby="faqFourHead" data-bs-parent="#supportAccordion">
+                    <div class="accordion-body">Yes &mdash; visit My Profile to update your name, email, or phone, and Settings to manage security preferences.</div>
+                  </div>
                 </div>
               </div>
-            </form>
+            </div>
           </div>
         </div>
 
-        <div class="col-lg-5">
-          <div class="dash-card hoverable h-100">
-            <div class="dash-card-head">
-              <div>
-                <h3>Direct Contact</h3>
-                <span class="muted">Reach the firm directly</span>
-              </div>
-            </div>
-            <div class="appt-item">
-              <span class="avatar-initials sm gold-bg"><i class="fa-solid fa-envelope"></i></span>
-              <div class="appt-info">
-                <div class="title">info@stackly.com</div>
-                <div class="meta">Email us anytime</div>
-              </div>
-            </div>
-            <div class="appt-item">
-              <span class="avatar-initials sm" style="background:var(--primary);"><i class="fa-solid fa-phone"></i></span>
-              <div class="appt-info">
-                <div class="title">+1 (212) 555-0900</div>
-                <div class="meta">Mon&ndash;Fri, 8:30 AM&ndash;6:30 PM</div>
-              </div>
-            </div>
-            <div class="appt-item">
-              <span class="avatar-initials sm oxblood-bg"><i class="fa-solid fa-location-dot"></i></span>
-              <div class="appt-info">
-                <div class="title">120 Broadway, New York</div>
-                <div class="meta">Visit us in person</div>
-              </div>
-            </div>
-            <div class="appt-item mb-0">
-              <span class="avatar-initials sm" style="background:#2E7D32;"><i class="fa-solid fa-clock"></i></span>
-              <div class="appt-info">
-                <div class="title">Mon&ndash;Fri 8:30 AM&ndash;6:30 PM</div>
-                <div class="meta">Office hours (EST)</div>
-              </div>
-            </div>
-            <div class="text-center mt-4">
-              <button class="btn btn-outline-primary" style="padding:0.55rem 1.5rem;font-size:0.85rem;" onclick="return false;"><i class="fa-solid fa-headset me-2"></i>Chat with an agent</button>
-            </div>
-          </div>
-        </div>
       </div>
-
     </main>
-
-    <!-- Footer -->
-    <footer style="border-top:1px solid rgba(12,21,36,0.06);padding:1.25rem 1.75rem;font-size:0.78rem;color:var(--text-light);display:flex;flex-wrap:wrap;gap:0.5rem;justify-content:space-between;">
-      <span>&copy; 2026 Stackly LLP. All rights reserved.</span>
-      <span><a href="index.html" class="text-decoration-none" style="color:var(--gold);">Back to Website</a> &middot; <a href="#" class="text-decoration-none" style="color:var(--text-light);">Privacy</a> &middot; <a href="#" class="text-decoration-none" style="color:var(--text-light);">Terms</a></span>
-    </footer>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="assets/js/dashboard.js"></script>
+  <script src="assets/js/validation.js"></script>
 </body>
 </html>

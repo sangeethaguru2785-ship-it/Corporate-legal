@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -122,14 +122,15 @@
             <p class="auth-error" id="loginPasswordError"></p>
           </div>
 
-          <div class="auth-row-between">
+          <div class="auth-row-between" id="rememberWrap">
             <label class="auth-checkbox">
-              <input type="checkbox" id="rememberMe" name="remember" />
+              <input type="checkbox" id="rememberMe" name="remember" aria-describedby="rememberError" />
               <span class="checkmark"><i class="fa-solid fa-check"></i></span>
               <span>Remember me</span>
             </label>
-            <a href="#forgot" class="auth-link" id="forgotLink">Forgot password?</a>
+            <a href="404.html" class="auth-link" id="forgotLink">Forgot password?</a>
           </div>
+          <p class="auth-error" id="rememberError"></p>
 
           <button type="submit" class="btn-auth" id="loginSubmit">
             <span class="btn-auth-label"><i class="fa-solid fa-arrow-right-to-bracket me-2"></i>Sign In</span>

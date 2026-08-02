@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Payment History — Client Portal | Stackly</title>
-  <meta name="description" content="Review your invoices and payment history with Stackly." />
-
+  <title>Payments — Stackly Client Portal</title>
+  <meta name="description" content="Review invoices, outstanding balances, and payment methods with Stackly." />
+  <meta name="robots" content="noindex" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -16,351 +16,258 @@
 </head>
 <body class="dashboard">
 
-  <!-- Overlay -->
-  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+  <div class="dash-shell">
 
-  <!-- Sidebar -->
-  <aside class="dash-sidebar" id="dashSidebar">
-    <a class="sidebar-brand" href="index.html">
-      <img src="assets/img/logo.webp" alt="Stackly" />
-      <span>Client Portal</span>
-    </a>
+    <!-- Sidebar -->
+    <aside class="dash-sidebar" id="dashSidebar">
+      <a class="sidebar-brand" href="index.html"><img src="assets/img/logo.webp" alt="Stackly" /></a>
 
-    <nav class="sidebar-nav">
-      <div class="sidebar-label">Main</div>
-      <ul>
-        <li><a class="sidebar-link" href="user-dashboard.html"><i class="fa-solid fa-chart-pie"></i> Dashboard</a></li>
-        <li><a class="sidebar-link" href="user-profile.html"><i class="fa-regular fa-user"></i> My Profile</a></li>
-        <li><a class="sidebar-link" href="user-services.html"><i class="fa-solid fa-briefcase"></i> My Services</a></li>
-        <li><a class="sidebar-link" href="user-appointments.html"><i class="fa-regular fa-calendar-check"></i> My Appointments</a><span class="ms-auto status-badge pending" style="padding:0.15rem 0.5rem;font-size:0.62rem;">2</span></li>
-        <li><a class="sidebar-link" href="user-notifications.html"><i class="fa-regular fa-bell"></i> Notifications</a><span class="ms-auto status-badge pending" style="padding:0.15rem 0.5rem;font-size:0.62rem;">3</span></li>
-        <li><a class="sidebar-link" href="user-documents.html"><i class="fa-solid fa-folder-open"></i> Documents</a></li>
-        <li><a class="sidebar-link active" href="user-payments.html"><i class="fa-solid fa-credit-card"></i> Payment History</a></li>
-        <li><a class="sidebar-link" href="user-support.html"><i class="fa-solid fa-headset"></i> Support</a></li>
-      </ul>
-
-      <div class="sidebar-label" style="margin-top:1.5rem;">Account</div>
-      <ul>
-        <li><a class="sidebar-link" href="user-settings.html"><i class="fa-solid fa-gear"></i> Settings</a></li>
-        <li><a class="sidebar-link" href="logout.html"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a></li>
-      </ul>
-    </nav>
-
-    <div class="sidebar-footer">
-      <div class="d-flex align-items-center gap-3 px-3">
-        <span class="avatar-initials md gold-bg">JP</span>
-        <div class="flex-grow-1" style="min-width:0;">
-          <div style="font-size:0.82rem;font-weight:600;color:var(--white);">Jonathan Pierce</div>
-          <div style="font-size:0.72rem;color:rgba(255,255,255,0.45);">Preferred Client</div>
+      <div class="sidebar-profile">
+        <span class="avatar-initials gold-bg md" data-user-first-initial></span>
+        <div class="sidebar-profile-meta">
+          <div class="sidebar-profile-name" data-user-name></div>
+          <div class="sidebar-profile-email" data-user-email></div>
         </div>
-        <span class="status-badge active" style="font-size:0.6rem;padding:0.15rem 0.5rem;">Online</span>
       </div>
-    </div>
-  </aside>
 
-  <!-- Main -->
-  <div class="dash-main">
+      <nav class="sidebar-nav" aria-label="Sidebar navigation">
+        <ul>
+          <li class="sidebar-label">Main</li>
+          <li><a class="sidebar-link" href="user-dashboard.html"><i class="fa-solid fa-gauge-high"></i>Dashboard</a></li>
+          <li><a class="sidebar-link" href="user-appointments.html"><i class="fa-solid fa-calendar-check"></i>Appointments</a></li>
+          <li><a class="sidebar-link" href="user-documents.html"><i class="fa-solid fa-file-lines"></i>Documents</a></li>
+          <li><a class="sidebar-link active" href="user-payments.html"><i class="fa-solid fa-credit-card"></i>Payments</a></li>
+          <li><a class="sidebar-link" href="user-services.html"><i class="fa-solid fa-scale-balanced"></i>Services</a></li>
+          <li><a class="sidebar-link" href="user-notifications.html"><i class="fa-regular fa-bell"></i>Notifications</a></li>
+          <li><a class="sidebar-link" href="user-support.html"><i class="fa-solid fa-headset"></i>Support</a></li>
+        </ul>
+      </nav>
 
-    <!-- Topbar -->
-    <header class="dash-topbar">
-      <button class="hamburger" id="sidebarToggle" aria-label="Toggle sidebar" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
-      <h1 class="topbar-title">Payment History</h1>
+      <div class="sidebar-footer">
+        <ul>
+          <li><a class="sidebar-link" href="index.html"><i class="fa-solid fa-house"></i>Go to Home</a></li>
+          <li><a class="sidebar-link" href="user-profile.html"><i class="fa-solid fa-user"></i>My Profile</a></li>
+          <li><a class="sidebar-link" href="user-settings.html"><i class="fa-solid fa-gear"></i>Settings</a></li>
+          <li><a class="sidebar-link" href="login.html"><i class="fa-solid fa-arrow-right-from-bracket"></i>Sign Out</a></li>
+        </ul>
+      </div>
+    </aside>
 
-      <form class="topbar-search" role="search" onsubmit="return false;">
-        <i class="fa-solid fa-magnifying-glass"></i>
-        <input type="search" placeholder="Search my portal..." aria-label="Search" />
-      </form>
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
-      <div class="topbar-actions">
-        <div class="dash-dropdown">
-          <button class="icon-btn" data-dropdown-toggle aria-label="Notifications">
-            <i class="fa-regular fa-bell"></i>
-            <span class="badge">3</span>
-          </button>
-          <div class="dash-dropdown-panel">
-            <div class="dash-dropdown-head">
-              <span>Notifications</span>
-              <a href="user-notifications.html" class="btn-link">View all</a>
+    <!-- Main -->
+    <main class="dash-main">
+
+      <!-- Topbar -->
+      <header class="dash-topbar">
+        <h2 class="topbar-title">Payments</h2>
+      </header>
+
+      <!-- Content -->
+      <div class="dash-content">
+
+        <div class="dash-hello">
+          <h2>Payments</h2>
+          <p>Review invoices, outstanding balances, and your saved payment methods.</p>
+        </div>
+
+        <!-- Stats -->
+        <div class="row g-4 mt-1">
+          <div class="col-sm-6 col-xl-3">
+            <div class="stat-card">
+              <span class="stat-icon oxblood"><i class="fa-solid fa-file-invoice-dollar"></i></span>
+              <div class="stat-info">
+                <div class="stat-label">Outstanding</div>
+                <div class="stat-value" data-prefix="$" data-count="4750">0</div>
+                <span class="stat-trend down"><i class="fa-solid fa-arrow-down"></i>Due Aug 12</span>
+              </div>
             </div>
-            <div class="notif-list">
-              <a href="user-notifications.html" class="notif-item text-decoration-none">
-                <span class="notif-icon" style="background:rgba(171,135,82,0.12);color:var(--gold);"><i class="fa-solid fa-calendar-check"></i></span>
-                <div class="notif-text">
-                  <div class="notif-title">Your consultation is confirmed for Aug 6 at 2:00 PM.</div>
-                  <div class="notif-time">30 min ago</div>
+          </div>
+          <div class="col-sm-6 col-xl-3">
+            <div class="stat-card">
+              <span class="stat-icon green"><i class="fa-solid fa-circle-check"></i></span>
+              <div class="stat-info">
+                <div class="stat-label">Paid (Year to Date)</div>
+                <div class="stat-value" data-prefix="$" data-count="38600">0</div>
+                <span class="stat-trend up"><i class="fa-solid fa-arrow-up"></i>+6% vs last year</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-xl-3">
+            <div class="stat-card">
+              <span class="stat-icon navy"><i class="fa-solid fa-receipt"></i></span>
+              <div class="stat-info">
+                <div class="stat-label">Open Invoices</div>
+                <div class="stat-value" data-count="2">0</div>
+                <span class="stat-trend up"><i class="fa-solid fa-arrow-up"></i>1 due this week</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-xl-3">
+            <div class="stat-card">
+              <span class="stat-icon gold"><i class="fa-solid fa-wallet"></i></span>
+              <div class="stat-info">
+                <div class="stat-label">Retainer Balance</div>
+                <div class="stat-value" data-prefix="$" data-count="12500">0</div>
+                <span class="stat-trend up"><i class="fa-solid fa-arrow-up"></i>Platinum retainer</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Methods + make payment -->
+        <div class="row g-4 mt-1">
+          <div class="col-lg-7">
+            <div class="dash-card h-100">
+              <div class="dash-card-head">
+                <h3>Payment Methods</h3>
+                <span class="muted">2 saved methods</span>
+              </div>
+              <div class="pay-method mb-3">
+                <span class="pay-icon"><i class="fa-brands fa-cc-visa"></i></span>
+                <div>
+                  <div style="font-weight:600;color:var(--primary);font-size:0.88rem;">Visa &bull;&bull; 4242</div>
+                  <div class="muted" style="font-size:0.76rem;">Expires 08/2028 &bull; Default method</div>
                 </div>
-              </a>
-              <a href="user-notifications.html" class="notif-item text-decoration-none">
-                <span class="notif-icon" style="background:rgba(12,21,36,0.08);color:var(--primary);"><i class="fa-solid fa-file-lines"></i></span>
-                <div class="notif-text">
-                  <div class="notif-title">New document added to your case file.</div>
-                  <div class="notif-time">3 hours ago</div>
+                <span class="status-badge active ms-auto">Default</span>
+              </div>
+              <div class="pay-method mb-3">
+                <span class="pay-icon"><i class="fa-solid fa-building-columns"></i></span>
+                <div>
+                  <div style="font-weight:600;color:var(--primary);font-size:0.88rem;">Business Bank Account</div>
+                  <div class="muted" style="font-size:0.76rem;">ACH &bull;•• 8821 &bull; Wire details on file</div>
                 </div>
-              </a>
-              <a href="user-notifications.html" class="notif-item text-decoration-none">
-                <span class="notif-icon" style="background:rgba(110,31,42,0.1);color:var(--oxblood);"><i class="fa-solid fa-file-invoice-dollar"></i></span>
-                <div class="notif-text">
-                  <div class="notif-title">Invoice #4821 is ready for review.</div>
-                  <div class="notif-time">Yesterday</div>
+              </div>
+              <div class="pay-method">
+                <span class="pay-icon"><i class="fa-solid fa-plus"></i></span>
+                <div>
+                  <div style="font-weight:600;color:var(--primary);font-size:0.88rem;">Add a Payment Method</div>
+                  <div class="muted" style="font-size:0.76rem;">Card or bank transfer</div>
                 </div>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="dash-dropdown">
-          <button class="avatar-initials md gold-bg" data-dropdown-toggle aria-label="Account menu" style="border:none;cursor:pointer;">JP</button>
-          <div class="dash-dropdown-panel profile-menu">
-            <div class="profile-head">
-              <span class="avatar-initials md gold-bg">JP</span>
-              <div>
-                <div class="name">Jonathan Pierce</div>
-                <div class="role">Preferred Client</div>
+                <button type="button" class="btn btn-outline-primary btn-sm ms-auto">Add</button>
               </div>
             </div>
-            <a href="user-profile.html"><i class="fa-regular fa-user"></i> My Profile</a>
-            <a href="user-settings.html"><i class="fa-solid fa-gear"></i> Account Settings</a>
-            <a href="user-appointments.html"><i class="fa-regular fa-calendar-check"></i> My Appointments</a>
-            <a href="logout.html" class="danger"><i class="fa-solid fa-arrow-right-from-bracket"></i> Sign Out</a>
           </div>
-        </div>
-      </div>
-    </header>
-
-    <!-- Content -->
-    <main class="dash-content">
-
-      <div class="dash-hello d-flex flex-wrap align-items-end justify-content-between gap-3">
-        <div>
-          <h2>Payment History</h2>
-          <p>Review invoices and past payments.</p>
-        </div>
-        <button class="btn btn-gold" onclick="return false;"><i class="fa-solid fa-credit-card me-2"></i>Pay Outstanding</button>
-      </div>
-
-      <!-- Outstanding balance banner -->
-      <div class="dash-card mb-4">
-        <div class="d-flex flex-wrap align-items-center gap-3">
-          <span class="stat-icon gold"><i class="fa-solid fa-file-invoice-dollar"></i></span>
-          <div style="flex:1;min-width:220px;">
-            <h3 style="font-family:var(--font-display);font-size:1.1rem;font-weight:700;color:var(--primary);margin:0 0 0.2rem;">Outstanding Balance</h3>
-            <p style="font-size:0.85rem;color:var(--text-muted);margin:0;">Invoice #4821 &mdash; &dollar;2,450.00 due by Aug 20, 2026.</p>
-          </div>
-          <button class="btn btn-gold" onclick="return false;"><i class="fa-solid fa-credit-card me-2"></i>Pay Now</button>
-        </div>
-      </div>
-
-      <!-- Stat cards -->
-      <div class="row g-3 mb-4">
-        <div class="col-sm-6 col-xl-3">
-          <div class="stat-card">
-            <span class="stat-icon navy"><i class="fa-solid fa-file-invoice-dollar"></i></span>
-            <div class="stat-info">
-              <div class="stat-label">Total Billed</div>
-              <div class="stat-value"><span data-count="18400" data-prefix="$">0</span></div>
-              <span class="stat-trend up"><i class="fa-solid fa-arrow-trend-up"></i> &dollar;2,450 this quarter</span>
+          <div class="col-lg-5">
+            <div class="dash-card h-100">
+              <div class="dash-card-head">
+                <h3>Make a Payment</h3>
+                <span class="muted">Secure &amp; encrypted</span>
+              </div>
+              <form id="makePaymentForm">
+                <div class="mb-3">
+                  <label for="payAmount" class="form-label">Amount</label>
+                  <div class="input-group">
+                    <span class="input-group-text">$</span>
+                    <input type="number" class="form-control" id="payAmount" min="1" step="0.01" placeholder="0.00" required />
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="payMethod" class="form-label">Pay From</label>
+                  <select class="form-select" id="payMethod">
+                    <option>Visa &bull;&bull;&bull;&bull; 4242</option>
+                    <option>Business Bank Account (ACH)</option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label for="payInvoice" class="form-label">Apply To</label>
+                  <select class="form-select" id="payInvoice">
+                    <option>Invoice #2026-084 &mdash; $2,750.00</option>
+                    <option>Invoice #2026-083 &mdash; $2,000.00</option>
+                    <option>Retainer top-up</option>
+                  </select>
+                </div>
+                <button type="submit" class="btn btn-gold w-100"><i class="fa-solid fa-lock me-2"></i>Pay Now</button>
+                <p class="muted mt-3 mb-0" style="font-size:0.76rem;">Payments are processed by a PCI-DSS compliant provider.</p>
+              </form>
             </div>
           </div>
         </div>
-        <div class="col-sm-6 col-xl-3">
-          <div class="stat-card">
-            <span class="stat-icon green"><i class="fa-solid fa-circle-check"></i></span>
-            <div class="stat-info">
-              <div class="stat-label">Total Paid</div>
-              <div class="stat-value"><span data-count="15950" data-prefix="$">0</span></div>
-              <span class="stat-trend up"><i class="fa-solid fa-arrow-trend-up"></i> 86.7% of billed</span>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-xl-3">
-          <div class="stat-card">
-            <span class="stat-icon oxblood"><i class="fa-solid fa-hourglass-half"></i></span>
-            <div class="stat-info">
-              <div class="stat-label">Outstanding</div>
-              <div class="stat-value"><span data-count="2450" data-prefix="$">0</span></div>
-              <span class="stat-trend down"><i class="fa-solid fa-arrow-trend-down"></i> Due Aug 20</span>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-xl-3">
-          <div class="stat-card">
-            <span class="stat-icon gold"><i class="fa-solid fa-receipt"></i></span>
-            <div class="stat-info">
-              <div class="stat-label">Invoices</div>
-              <div class="stat-value"><span data-count="14">0</span></div>
-              <span class="stat-trend up"><i class="fa-solid fa-arrow-trend-up"></i> 1 pending</span>
-            </div>
-          </div>
-        </div>
-      </div>
 
-      <!-- Payment method + summary -->
-      <div class="row g-3 mb-4">
-        <div class="col-lg-4">
-          <div class="dash-card h-100">
-            <div class="dash-card-head">
-              <div>
-                <h3>Payment Method</h3>
-                <span class="muted">Default card on file</span>
+        <!-- Invoice history -->
+        <div class="row g-4 mt-1">
+          <div class="col-12">
+            <div class="dash-card table-card">
+              <div class="table-toolbar">
+                <div class="search-box"><i class="fa-solid fa-magnifying-glass"></i><input type="search" placeholder="Search invoices..." aria-label="Search invoices" data-table-search="invoicesTable" /></div>
+                <select data-filter-col="3" data-table-search="invoicesTable" aria-label="Filter by status">
+                  <option value="">All statuses</option>
+                  <option value="Paid">Paid</option>
+                  <option value="Due">Due</option>
+                  <option value="Overdue">Overdue</option>
+                </select>
+              </div>
+              <div class="dash-table-wrap">
+                <table class="dash-table" id="invoicesTable">
+                  <thead>
+                    <tr>
+                      <th>Invoice</th>
+                      <th>Date</th>
+                      <th>Amount</th>
+                      <th>Status</th>
+                      <th>Matter</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>#2026-084</td>
+                      <td>Aug 1, 2026</td>
+                      <td>$2,750.00</td>
+                      <td><span class="status-badge pending">Due</span></td>
+                      <td>Matter #124</td>
+                    </tr>
+                    <tr>
+                      <td>#2026-083</td>
+                      <td>Jul 22, 2026</td>
+                      <td>$2,000.00</td>
+                      <td><span class="status-badge pending">Due</span></td>
+                      <td>Matter #118</td>
+                    </tr>
+                    <tr>
+                      <td>#2026-081</td>
+                      <td>Aug 4, 2026</td>
+                      <td>$5,000.00</td>
+                      <td><span class="status-badge active">Paid</span></td>
+                      <td>Retainer</td>
+                    </tr>
+                    <tr>
+                      <td>#2026-079</td>
+                      <td>Jun 30, 2026</td>
+                      <td>$1,950.00</td>
+                      <td><span class="status-badge active">Paid</span></td>
+                      <td>Matter #118</td>
+                    </tr>
+                    <tr>
+                      <td>#2026-074</td>
+                      <td>Jun 12, 2026</td>
+                      <td>$3,400.00</td>
+                      <td><span class="status-badge inactive">Overdue</span></td>
+                      <td>Matter #103</td>
+                    </tr>
+                    <tr>
+                      <td>#2026-070</td>
+                      <td>May 28, 2026</td>
+                      <td>$2,800.00</td>
+                      <td><span class="status-badge active">Paid</span></td>
+                      <td>Matter #124</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="dash-pagination" data-pagination="invoicesTable" data-per-page="5">
+                <span class="info"></span>
+                <div class="pages"></div>
               </div>
             </div>
-            <div class="pay-method">
-              <span class="pay-icon"><i class="fa-solid fa-credit-card"></i></span>
-              <div style="flex:1;min-width:0;">
-                <div style="font-size:0.9rem;font-weight:600;color:var(--primary);">Visa &bull;&bull;&bull;&bull; 4412</div>
-                <div style="font-size:0.76rem;color:var(--text-muted);">Expires 08/2028</div>
-              </div>
-              <span class="status-badge active">Default</span>
-            </div>
-            <div class="d-flex flex-wrap align-items-center gap-3 mt-3">
-              <button class="btn btn-outline-primary" style="padding:0.5rem 1.1rem;font-size:0.82rem;" onclick="return false;"><i class="fa-solid fa-plus me-2"></i>Add Payment Method</button>
-              <a href="#" class="btn-link text-decoration-none" style="font-size:0.8rem;font-weight:600;color:var(--gold);" onclick="return false;">Manage Cards</a>
-            </div>
           </div>
         </div>
 
-        <div class="col-lg-8">
-          <div class="dash-card h-100">
-            <div class="dash-card-head">
-              <div>
-                <h3>Payment Summary</h3>
-                <span class="muted">2026 billing breakdown</span>
-              </div>
-            </div>
-            <div class="analytics-widget">
-              <div class="row-line"><span class="label"><i class="fa-solid fa-circle-check me-2" style="color:#2E7D32;"></i>Total Paid</span><span class="value">&dollar;15,950 &middot; 87%</span></div>
-              <div class="progress"><div class="progress-bar green" style="width:87%;"></div></div>
-            </div>
-            <div class="analytics-widget">
-              <div class="row-line"><span class="label"><i class="fa-solid fa-hourglass-half me-2" style="color:var(--gold);"></i>Pending</span><span class="value">&dollar;2,450 &middot; 13%</span></div>
-              <div class="progress"><div class="progress-bar" style="width:13%;"></div></div>
-            </div>
-            <div class="analytics-widget mb-0">
-              <div class="row-line"><span class="label"><i class="fa-solid fa-rotate-left me-2" style="color:var(--primary);"></i>Refunds</span><span class="value">&dollar;400 &middot; 2%</span></div>
-              <div class="progress"><div class="progress-bar navy" style="width:2%;"></div></div>
-            </div>
-            <p style="font-size:0.76rem;color:var(--text-light);margin-top:1rem;margin-bottom:0;">Pending reflects Invoice #4821, due by Aug 20, 2026.</p>
-          </div>
-        </div>
       </div>
-
-      <!-- Invoices table -->
-      <div class="dash-card table-card mb-4">
-        <div class="table-toolbar">
-          <h3 style="font-family:var(--font-display);font-size:1.05rem;font-weight:700;color:var(--primary);margin:0;">Invoices</h3>
-          <div class="search-box">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <input type="search" placeholder="Search invoices..." data-table-search="invoicesTable" aria-label="Search invoices" />
-          </div>
-          <select data-filter-col="4" data-table-search="invoicesTable" aria-label="Filter by status">
-            <option value="">All statuses</option>
-            <option value="Paid">Paid</option>
-            <option value="Pending">Pending</option>
-            <option value="Overdue">Overdue</option>
-          </select>
-        </div>
-
-        <div class="dash-table-wrap">
-          <table class="dash-table" id="invoicesTable">
-            <thead>
-              <tr>
-                <th>Invoice</th>
-                <th>Date</th>
-                <th>Description</th>
-                <th>Amount</th>
-                <th>Status</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><div class="user-cell"><span class="avatar-initials sm gold-bg"><i class="fa-solid fa-file-invoice-dollar"></i></span><div><div class="name">#4821</div><div class="email">Corporate compliance</div></div></div></td>
-                <td>Aug 28</td>
-                <td>Corporate compliance consultation</td>
-                <td>&dollar;2,450.00</td>
-                <td><span class="status-badge pending">Pending</span></td>
-                <td><div class="table-actions"><button aria-label="Download"><i class="fa-solid fa-download"></i></button><button aria-label="View"><i class="fa-regular fa-eye"></i></button></div></td>
-              </tr>
-              <tr>
-                <td><div class="user-cell"><span class="avatar-initials sm" style="background:var(--primary);"><i class="fa-solid fa-file-invoice-dollar"></i></span><div><div class="name">#4786</div><div class="email">Contract review</div></div></div></td>
-                <td>Aug 12</td>
-                <td>Contract review &mdash; Phase II</td>
-                <td>&dollar;3,200.00</td>
-                <td><span class="status-badge active">Paid</span></td>
-                <td><div class="table-actions"><button aria-label="Download"><i class="fa-solid fa-download"></i></button><button aria-label="View"><i class="fa-regular fa-eye"></i></button></div></td>
-              </tr>
-              <tr>
-                <td><div class="user-cell"><span class="avatar-initials sm" style="background:#2E7D32;"><i class="fa-solid fa-file-invoice-dollar"></i></span><div><div class="name">#4754</div><div class="email">Intellectual property</div></div></div></td>
-                <td>Jul 30</td>
-                <td>Trademark filing &mdash; USPTO</td>
-                <td>&dollar;1,850.00</td>
-                <td><span class="status-badge active">Paid</span></td>
-                <td><div class="table-actions"><button aria-label="Download"><i class="fa-solid fa-download"></i></button><button aria-label="View"><i class="fa-regular fa-eye"></i></button></div></td>
-              </tr>
-              <tr>
-                <td><div class="user-cell"><span class="avatar-initials sm oxblood-bg"><i class="fa-solid fa-file-invoice-dollar"></i></span><div><div class="name">#4721</div><div class="email">M&amp;A advisory</div></div></div></td>
-                <td>Jul 15</td>
-                <td>M&amp;A due diligence retainer</td>
-                <td>&dollar;12,400.00</td>
-                <td><span class="status-badge active">Paid</span></td>
-                <td><div class="table-actions"><button aria-label="Download"><i class="fa-solid fa-download"></i></button><button aria-label="View"><i class="fa-regular fa-eye"></i></button></div></td>
-              </tr>
-              <tr>
-                <td><div class="user-cell"><span class="avatar-initials sm gold-bg"><i class="fa-solid fa-file-invoice-dollar"></i></span><div><div class="name">#4690</div><div class="email">Compliance advisory</div></div></div></td>
-                <td>Jun 28</td>
-                <td>Compliance advisory session</td>
-                <td>&dollar;950.00</td>
-                <td><span class="status-badge active">Paid</span></td>
-                <td><div class="table-actions"><button aria-label="Download"><i class="fa-solid fa-download"></i></button><button aria-label="View"><i class="fa-regular fa-eye"></i></button></div></td>
-              </tr>
-              <tr>
-                <td><div class="user-cell"><span class="avatar-initials sm" style="background:var(--primary);"><i class="fa-solid fa-file-invoice-dollar"></i></span><div><div class="name">#4655</div><div class="email">Corporate governance</div></div></div></td>
-                <td>Jun 10</td>
-                <td>Corporate governance counsel</td>
-                <td>&dollar;2,100.00</td>
-                <td><span class="status-badge active">Paid</span></td>
-                <td><div class="table-actions"><button aria-label="Download"><i class="fa-solid fa-download"></i></button><button aria-label="View"><i class="fa-regular fa-eye"></i></button></div></td>
-              </tr>
-              <tr>
-                <td><div class="user-cell"><span class="avatar-initials sm" style="background:#6B7280;"><i class="fa-solid fa-file-invoice-dollar"></i></span><div><div class="name">#4620</div><div class="email">Employment law</div></div></div></td>
-                <td>May 22</td>
-                <td>Employment contract review</td>
-                <td>&dollar;780.00</td>
-                <td><span class="status-badge cancelled">Overdue</span></td>
-                <td><div class="table-actions"><button aria-label="Download"><i class="fa-solid fa-download"></i></button><button aria-label="View"><i class="fa-regular fa-eye"></i></button></div></td>
-              </tr>
-              <tr>
-                <td><div class="user-cell"><span class="avatar-initials sm oxblood-bg"><i class="fa-solid fa-file-invoice-dollar"></i></span><div><div class="name">#4598</div><div class="email">Legal consultation</div></div></div></td>
-                <td>May 8</td>
-                <td>Legal consultation &mdash; retainer</td>
-                <td>&dollar;1,430.00</td>
-                <td><span class="status-badge active">Paid</span></td>
-                <td><div class="table-actions"><button aria-label="Download"><i class="fa-solid fa-download"></i></button><button aria-label="View"><i class="fa-regular fa-eye"></i></button></div></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div class="dash-pagination" data-pagination="invoicesTable" data-per-page="5">
-          <span class="info"></span>
-          <div class="pages"></div>
-          <div style="display:flex;gap:0.3rem;">
-            <button class="page-btn" data-page="prev" aria-label="Previous page"><i class="fa-solid fa-chevron-left"></i></button>
-            <button class="page-btn" data-page="next" aria-label="Next page"><i class="fa-solid fa-chevron-right"></i></button>
-          </div>
-        </div>
-      </div>
-
     </main>
-
-    <!-- Footer -->
-    <footer style="border-top:1px solid rgba(12,21,36,0.06);padding:1.25rem 1.75rem;font-size:0.78rem;color:var(--text-light);display:flex;flex-wrap:wrap;gap:0.5rem;justify-content:space-between;">
-      <span>&copy; 2026 Stackly LLP. All rights reserved.</span>
-      <span><a href="index.html" class="text-decoration-none" style="color:var(--gold);">Back to Website</a> &middot; <a href="#" class="text-decoration-none" style="color:var(--text-light);">Privacy</a> &middot; <a href="#" class="text-decoration-none" style="color:var(--text-light);">Terms</a></span>
-    </footer>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="assets/js/dashboard.js"></script>
+  <script src="assets/js/validation.js"></script>
 </body>
 </html>

@@ -11,7 +11,6 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
   <link rel="stylesheet" href="assets/css/style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
 </head>
 <body>
 
@@ -21,7 +20,7 @@
       <a class="navbar-brand" href="index.html"><img src="assets/img/logo.webp" alt="Stackly" /></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"><i class="fa-solid fa-bars"></i></button>
       <div class="collapse navbar-collapse" id="navMenu">
-        <ul class="navbar-nav align-items-lg-center">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
           <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
           <li class="nav-item"><a class="nav-link active" href="about.html">About</a></li>
           <li class="nav-item"><a class="nav-link" href="practice-areas.html">Practice Areas</a></li>
@@ -29,19 +28,19 @@
           <li class="nav-item"><a class="nav-link" href="insights.html">Insights</a></li>
           <li class="nav-item"><a class="nav-link" href="careers.html">Careers</a></li>
           <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          <li class="nav-item ms-lg-2"><a class="nav-link nav-cta" href="login.html"><i class="fa-solid fa-arrow-right-to-bracket me-2"></i>Login</a></li>
         </ul>
-        <div class="navbar-login"><a class="nav-link nav-cta" href="login.html"><i class="fa-solid fa-arrow-right-to-bracket me-2"></i>Login</a></div>
       </div>
     </div>
   </nav>
 
   <!-- Page Banner -->
-  <section class="page-banner">
+  <section class="page-banner page-banner-about">
     <div class="page-banner-bg"></div>
     <div class="page-banner-overlay"></div>
     <div class="container">
-      <h1>About the Firm</h1>
-      <nav aria-label="breadcrumb" data-aos="fade-up" data-aos-delay="100"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="index.html">Home</a></li><li class="breadcrumb-item active" aria-current="page">About Us</li></ol></nav>
+      <h1 class="gsap-fade">About the Firm</h1>
+      <nav aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="index.html">Home</a></li><li class="breadcrumb-item active" aria-current="page">About Us</li></ol></nav>
     </div>
   </section>
 
@@ -50,20 +49,20 @@
     <div class="container">
       <div class="row g-5 align-items-center">
         <div class="col-lg-6">
-          <div class="about-img-wrapper -left" data-aos="fade-left">
+          <div class="about-img-wrapper gsap-fade-left">
             <img src="assets/img/a2.webp" alt="Firm" loading="lazy" />
             <div class="about-experience-badge"><div class="number">26+</div><div class="label">Years of Excellence</div></div>
           </div>
         </div>
         <div class="col-lg-5 offset-lg-1">
-          <span class="section-label" data-aos="fade-up">Company Overview</span>
-          <h2 class="section-title">A Legacy of<br/>Legal Excellence.</h2>
-          <p class="section-subtitle mt-3" data-aos="fade-up">Founded in 1998, Stackly has grown from a boutique Manhattan practice into a global law firm with 50+ attorneys across 14 countries. We combine the precision of a white-shoe firm with the agility of a modern legal practice.</p>
-          <p class="section-subtitle mt-2" data-aos="fade-up">Our clients include Fortune 500 corporations, emerging growth companies, financial institutions, and high-net-worth individuals. We are consistently ranked among the top corporate law firms by Chambers &amp; Partners and The Legal 500.</p>
+          <span class="section-label gsap-fade">Company Overview</span>
+          <h2 class="section-title gsap-fade">A Legacy of<br/>Legal Excellence.</h2>
+          <p class="section-subtitle mt-3 gsap-fade">Founded in 1998, Stackly has grown from a boutique Manhattan practice into a global law firm with 50+ attorneys across 14 countries. We combine the precision of a white-shoe firm with the agility of a modern legal practice.</p>
+          <p class="section-subtitle mt-2 gsap-fade">Our clients include Fortune 500 corporations, emerging growth companies, financial institutions, and high-net-worth individuals. We are consistently ranked among the top corporate law firms by Chambers &amp; Partners and The Legal 500.</p>
           <div class="row g-4 mt-3">
-            <div class="col-4" data-aos="fade-up"><h3 class="display-heading" style="font-size:2rem;"><span data-count="50">0</span>+</h3><p style="font-size:0.82rem;color:var(--text);margin:0;">Attorneys</p></div>
-            <div class="col-4" data-aos="fade-up"><h3 class="display-heading" style="font-size:2rem;"><span data-count="14">0</span></h3><p style="font-size:0.82rem;color:var(--text);margin:0;">Countries</p></div>
-            <div class="col-4" data-aos="fade-up"><h3 class="display-heading" style="font-size:2rem;"><span data-count="9">0</span></h3><p style="font-size:0.82rem;color:var(--text);margin:0;">Global Offices</p></div>
+            <div class="col-4 gsap-fade"><h3 class="display-heading" style="font-size:2rem;"><span data-count="50">0</span>+</h3><p style="font-size:0.82rem;color:var(--text);margin:0;">Attorneys</p></div>
+            <div class="col-4 gsap-fade"><h3 class="display-heading" style="font-size:2rem;"><span data-count="14">0</span></h3><p style="font-size:0.82rem;color:var(--text);margin:0;">Countries</p></div>
+            <div class="col-4 gsap-fade"><h3 class="display-heading" style="font-size:2rem;"><span data-count="9">0</span></h3><p style="font-size:0.82rem;color:var(--text);margin:0;">Global Offices</p></div>
           </div>
         </div>
       </div>
@@ -74,18 +73,22 @@
   <section class="section-padding">
     <div class="container">
       <div class="row g-4">
-        <div class="col-md-6" data-aos="fade-up">
-          <div class="mission-vision-card mission-vision-card--text">
-            <div class="icon"><i class="fa-solid fa-bullseye"></i></div>
-            <h4>Our Mission</h4>
-            <p>To deliver exceptional, results-driven legal counsel that empowers our clients to navigate complex business environments with confidence. We are committed to integrity, innovation, and unwavering client service.</p>
+        <div class="col-md-6 gsap-fade">
+          <div class="mission-vision-card card-image-top">
+            <div class="card-body">
+              <div class="icon"><i class="fa-solid fa-bullseye"></i></div>
+              <h4>Our Mission</h4>
+              <p>To deliver exceptional, results-driven legal counsel that empowers our clients to navigate complex business environments with confidence. We are committed to integrity, innovation, and unwavering client service.</p>
+            </div>
           </div>
         </div>
-        <div class="col-md-6" data-aos="fade-up">
-          <div class="mission-vision-card mission-vision-card--text">
-            <div class="icon"><i class="fa-solid fa-eye"></i></div>
-            <h4>Our Vision</h4>
-            <p>To be the world's most trusted corporate law firm — setting the standard for legal excellence, diversity, and client partnership. We envision a firm where boundaryless collaboration and cutting-edge legal thinking converge.</p>
+        <div class="col-md-6 gsap-fade">
+          <div class="mission-vision-card card-image-top">
+            <div class="card-body">
+              <div class="icon"><i class="fa-solid fa-eye"></i></div>
+              <h4>Our Vision</h4>
+              <p>To be the world's most trusted corporate law firm — setting the standard for legal excellence, diversity, and client partnership. We envision a firm where boundaryless collaboration and cutting-edge legal thinking converge.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -96,22 +99,22 @@
   <section class="section-padding bg-navy-800">
     <div class="container">
       <div class="text-center mb-5">
-        <span class="section-label" data-aos="fade-up">What We Stand For</span>
-        <h2 class="section-title">Core Values</h2>
-        <p class="section-subtitle mx-auto mt-2" data-aos="fade-up">The principles that guide every engagement and define our firm's character.</p>
+        <span class="section-label gsap-fade">What We Stand For</span>
+        <h2 class="section-title gsap-fade">Core Values</h2>
+        <p class="section-subtitle mx-auto mt-2 gsap-fade">The principles that guide every engagement and define our firm's character.</p>
       </div>
       <div class="row g-4">
-        <div class="col-md-6 col-lg-3" data-aos="fade-up">
-          <div class="value-item value-item--text"><div class="icon"><i class="fa-solid fa-handshake"></i></div><h5>Integrity First</h5><p>Uncompromising ethical standards in every matter we handle.</p></div>
+        <div class="col-md-6 col-lg-3 gsap-fade">
+          <div class="value-item card-image-top"><div class="card-body"><div class="icon"><i class="fa-solid fa-handshake"></i></div><h5>Integrity First</h5><p>Uncompromising ethical standards in every matter we handle.</p></div></div>
         </div>
-        <div class="col-md-6 col-lg-3" data-aos="fade-up">
-          <div class="value-item value-item--text"><div class="icon"><i class="fa-solid fa-lightbulb"></i></div><h5>Innovation</h5><p>Forward-thinking legal strategies that anticipate tomorrow's challenges.</p></div>
+        <div class="col-md-6 col-lg-3 gsap-fade">
+          <div class="value-item card-image-top"><div class="card-body"><div class="icon"><i class="fa-solid fa-lightbulb"></i></div><h5>Innovation</h5><p>Forward-thinking legal strategies that anticipate tomorrow's challenges.</p></div></div>
         </div>
-        <div class="col-md-6 col-lg-3" data-aos="fade-up">
-          <div class="value-item value-item--text"><div class="icon"><i class="fa-solid fa-users"></i></div><h5>Collaboration</h5><p>Seamless teamwork across practices, offices, and borders.</p></div>
+        <div class="col-md-6 col-lg-3 gsap-fade">
+          <div class="value-item card-image-top"><div class="card-body"><div class="icon"><i class="fa-solid fa-users"></i></div><h5>Collaboration</h5><p>Seamless teamwork across practices, offices, and borders.</p></div></div>
         </div>
-        <div class="col-md-6 col-lg-3" data-aos="fade-up">
-          <div class="value-item value-item--text"><div class="icon"><i class="fa-solid fa-scale-balanced"></i></div><h5>Excellence</h5><p>Relentless pursuit of the highest quality in legal work product.</p></div>
+        <div class="col-md-6 col-lg-3 gsap-fade">
+          <div class="value-item card-image-top"><div class="card-body"><div class="icon"><i class="fa-solid fa-scale-balanced"></i></div><h5>Excellence</h5><p>Relentless pursuit of the highest quality in legal work product.</p></div></div>
         </div>
       </div>
     </div>
@@ -122,18 +125,18 @@
     <div class="container">
       <div class="row g-5">
         <div class="col-lg-4">
-          <span class="section-label" data-aos="fade-up">Our Journey</span>
-          <h2 class="section-title">Firm History</h2>
-          <p class="section-subtitle mt-2" data-aos="fade-up">From a two-attorney partnership to a global legal powerhouse — our story is one of relentless growth and unwavering commitment.</p>
+          <span class="section-label gsap-fade">Our Journey</span>
+          <h2 class="section-title gsap-fade">Firm History</h2>
+          <p class="section-subtitle mt-2 gsap-fade">From a two-attorney partnership to a global legal powerhouse — our story is one of relentless growth and unwavering commitment.</p>
         </div>
         <div class="col-lg-7 offset-lg-1">
           <div class="timeline">
-            <div class="timeline-item" data-aos="fade-up"><div class="year">1998</div><h5>Founded in New York</h5><p>James Stackly and Margaret Chen establish the firm with a vision to provide premium corporate counsel with a personal touch.</p></div>
-            <div class="timeline-item" data-aos="fade-up"><div class="year">2003</div><h5>First International Office</h5><p>Opened our London office to serve growing cross-border client needs, expanding into UK and EU markets.</p></div>
-            <div class="timeline-item" data-aos="fade-up"><div class="year">2008</div><h5>M&A Practice Launch</h5><p>Formalized our Mergers &amp; Acquisitions practice, which quickly became a top-tier practice by deal volume.</p></div>
-            <div class="timeline-item" data-aos="fade-up"><div class="year">2012</div><h5>Asia-Pacific Expansion</h5><p>Opened offices in Singapore and Hong Kong, establishing a strong presence across APAC markets.</p></div>
-            <div class="timeline-item" data-aos="fade-up"><div class="year">2018</div><h5>50 Attorneys Milestone</h5><p>Reached 50 attorneys firm-wide and recognized as a top corporate law firm by Chambers &amp; Partners.</p></div>
-            <div class="timeline-item" data-aos="fade-up"><div class="year">2024</div><h5>Global Leadership</h5><p>Expanded to 9 offices across 14 countries, serving over 500 corporate clients with 50+ specialized attorneys.</p></div>
+            <div class="timeline-item gsap-fade"><div class="year">1998</div><h5>Founded in New York</h5><p>James Stackly and Margaret Chen establish the firm with a vision to provide premium corporate counsel with a personal touch.</p></div>
+            <div class="timeline-item gsap-fade"><div class="year">2003</div><h5>First International Office</h5><p>Opened our London office to serve growing cross-border client needs, expanding into UK and EU markets.</p></div>
+            <div class="timeline-item gsap-fade"><div class="year">2008</div><h5>M&A Practice Launch</h5><p>Formalized our Mergers &amp; Acquisitions practice, which quickly became a top-tier practice by deal volume.</p></div>
+            <div class="timeline-item gsap-fade"><div class="year">2012</div><h5>Asia-Pacific Expansion</h5><p>Opened offices in Singapore and Hong Kong, establishing a strong presence across APAC markets.</p></div>
+            <div class="timeline-item gsap-fade"><div class="year">2018</div><h5>50 Attorneys Milestone</h5><p>Reached 50 attorneys firm-wide and recognized as a top corporate law firm by Chambers &amp; Partners.</p></div>
+            <div class="timeline-item gsap-fade"><div class="year">2024</div><h5>Global Leadership</h5><p>Expanded to 9 offices across 14 countries, serving over 500 corporate clients with 50+ specialized attorneys.</p></div>
           </div>
         </div>
       </div>
@@ -144,22 +147,22 @@
   <section class="section-padding bg-navy-800">
     <div class="container">
       <div class="text-center mb-5">
-        <span class="section-label" data-aos="fade-up">Recognition</span>
-        <h2 class="section-title">Awards &amp; Accolades</h2>
-        <p class="section-subtitle mx-auto mt-2" data-aos="fade-up">Our commitment to excellence has earned us recognition from the industry's most prestigious ranking organizations.</p>
+        <span class="section-label gsap-fade">Recognition</span>
+        <h2 class="section-title gsap-fade">Awards &amp; Accolades</h2>
+        <p class="section-subtitle mx-auto mt-2 gsap-fade">Our commitment to excellence has earned us recognition from the industry's most prestigious ranking organizations.</p>
       </div>
       <div class="row g-4">
-        <div class="col-md-6 col-lg-3" data-aos="fade-up">
-          <div class="value-item value-item--text"><div class="icon"><i class="fa-solid fa-trophy"></i></div><h5>Chambers &amp; Partners</h5><p>Top-Tier Corporate Law Firm (2018–2026). Recognized for excellence in M&amp;A, corporate governance, and cross-border litigation.</p></div>
+        <div class="col-md-6 col-lg-3 gsap-fade">
+          <div class="value-item card-image-top"><div class="card-body"><div class="icon"><i class="fa-solid fa-trophy"></i></div><h5>Chambers &amp; Partners</h5><p>Top-Tier Corporate Law Firm (2018–2026). Recognized for excellence in M&amp;A, corporate governance, and cross-border litigation.</p></div></div>
         </div>
-        <div class="col-md-6 col-lg-3" data-aos="fade-up">
-          <div class="value-item value-item--text"><div class="icon"><i class="fa-solid fa-medal"></i></div><h5>The Legal 500</h5><p>Leading Firm in Commercial Litigation, Intellectual Property, and Regulatory Compliance for seven consecutive years.</p></div>
+        <div class="col-md-6 col-lg-3 gsap-fade">
+          <div class="value-item card-image-top"><div class="card-body"><div class="icon"><i class="fa-solid fa-medal"></i></div><h5>The Legal 500</h5><p>Leading Firm in Commercial Litigation, Intellectual Property, and Regulatory Compliance for seven consecutive years.</p></div></div>
         </div>
-        <div class="col-md-6 col-lg-3" data-aos="fade-up">
-          <div class="value-item value-item--text"><div class="icon"><i class="fa-solid fa-star"></i></div><h5>Best Law Firms</h5><p>National Tier 1 ranking in Corporate Law, Tax Law, and International Arbitration by U.S. News &amp; World Report.</p></div>
+        <div class="col-md-6 col-lg-3 gsap-fade">
+          <div class="value-item card-image-top"><div class="card-body"><div class="icon"><i class="fa-solid fa-star"></i></div><h5>Best Law Firms</h5><p>National Tier 1 ranking in Corporate Law, Tax Law, and International Arbitration by U.S. News &amp; World Report.</p></div></div>
         </div>
-        <div class="col-md-6 col-lg-3" data-aos="fade-up">
-          <div class="value-item value-item--text"><div class="icon"><i class="fa-solid fa-award"></i></div><h5>Super Lawyers</h5><p>Over 30 attorneys recognized as Rising Stars or Super Lawyers across multiple practice areas in 2025.</p></div>
+        <div class="col-md-6 col-lg-3 gsap-fade">
+          <div class="value-item card-image-top"><div class="card-body"><div class="icon"><i class="fa-solid fa-award"></i></div><h5>Super Lawyers</h5><p>Over 30 attorneys recognized as Rising Stars or Super Lawyers across multiple practice areas in 2025.</p></div></div>
         </div>
       </div>
     </div>
@@ -169,22 +172,22 @@
   <section class="section-padding">
     <div class="container">
       <div class="text-center mb-5">
-        <span class="section-label" data-aos="fade-up">Diversity &amp; Inclusion</span>
-        <h2 class="section-title">Building an Inclusive Future</h2>
-        <p class="section-subtitle mx-auto mt-2" data-aos="fade-up">We believe diverse teams deliver superior results. Our D&amp;I initiatives are embedded in every aspect of our firm.</p>
+        <span class="section-label gsap-fade">Diversity &amp; Inclusion</span>
+        <h2 class="section-title gsap-fade">Building an Inclusive Future</h2>
+        <p class="section-subtitle mx-auto mt-2 gsap-fade">We believe diverse teams deliver superior results. Our D&amp;I initiatives are embedded in every aspect of our firm.</p>
       </div>
       <div class="row g-4">
-        <div class="col-md-6 col-lg-3" data-aos="fade-up">
-          <div class="mission-vision-card mission-vision-card--text"><div class="icon"><i class="fa-solid fa-scale-balanced"></i></div><h4>Equity in Leadership</h4><p>40% of partnership positions held by women and underrepresented groups, with measurable annual progress toward parity.</p></div>
+        <div class="col-md-6 col-lg-3 gsap-fade">
+          <div class="mission-vision-card text-center card-image-top"><div class="card-body"><div class="icon"><i class="fa-solid fa-scale-balanced"></i></div><h4>Equity in Leadership</h4><p>40% of partnership positions held by women and underrepresented groups, with measurable annual progress toward parity.</p></div></div>
         </div>
-        <div class="col-md-6 col-lg-3" data-aos="fade-up">
-          <div class="mission-vision-card mission-vision-card--text"><div class="icon"><i class="fa-solid fa-users"></i></div><h4>Diverse Hiring</h4><p>Pipeline programs with 15+ law schools ensure a diverse candidate pool for every open position across all offices.</p></div>
+        <div class="col-md-6 col-lg-3 gsap-fade">
+          <div class="mission-vision-card text-center card-image-top"><div class="card-body"><div class="icon"><i class="fa-solid fa-users"></i></div><h4>Diverse Hiring</h4><p>Pipeline programs with 15+ law schools ensure a diverse candidate pool for every open position across all offices.</p></div></div>
         </div>
-        <div class="col-md-6 col-lg-3" data-aos="fade-up">
-          <div class="mission-vision-card mission-vision-card--text"><div class="icon"><i class="fa-solid fa-hand-holding-heart"></i></div><h4>Inclusive Culture</h4><p>Employee resource groups, mentorship circles, and firm-wide inclusion training create a culture where everyone belongs.</p></div>
+        <div class="col-md-6 col-lg-3 gsap-fade">
+          <div class="mission-vision-card text-center card-image-top"><div class="card-body"><div class="icon"><i class="fa-solid fa-hand-holding-heart"></i></div><h4>Inclusive Culture</h4><p>Employee resource groups, mentorship circles, and firm-wide inclusion training create a culture where everyone belongs.</p></div></div>
         </div>
-        <div class="col-md-6 col-lg-3" data-aos="fade-up">
-          <div class="mission-vision-card mission-vision-card--text"><div class="icon"><i class="fa-solid fa-gavel"></i></div><h4>Diverse Counsel Pledge</h4><p>Signatory to the Diversity in Law Pledge, committing to diverse staffing on every client engagement and matter team.</p></div>
+        <div class="col-md-6 col-lg-3 gsap-fade">
+          <div class="mission-vision-card text-center card-image-top"><div class="card-body"><div class="icon"><i class="fa-solid fa-gavel"></i></div><h4>Diverse Counsel Pledge</h4><p>Signatory to the Diversity in Law Pledge, committing to diverse staffing on every client engagement and matter team.</p></div></div>
         </div>
       </div>
     </div>
@@ -194,22 +197,22 @@
   <section class="section-padding bg-navy-800">
     <div class="container">
       <div class="text-center mb-5">
-        <span class="section-label" data-aos="fade-up">Community Impact</span>
-        <h2 class="section-title">Giving Back</h2>
-        <p class="section-subtitle mx-auto mt-2" data-aos="fade-up">We dedicate thousands of hours annually to pro bono work and community initiatives that create meaningful change.</p>
+        <span class="section-label gsap-fade">Community Impact</span>
+        <h2 class="section-title gsap-fade">Giving Back</h2>
+        <p class="section-subtitle mx-auto mt-2 gsap-fade">We dedicate thousands of hours annually to pro bono work and community initiatives that create meaningful change.</p>
       </div>
       <div class="row g-4">
-        <div class="col-md-6 col-lg-3" data-aos="fade-up">
-          <div class="value-item value-item--text"><div class="icon"><i class="fa-solid fa-gavel"></i></div><h5>Pro Bono Legal Services</h5><p>Over 5,000 hours of pro bono legal services annually for underserved individuals and nonprofit organizations.</p></div>
+        <div class="col-md-6 col-lg-3 gsap-fade">
+          <div class="value-item card-image-top"><div class="card-body"><div class="icon"><i class="fa-solid fa-gavel"></i></div><h5>Pro Bono Legal Services</h5><p>Over 5,000 hours of pro bono legal services annually for underserved individuals and nonprofit organizations.</p></div></div>
         </div>
-        <div class="col-md-6 col-lg-3" data-aos="fade-up">
-          <div class="value-item value-item--text"><div class="icon"><i class="fa-solid fa-graduation-cap"></i></div><h5>Youth Mentorship</h5><p>Summer law institute and mentorship program for high school students from underrepresented backgrounds interested in legal careers.</p></div>
+        <div class="col-md-6 col-lg-3 gsap-fade">
+          <div class="value-item card-image-top"><div class="card-body"><div class="icon"><i class="fa-solid fa-graduation-cap"></i></div><h5>Youth Mentorship</h5><p>Summer law institute and mentorship program for high school students from underrepresented backgrounds interested in legal careers.</p></div></div>
         </div>
-        <div class="col-md-6 col-lg-3" data-aos="fade-up">
-          <div class="value-item value-item--text"><div class="icon"><i class="fa-solid fa-hand-holding-hand"></i></div><h5>Non-Profit Partnerships</h5><p>Ongoing partnerships with Legal Aid Society, ACLU, and 20+ local non-profits providing free legal counsel and board service.</p></div>
+        <div class="col-md-6 col-lg-3 gsap-fade">
+          <div class="value-item card-image-top"><div class="card-body"><div class="icon"><i class="fa-solid fa-hand-holding-hand"></i></div><h5>Non-Profit Partnerships</h5><p>Ongoing partnerships with Legal Aid Society, ACLU, and 20+ local non-profits providing free legal counsel and board service.</p></div></div>
         </div>
-        <div class="col-md-6 col-lg-3" data-aos="fade-up">
-          <div class="value-item value-item--text"><div class="icon"><i class="fa-solid fa-tree"></i></div><h5>Sustainability Initiative</h5><p>Carbon-neutral operations since 2023, paperless office initiative, and firm-wide commitment to environmental sustainability.</p></div>
+        <div class="col-md-6 col-lg-3 gsap-fade">
+          <div class="value-item card-image-top"><div class="card-body"><div class="icon"><i class="fa-solid fa-tree"></i></div><h5>Sustainability Initiative</h5><p>Carbon-neutral operations since 2023, paperless office initiative, and firm-wide commitment to environmental sustainability.</p></div></div>
         </div>
       </div>
     </div>
@@ -219,22 +222,22 @@
   <section class="section-padding">
     <div class="container">
       <div class="text-center mb-5">
-        <span class="section-label" data-aos="fade-up">Global Reach</span>
-        <h2 class="section-title">Our Offices</h2>
-        <p class="section-subtitle mx-auto mt-2" data-aos="fade-up">With 9 offices across 14 countries, we provide world-class legal counsel in every major economic region.</p>
+        <span class="section-label gsap-fade">Global Reach</span>
+        <h2 class="section-title gsap-fade">Our Offices</h2>
+        <p class="section-subtitle mx-auto mt-2 gsap-fade">With 9 offices across 14 countries, we provide world-class legal counsel in every major economic region.</p>
       </div>
       <div class="row g-4">
-        <div class="col-sm-6 col-lg-3" data-aos="fade-up">
-          <div class="value-item value-item--text"><div class="icon"><i class="fa-solid fa-building-columns"></i></div><h5>New York</h5><p><strong>Global Headquarters</strong><br/>120 Broadway, Suite 2100<br/>New York, NY 10271<br/>+1 (212) 555-0900</p></div>
+        <div class="col-sm-6 col-lg-3 gsap-fade">
+          <div class="value-item card-image-top"><div class="card-body"><div class="icon"><i class="fa-solid fa-building-columns"></i></div><h5>New York</h5><p><strong>Global Headquarters</strong><br/>120 Broadway, Suite 2100<br/>New York, NY 10271<br/>+1 (212) 555-0900</p></div></div>
         </div>
-        <div class="col-sm-6 col-lg-3" data-aos="fade-up">
-          <div class="value-item value-item--text"><div class="icon"><i class="fa-solid fa-landmark"></i></div><h5>London</h5><p><strong>Europe HQ</strong><br/>30 St Mary Axe<br/>London EC3A 8BF<br/>+44 (20) 7555-1200</p></div>
+        <div class="col-sm-6 col-lg-3 gsap-fade">
+          <div class="value-item card-image-top"><div class="card-body"><div class="icon"><i class="fa-solid fa-landmark"></i></div><h5>London</h5><p><strong>Europe HQ</strong><br/>30 St Mary Axe<br/>London EC3A 8BF<br/>+44 (20) 7555-1200</p></div></div>
         </div>
-        <div class="col-sm-6 col-lg-3" data-aos="fade-up">
-          <div class="value-item value-item--text"><div class="icon"><i class="fa-solid fa-city"></i></div><h5>Singapore</h5><p><strong>Asia-Pacific HQ</strong><br/>1 Raffles Place, #28-00<br/>Singapore 048616<br/>+65 6555 8900</p></div>
+        <div class="col-sm-6 col-lg-3 gsap-fade">
+          <div class="value-item card-image-top"><div class="card-body"><div class="icon"><i class="fa-solid fa-city"></i></div><h5>Singapore</h5><p><strong>Asia-Pacific HQ</strong><br/>1 Raffles Place, #28-00<br/>Singapore 048616<br/>+65 6555 8900</p></div></div>
         </div>
-        <div class="col-sm-6 col-lg-3" data-aos="fade-up">
-          <div class="value-item value-item--text"><div class="icon"><i class="fa-solid fa-mosque"></i></div><h5>Dubai</h5><p><strong>Middle East Office</strong><br/>Dubai International Financial Centre<br/>Dubai, UAE<br/>+971 (4) 555 7800</p></div>
+        <div class="col-sm-6 col-lg-3 gsap-fade">
+          <div class="value-item card-image-top"><div class="card-body"><div class="icon"><i class="fa-solid fa-mosque"></i></div><h5>Dubai</h5><p><strong>Middle East Office</strong><br/>Dubai International Financial Centre<br/>Dubai, UAE<br/>+971 (4) 555 7800</p></div></div>
         </div>
       </div>
     </div>
@@ -243,10 +246,10 @@
   <!-- CTA -->
   <section class="section-padding cta-section">
     <div class="container text-center">
-      <span class="section-label" data-aos="fade-up">Join Our Client Roster</span>
-      <h2 class="mb-3">Experience the Stackly Difference.</h2>
-      <p class="text-muted mx-auto mb-4" style="max-width:560px;line-height:1.8;" data-aos="fade-up">Schedule a no-obligation consultation with a senior partner and discover how our legacy of excellence can serve your business.</p>
-      <div class="d-flex flex-wrap justify-content-center gap-3" data-aos="fade-up">
+      <span class="section-label gsap-fade">Join Our Client Roster</span>
+      <h2 class="mb-3 gsap-fade">Experience the Stackly Difference.</h2>
+      <p class="text-muted mx-auto mb-4 gsap-fade" style="max-width:560px;line-height:1.8;">Schedule a no-obligation consultation with a senior partner and discover how our legacy of excellence can serve your business.</p>
+      <div class="d-flex flex-wrap justify-content-center gap-3 gsap-fade">
         <a href="contact.html" class="btn btn-gold btn-lg"><i class="fa-regular fa-comment me-2"></i>Schedule a Consultation</a>
         <a href="team.html" class="btn btn-outline-light btn-lg"><i class="fa-regular fa-users me-2"></i>Meet Our Team</a>
       </div>
@@ -294,7 +297,7 @@
             <li><i class="fa-regular fa-location-dot"></i> 120 Broadway, Suite 2100, New York, NY 10271, USA</li>
             <li><i class="fa-regular fa-phone"></i> <a href="tel:+12125550900">+1 (212) 555-0900</a></li>
             <li><i class="fa-regular fa-envelope"></i> <a href="mailto:info@stackly.com">info@stackly.com</a></li>
-            <li><i class="fa-regular fa-clock"></i> Mon &ndash; Fri: 8:30 AM &ndash; 6:30 PM</li>
+            <li><i class="fa-regular fa-clock"></i> Mon — Fri: 8:30 AM – 6:30 PM</li>
             <li><i class="fa-regular fa-map"></i> <a href="contact.html">Get Directions <i class="fa-solid fa-arrow-right ms-1" style="font-size:0.7rem;"></i></a></li>
           </ul>
         </div>
@@ -312,7 +315,7 @@
       <hr class="footer-divider" />
       <div class="row">
         <div class="col-md-6"><p class="footer-bottom mb-0">&copy; 2026 Stackly LLP. All rights reserved.</p></div>
-        <div class="col-md-6 text-md-end"><p class="footer-bottom mb-0">Attorney Advertising &bull; <a href="#">Disclaimer</a> &bull; <a href="#">Terms of Use</a></p></div>
+        <div class="col-md-6 text-md-end"><p class="footer-bottom mb-0">Attorney Advertising &bull; <a href="404.html">Disclaimer</a> &bull; <a href="404.html">Terms of Use</a></p></div>
       </div>
     </div>
   </footer>
@@ -322,8 +325,6 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script src="https://unpkg.com/split-type@0.3.4"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script src="assets/js/main.js"></script>
 </body>
 </html>

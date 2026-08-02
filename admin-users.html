@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Users — Admin Panel | Stackly</title>
-  <meta name="description" content="Stackly admin panel — manage client accounts, roles, and access." />
-
+  <title>Clients — Stackly Admin</title>
+  <meta name="description" content="Manage client accounts, engagements, and access in the Stackly admin portal." />
+  <meta name="robots" content="noindex" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -16,387 +16,218 @@
 </head>
 <body class="dashboard">
 
-  <!-- Overlay -->
-  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+  <div class="dash-shell">
 
-  <!-- Sidebar -->
-  <aside class="dash-sidebar" id="dashSidebar">
-    <a class="sidebar-brand" href="index.html">
-      <img src="assets/img/logo.webp" alt="Stackly" />
-      <span>Admin Panel</span>
-    </a>
+    <!-- Sidebar -->
+    <aside class="dash-sidebar" id="dashSidebar">
+      <a class="sidebar-brand" href="index.html"><img src="assets/img/logo.webp" alt="Stackly" /></a>
 
-    <nav class="sidebar-nav">
-      <div class="sidebar-label">Main</div>
-      <ul>
-        <li><a class="sidebar-link" href="admin-dashboard.html"><i class="fa-solid fa-chart-pie"></i> Dashboard</a></li>
-        <li><a class="sidebar-link active" href="admin-users.html"><i class="fa-solid fa-users"></i> Users</a></li>
-        <li><a class="sidebar-link" href="admin-services.html"><i class="fa-solid fa-briefcase"></i> Services</a></li>
-        <li><a class="sidebar-link" href="admin-appointments.html"><i class="fa-regular fa-calendar-check"></i> Appointments</a><span class="ms-auto status-badge pending" style="padding:0.15rem 0.5rem;font-size:0.62rem;">12</span></li>
-        <li><a class="sidebar-link" href="admin-reports.html"><i class="fa-solid fa-file-invoice"></i> Reports</a></li>
-        <li><a class="sidebar-link" href="admin-analytics.html"><i class="fa-solid fa-chart-column"></i> Analytics</a></li>
-        <li><a class="sidebar-link" href="admin-messages.html"><i class="fa-regular fa-envelope"></i> Messages</a><span class="ms-auto status-badge pending" style="padding:0.15rem 0.5rem;font-size:0.62rem;">3</span></li>
-        <li><a class="sidebar-link" href="admin-logs.html"><i class="fa-solid fa-clock-rotate-left"></i> Activity Logs</a></li>
-      </ul>
-
-      <div class="sidebar-label" style="margin-top:1.5rem;">System</div>
-      <ul>
-        <li><a class="sidebar-link" href="admin-settings.html"><i class="fa-solid fa-gear"></i> Settings</a></li>
-        <li><a class="sidebar-link" href="logout.html"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a></li>
-      </ul>
-    </nav>
-
-    <div class="sidebar-footer">
-      <div class="d-flex align-items-center gap-3 px-3">
-        <span class="avatar-initials md">AS</span>
-        <div class="flex-grow-1" style="min-width:0;">
-          <div style="font-size:0.82rem;font-weight:600;color:var(--white);">Alexander Stackly</div>
-          <div style="font-size:0.72rem;color:rgba(255,255,255,0.45);">Managing Partner</div>
-        </div>
-        <span class="status-badge active" style="font-size:0.6rem;padding:0.15rem 0.5rem;">Online</span>
-      </div>
-    </div>
-  </aside>
-
-  <!-- Main -->
-  <div class="dash-main">
-
-    <!-- Topbar -->
-    <header class="dash-topbar">
-      <button class="hamburger" id="sidebarToggle" aria-label="Toggle sidebar" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
-      <h1 class="topbar-title">Users</h1>
-
-      <form class="topbar-search" role="search" onsubmit="return false;">
-        <i class="fa-solid fa-magnifying-glass"></i>
-        <input type="search" placeholder="Search anything..." aria-label="Search" />
-      </form>
-
-      <div class="topbar-actions">
-        <div class="dash-dropdown">
-          <button class="icon-btn" data-dropdown-toggle aria-label="Notifications">
-            <i class="fa-regular fa-bell"></i>
-            <span class="badge">5</span>
-          </button>
-          <div class="dash-dropdown-panel">
-            <div class="dash-dropdown-head">
-              <span>Notifications</span>
-              <a href="#" class="btn-link">Mark all read</a>
-            </div>
-            <div class="notif-list">
-              <a href="#" class="notif-item text-decoration-none">
-                <span class="notif-icon" style="background:rgba(171,135,82,0.12);color:var(--gold);"><i class="fa-solid fa-calendar-plus"></i></span>
-                <div class="notif-text">
-                  <div class="notif-title">New consultation request from Horizon Tech Inc.</div>
-                  <div class="notif-time">12 min ago</div>
-                </div>
-              </a>
-              <a href="#" class="notif-item text-decoration-none">
-                <span class="notif-icon" style="background:rgba(12,21,36,0.08);color:var(--primary);"><i class="fa-solid fa-user-plus"></i></span>
-                <div class="notif-text">
-                  <div class="notif-title">3 new client accounts awaiting review.</div>
-                  <div class="notif-time">1 hour ago</div>
-                </div>
-              </a>
-              <a href="#" class="notif-item text-decoration-none">
-                <span class="notif-icon" style="background:rgba(110,31,42,0.1);color:var(--oxblood);"><i class="fa-solid fa-file-circle-exclamation"></i></span>
-                <div class="notif-text">
-                  <div class="notif-title">Retainer renewal due for Meridian Group.</div>
-                  <div class="notif-time">3 hours ago</div>
-                </div>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="dash-dropdown">
-          <button class="icon-btn" data-dropdown-toggle aria-label="Messages">
-            <i class="fa-regular fa-envelope"></i>
-            <span class="badge">3</span>
-          </button>
-          <div class="dash-dropdown-panel">
-            <div class="dash-dropdown-head">
-              <span>Messages</span>
-              <a href="admin-messages.html" class="btn-link">View all</a>
-            </div>
-            <div class="notif-list">
-              <a href="admin-messages.html" class="notif-item text-decoration-none">
-                <span class="avatar-initials sm gold-bg">MB</span>
-                <div class="notif-text">
-                  <div class="notif-title">Maria Belcher &mdash; Documents signed</div>
-                  <div class="notif-time">20 min ago</div>
-                </div>
-              </a>
-              <a href="admin-messages.html" class="notif-item text-decoration-none">
-                <span class="avatar-initials sm oxblood-bg">JT</span>
-                <div class="notif-text">
-                  <div class="notif-title">James Torres &mdash; Meeting confirmed</div>
-                  <div class="notif-time">2 hours ago</div>
-                </div>
-              </a>
-              <a href="admin-messages.html" class="notif-item text-decoration-none">
-                <span class="avatar-initials sm" style="background:#2E7D32;">RK</span>
-                <div class="notif-text">
-                  <div class="notif-title">Rita Khan &mdash; New enquiry</div>
-                  <div class="notif-time">Yesterday</div>
-                </div>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="dash-dropdown">
-          <button class="avatar-initials md gold-bg" data-dropdown-toggle aria-label="Account menu" style="border:none;cursor:pointer;">AS</button>
-          <div class="dash-dropdown-panel profile-menu">
-            <div class="profile-head">
-              <span class="avatar-initials md gold-bg">AS</span>
-              <div>
-                <div class="name">Alexander Stackly</div>
-                <div class="role">Managing Partner</div>
-              </div>
-            </div>
-            <a href="admin-settings.html"><i class="fa-regular fa-user"></i> My Profile</a>
-            <a href="admin-settings.html"><i class="fa-solid fa-gear"></i> Account Settings</a>
-            <a href="admin-logs.html"><i class="fa-solid fa-chart-simple"></i> Activity Log</a>
-            <a href="logout.html" class="danger"><i class="fa-solid fa-arrow-right-from-bracket"></i> Sign Out</a>
-          </div>
-        </div>
-      </div>
-    </header>
-
-    <!-- Content -->
-    <main class="dash-content">
-
-      <div class="dash-hello d-flex flex-wrap align-items-end justify-content-between gap-3">
-        <div>
-          <h2>User Management</h2>
-          <p>Manage client accounts, roles, and access across the firm.</p>
-        </div>
-        <button class="btn btn-gold" onclick="return false;"><i class="fa-solid fa-user-plus me-2"></i>Add User</button>
-      </div>
-
-      <!-- Stat cards -->
-      <div class="row g-3 mb-4">
-        <div class="col-sm-6 col-xl-3">
-          <div class="stat-card">
-            <span class="stat-icon navy"><i class="fa-solid fa-users"></i></span>
-            <div class="stat-info">
-              <div class="stat-label">Total Users</div>
-              <div class="stat-value"><span data-count="2847">0</span></div>
-              <span class="stat-trend up"><i class="fa-solid fa-arrow-trend-up"></i> +212 this month</span>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-xl-3">
-          <div class="stat-card">
-            <span class="stat-icon green"><i class="fa-solid fa-user-check"></i></span>
-            <div class="stat-info">
-              <div class="stat-label">Active</div>
-              <div class="stat-value"><span data-count="2412">0</span></div>
-              <span class="stat-trend up"><i class="fa-solid fa-arrow-trend-up"></i> 84.7%</span>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-xl-3">
-          <div class="stat-card">
-            <span class="stat-icon gold"><i class="fa-solid fa-hourglass-half"></i></span>
-            <div class="stat-info">
-              <div class="stat-label">Pending Review</div>
-              <div class="stat-value"><span data-count="186">0</span></div>
-              <span class="stat-trend down"><i class="fa-solid fa-arrow-trend-down"></i> 14 awaiting action</span>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-xl-3">
-          <div class="stat-card">
-            <span class="stat-icon oxblood"><i class="fa-solid fa-user-slash"></i></span>
-            <div class="stat-info">
-              <div class="stat-label">Suspended</div>
-              <div class="stat-value"><span data-count="39">0</span></div>
-              <span class="stat-trend down"><i class="fa-solid fa-arrow-trend-down"></i> 3 reviewed today</span>
-            </div>
-          </div>
+      <div class="sidebar-profile">
+        <span class="avatar-initials gold-bg md" data-user-first-initial></span>
+        <div class="sidebar-profile-meta">
+          <div class="sidebar-profile-name" data-user-name></div>
+          <div class="sidebar-profile-email" data-user-email></div>
         </div>
       </div>
 
-      <!-- Users table -->
-      <div class="dash-card table-card mb-4">
-        <div class="table-toolbar">
-          <h3 style="font-family:var(--font-display);font-size:1.05rem;font-weight:700;color:var(--primary);margin:0;">All Users</h3>
-          <div class="search-box">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <input type="search" placeholder="Search users..." data-table-search="usersTable" aria-label="Search users" />
-          </div>
-          <select data-filter-col="1" data-table-search="usersTable" aria-label="Filter by role">
-            <option value="">All types</option>
-            <option value="Corporate">Corporate</option>
-            <option value="Individual">Individual</option>
-            <option value="Institutional">Institutional</option>
-          </select>
-        </div>
+      <nav class="sidebar-nav" aria-label="Sidebar navigation">
+        <ul>
+          <li class="sidebar-label">Main</li>
+          <li><a class="sidebar-link" href="admin-dashboard.html"><i class="fa-solid fa-gauge-high"></i>Dashboard</a></li>
+          <li><a class="sidebar-link" href="admin-appointments.html"><i class="fa-solid fa-calendar-check"></i>Appointments</a></li>
+          <li><a class="sidebar-link" href="admin-analytics.html"><i class="fa-solid fa-chart-line"></i>Analytics</a></li>
+          <li><a class="sidebar-link active" href="admin-users.html"><i class="fa-solid fa-users"></i>Clients</a></li>
+          <li><a class="sidebar-link" href="admin-messages.html"><i class="fa-regular fa-envelope"></i>Messages</a></li>
+          <li><a class="sidebar-link" href="admin-services.html"><i class="fa-solid fa-scale-balanced"></i>Services</a></li>
+          <li><a class="sidebar-link" href="admin-reports.html"><i class="fa-solid fa-file-lines"></i>Reports</a></li>
+          <li><a class="sidebar-link" href="admin-logs.html"><i class="fa-solid fa-clipboard-list"></i>Logs</a></li>
+        </ul>
+      </nav>
 
-        <div class="dash-table-wrap">
-          <table class="dash-table" id="usersTable">
-            <thead>
-              <tr>
-                <th>Client</th>
-                <th>Type</th>
-                <th>Engagement</th>
-                <th>Joined</th>
-                <th>Status</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><div class="user-cell"><span class="avatar-initials sm gold-bg">HT</span><div><div class="name">Horizon Tech Inc.</div><div class="email">legal@horizontech.com</div></div></div></td>
-                <td>Corporate</td>
-                <td>Corporate Law</td>
-                <td>Jul 30, 2026</td>
-                <td><span class="status-badge active">Active</span></td>
-                <td><div class="table-actions"><button aria-label="View"><i class="fa-regular fa-eye"></i></button><button aria-label="Edit"><i class="fa-regular fa-pen-to-square"></i></button><button aria-label="More"><i class="fa-solid fa-ellipsis-vertical"></i></button></div></td>
-              </tr>
-              <tr>
-                <td><div class="user-cell"><span class="avatar-initials sm oxblood-bg">MB</span><div><div class="name">Maria Belcher</div><div class="email">m.belcher@email.com</div></div></div></td>
-                <td>Individual</td>
-                <td>Litigation</td>
-                <td>Jul 30, 2026</td>
-                <td><span class="status-badge active">Active</span></td>
-                <td><div class="table-actions"><button aria-label="View"><i class="fa-regular fa-eye"></i></button><button aria-label="Edit"><i class="fa-regular fa-pen-to-square"></i></button><button aria-label="More"><i class="fa-solid fa-ellipsis-vertical"></i></button></div></td>
-              </tr>
-              <tr>
-                <td><div class="user-cell"><span class="avatar-initials sm" style="background:#2E7D32;">MG</span><div><div class="name">Meridian Group</div><div class="email">counsel@meridiangroup.com</div></div></div></td>
-                <td>Corporate</td>
-                <td>M&amp;A Advisory</td>
-                <td>Jul 28, 2026</td>
-                <td><span class="status-badge pending">Pending</span></td>
-                <td><div class="table-actions"><button aria-label="View"><i class="fa-regular fa-eye"></i></button><button aria-label="Edit"><i class="fa-regular fa-pen-to-square"></i></button><button aria-label="More"><i class="fa-solid fa-ellipsis-vertical"></i></button></div></td>
-              </tr>
-              <tr>
-                <td><div class="user-cell"><span class="avatar-initials sm" style="background:var(--oxblood);">JT</span><div><div class="name">James Torres</div><div class="email">j.torres@email.com</div></div></div></td>
-                <td>Individual</td>
-                <td>Compliance</td>
-                <td>Jul 27, 2026</td>
-                <td><span class="status-badge active">Active</span></td>
-                <td><div class="table-actions"><button aria-label="View"><i class="fa-regular fa-eye"></i></button><button aria-label="Edit"><i class="fa-regular fa-pen-to-square"></i></button><button aria-label="More"><i class="fa-solid fa-ellipsis-vertical"></i></button></div></td>
-              </tr>
-              <tr>
-                <td><div class="user-cell"><span class="avatar-initials sm" style="background:#5B4A9E;">RK</span><div><div class="name">Rita Khan</div><div class="email">r.khan@email.com</div></div></div></td>
-                <td>Individual</td>
-                <td>Intellectual Property</td>
-                <td>Jul 26, 2026</td>
-                <td><span class="status-badge active">Active</span></td>
-                <td><div class="table-actions"><button aria-label="View"><i class="fa-regular fa-eye"></i></button><button aria-label="Edit"><i class="fa-regular fa-pen-to-square"></i></button><button aria-label="More"><i class="fa-solid fa-ellipsis-vertical"></i></button></div></td>
-              </tr>
-              <tr>
-                <td><div class="user-cell"><span class="avatar-initials sm" style="background:#37474F;">CL</span><div><div class="name">Cobalt Holdings</div><div class="email">legal@cobaltholdings.com</div></div></div></td>
-                <td>Institutional</td>
-                <td>Litigation</td>
-                <td>Jul 24, 2026</td>
-                <td><span class="status-badge inactive">Inactive</span></td>
-                <td><div class="table-actions"><button aria-label="View"><i class="fa-regular fa-eye"></i></button><button aria-label="Edit"><i class="fa-regular fa-pen-to-square"></i></button><button aria-label="More"><i class="fa-solid fa-ellipsis-vertical"></i></button></div></td>
-              </tr>
-              <tr>
-                <td><div class="user-cell"><span class="avatar-initials sm gold-bg">NW</span><div><div class="name">Northwind Partners</div><div class="email">info@northwindpartners.com</div></div></div></td>
-                <td>Corporate</td>
-                <td>Corporate Law</td>
-                <td>Jul 22, 2026</td>
-                <td><span class="status-badge pending">Pending</span></td>
-                <td><div class="table-actions"><button aria-label="View"><i class="fa-regular fa-eye"></i></button><button aria-label="Edit"><i class="fa-regular fa-pen-to-square"></i></button><button aria-label="More"><i class="fa-solid fa-ellipsis-vertical"></i></button></div></td>
-              </tr>
-              <tr>
-                <td><div class="user-cell"><span class="avatar-initials sm" style="background:#00695C;">SP</span><div><div class="name">Sofia Patel</div><div class="email">s.patel@email.com</div></div></div></td>
-                <td>Individual</td>
-                <td>Tax &amp; Wealth</td>
-                <td>Jul 20, 2026</td>
-                <td><span class="status-badge suspended">Suspended</span></td>
-                <td><div class="table-actions"><button aria-label="View"><i class="fa-regular fa-eye"></i></button><button aria-label="Edit"><i class="fa-regular fa-pen-to-square"></i></button><button aria-label="More"><i class="fa-solid fa-ellipsis-vertical"></i></button></div></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div class="dash-pagination" data-pagination="usersTable" data-per-page="5">
-          <span class="info"></span>
-          <div class="pages"></div>
-          <div style="display:flex;gap:0.3rem;">
-            <button class="page-btn" data-page="prev" aria-label="Previous page"><i class="fa-solid fa-chevron-left"></i></button>
-            <button class="page-btn" data-page="next" aria-label="Next page"><i class="fa-solid fa-chevron-right"></i></button>
-          </div>
-        </div>
+      <div class="sidebar-footer">
+        <ul>
+          <li><a class="sidebar-link" href="index.html"><i class="fa-solid fa-house"></i>Go to Home</a></li>
+          <li><a class="sidebar-link" href="admin-settings.html"><i class="fa-solid fa-gear"></i>Settings</a></li>
+          <li><a class="sidebar-link" href="login.html"><i class="fa-solid fa-arrow-right-from-bracket"></i>Sign Out</a></li>
+        </ul>
       </div>
+    </aside>
 
-      <!-- Roles + recent signups -->
-      <div class="row g-3">
-        <div class="col-lg-5">
-          <div class="dash-card hoverable h-100">
-            <div class="dash-card-head">
-              <div>
-                <h3>Account Types</h3>
-                <span class="muted">User distribution</span>
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- Main -->
+    <main class="dash-main">
+
+      <!-- Topbar -->
+      <header class="dash-topbar">
+        <h2 class="topbar-title">Clients</h2>
+      </header>
+
+      <!-- Content -->
+      <div class="dash-content">
+
+        <div class="dash-hello">
+          <h2>Clients</h2>
+          <p>Manage client accounts, engagements, and portal access.</p>
+        </div>
+
+        <!-- Stats -->
+        <div class="row g-4 mt-1">
+          <div class="col-sm-6 col-xl-3">
+            <div class="stat-card">
+              <span class="stat-icon gold"><i class="fa-solid fa-users"></i></span>
+              <div class="stat-info">
+                <div class="stat-label">Total Clients</div>
+                <div class="stat-value" data-count="128">0</div>
+                <span class="stat-trend up"><i class="fa-solid fa-arrow-up"></i>+8 this month</span>
               </div>
             </div>
-            <div class="analytics-widget">
-              <div class="row-line"><span class="label">Corporate</span><span class="value">1,140</span></div>
-              <div class="progress"><div class="progress-bar" style="width:40%;"></div></div>
+          </div>
+          <div class="col-sm-6 col-xl-3">
+            <div class="stat-card">
+              <span class="stat-icon green"><i class="fa-solid fa-circle-check"></i></span>
+              <div class="stat-info">
+                <div class="stat-label">Active</div>
+                <div class="stat-value" data-count="112">0</div>
+                <span class="stat-trend up"><i class="fa-solid fa-arrow-up"></i>87% of portfolio</span>
+              </div>
             </div>
-            <div class="analytics-widget">
-              <div class="row-line"><span class="label">Individual</span><span class="value">1,316</span></div>
-              <div class="progress"><div class="progress-bar navy" style="width:46%;"></div></div>
+          </div>
+          <div class="col-sm-6 col-xl-3">
+            <div class="stat-card">
+              <span class="stat-icon navy"><i class="fa-solid fa-clock"></i></span>
+              <div class="stat-info">
+                <div class="stat-label">Pending Approval</div>
+                <div class="stat-value" data-count="6">0</div>
+                <span class="stat-trend up"><i class="fa-solid fa-arrow-up"></i>Awaiting review</span>
+              </div>
             </div>
-            <div class="analytics-widget">
-              <div class="row-line"><span class="label">Institutional</span><span class="value">391</span></div>
-              <div class="progress"><div class="progress-bar oxblood" style="width:14%;"></div></div>
+          </div>
+          <div class="col-sm-6 col-xl-3">
+            <div class="stat-card">
+              <span class="stat-icon oxblood"><i class="fa-solid fa-user-slash"></i></span>
+              <div class="stat-info">
+                <div class="stat-label">Suspended</div>
+                <div class="stat-value" data-count="10">0</div>
+                <span class="stat-trend down"><i class="fa-solid fa-arrow-down"></i>-2 this quarter</span>
+              </div>
             </div>
           </div>
         </div>
 
-        <div class="col-lg-7">
-          <div class="dash-card hoverable h-100">
-            <div class="dash-card-head">
-              <div>
-                <h3>Verification Queue</h3>
-                <span class="muted">Accounts awaiting approval</span>
+        <!-- Clients table + add -->
+        <div class="row g-4 mt-1">
+          <div class="col-lg-8">
+            <div class="dash-card table-card">
+              <div class="table-toolbar">
+                <div class="search-box"><i class="fa-solid fa-magnifying-glass"></i><input type="search" placeholder="Search clients..." aria-label="Search clients" data-table-search="clientsTable" /></div>
+                <select data-filter-col="3" data-table-search="clientsTable" aria-label="Filter by status">
+                  <option value="">All statuses</option>
+                  <option value="Active">Active</option>
+                  <option value="Pending">Pending</option>
+                  <option value="Suspended">Suspended</option>
+                </select>
               </div>
-              <button class="btn-link btn text-decoration-none p-0" style="font-size:0.78rem;font-weight:600;color:var(--gold);">Review all</button>
+              <div class="dash-table-wrap">
+                <table class="dash-table" id="clientsTable">
+                  <thead>
+                    <tr>
+                      <th>Client</th>
+                      <th>Matter</th>
+                      <th>Counsel</th>
+                      <th>Status</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><div class="user-cell"><img src="assets/img/avatar-client-1.webp" alt="Rebecca Okafor" /><div><div class="name">Rebecca Okafor</div><div class="email">rebecca.okafor@example.com</div></div></div></td>
+                      <td>M&amp;A Due Diligence</td>
+                      <td>Sarah Chen</td>
+                      <td><span class="status-badge active">Active</span></td>
+                      <td><div class="table-actions"><button type="button" aria-label="View"><i class="fa-solid fa-eye"></i></button><button type="button" aria-label="Message"><i class="fa-regular fa-envelope"></i></button></div></td>
+                    </tr>
+                    <tr>
+                      <td><div class="user-cell"><img src="assets/img/avatar-client-2.webp" alt="Marcus Lee" /><div><div class="name">Marcus Lee</div><div class="email">marcus.lee@example.com</div></div></div></td>
+                      <td>Employment Dispute</td>
+                      <td>David Osei</td>
+                      <td><span class="status-badge active">Active</span></td>
+                      <td><div class="table-actions"><button type="button" aria-label="View"><i class="fa-solid fa-eye"></i></button><button type="button" aria-label="Message"><i class="fa-regular fa-envelope"></i></button></div></td>
+                    </tr>
+                    <tr>
+                      <td><div class="user-cell"><img src="assets/img/avatar-client-3.webp" alt="Priya Sharma" /><div><div class="name">Priya Sharma</div><div class="email">priya.sharma@example.com</div></div></div></td>
+                      <td>IP Portfolio Review</td>
+                      <td>Amara Diallo</td>
+                      <td><span class="status-badge pending">Pending</span></td>
+                      <td><div class="table-actions"><button type="button" aria-label="View"><i class="fa-solid fa-eye"></i></button><button type="button" aria-label="Message"><i class="fa-regular fa-envelope"></i></button></div></td>
+                    </tr>
+                    <tr>
+                      <td><div class="user-cell"><img src="assets/img/avatar-client-4.webp" alt="Tomás Rivera" /><div><div class="name">Tomás Rivera</div><div class="email">tomas.rivera@example.com</div></div></div></td>
+                      <td>Contract Negotiation</td>
+                      <td>Katarina Novak</td>
+                      <td><span class="status-badge active">Active</span></td>
+                      <td><div class="table-actions"><button type="button" aria-label="View"><i class="fa-solid fa-eye"></i></button><button type="button" aria-label="Message"><i class="fa-regular fa-envelope"></i></button></div></td>
+                    </tr>
+                    <tr>
+                      <td><div class="user-cell"><img src="assets/img/avatar-client-1.webp" alt="Wei Zhang" /><div><div class="name">Wei Zhang</div><div class="email">wei.zhang@example.com</div></div></div></td>
+                      <td>Regulatory Compliance</td>
+                      <td>Sarah Chen</td>
+                      <td><span class="status-badge suspended">Suspended</span></td>
+                      <td><div class="table-actions"><button type="button" aria-label="View"><i class="fa-solid fa-eye"></i></button><button type="button" aria-label="Message"><i class="fa-regular fa-envelope"></i></button></div></td>
+                    </tr>
+                    <tr>
+                      <td><div class="user-cell"><img src="assets/img/avatar-client-2.webp" alt="Aisha Bello" /><div><div class="name">Aisha Bello</div><div class="email">aisha.bello@example.com</div></div></div></td>
+                      <td>Tax Compliance</td>
+                      <td>Maya Singh</td>
+                      <td><span class="status-badge active">Active</span></td>
+                      <td><div class="table-actions"><button type="button" aria-label="View"><i class="fa-solid fa-eye"></i></button><button type="button" aria-label="Message"><i class="fa-regular fa-envelope"></i></button></div></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="dash-pagination" data-pagination="clientsTable" data-per-page="5">
+                <span class="info"></span>
+                <div class="pages"></div>
+              </div>
             </div>
-            <div class="appt-item">
-              <span class="avatar-initials sm" style="background:#5B4A9E;">RK</span>
-              <div class="appt-info">
-                <div class="title">Rita Khan</div>
-                <div class="meta">Individual &middot; Documents submitted Jul 30</div>
+          </div>
+          <div class="col-lg-4">
+            <div class="dash-card h-100">
+              <div class="dash-card-head">
+                <h3>Add a Client</h3>
+                <span class="muted">Create a portal account</span>
               </div>
-              <span class="status-badge pending">Pending</span>
-            </div>
-            <div class="appt-item">
-              <span class="avatar-initials sm" style="background:#00695C;">SP</span>
-              <div class="appt-info">
-                <div class="title">Sofia Patel</div>
-                <div class="meta">Individual &middot; ID re-submitted Jul 29</div>
-              </div>
-              <span class="status-badge pending">Pending</span>
-            </div>
-            <div class="appt-item mb-0">
-              <span class="avatar-initials sm gold-bg">NW</span>
-              <div class="appt-info">
-                <div class="title">Northwind Partners</div>
-                <div class="meta">Corporate &middot; Registration docs Jul 28</div>
-              </div>
-              <span class="status-badge pending">Pending</span>
+              <form id="addClientForm">
+                <div class="mb-3">
+                  <label for="newClientName" class="form-label">Full Name</label>
+                  <input type="text" class="form-control" id="newClientName" placeholder="e.g. Jordan Kim" />
+                </div>
+                <div class="mb-3">
+                  <label for="newClientEmail" class="form-label">Email Address</label>
+                  <input type="email" class="form-control" id="newClientEmail" placeholder="client@company.com" />
+                </div>
+                <div class="mb-3">
+                  <label for="newClientCounsel" class="form-label">Assigned Counsel</label>
+                  <select class="form-select" id="newClientCounsel">
+                    <option>Sarah Chen</option>
+                    <option>David Osei</option>
+                    <option>Amara Diallo</option>
+                    <option>Katarina Novak</option>
+                    <option>Maya Singh</option>
+                  </select>
+                </div>
+                <button type="submit" class="btn btn-gold w-100"><i class="fa-solid fa-user-plus me-2"></i>Create Account</button>
+              </form>
             </div>
           </div>
         </div>
+
       </div>
-
     </main>
-
-    <!-- Footer -->
-    <footer style="border-top:1px solid rgba(12,21,36,0.06);padding:1.25rem 1.75rem;font-size:0.78rem;color:var(--text-light);display:flex;flex-wrap:wrap;gap:0.5rem;justify-content:space-between;">
-      <span>&copy; 2026 Stackly LLP. All rights reserved.</span>
-      <span><a href="index.html" class="text-decoration-none" style="color:var(--gold);">Back to Website</a> &middot; <a href="#" class="text-decoration-none" style="color:var(--text-light);">Privacy</a> &middot; <a href="#" class="text-decoration-none" style="color:var(--text-light);">Terms</a></span>
-    </footer>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="assets/js/dashboard.js"></script>
+  <script src="assets/js/validation.js"></script>
 </body>
 </html>

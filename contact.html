@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact Us — Stackly</title>
-  <meta name="description" content="Get in touch with Stackly. Find our office address, phone, email, business hours, and a Google Map." />
+  <meta name="description" content="Contact Stackly — reach our global offices, book a consultation, or send a message to our legal team." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -36,7 +36,7 @@
   </nav>
 
   <!-- Page Banner -->
-  <section class="page-banner">
+  <section class="page-banner page-banner-contact">
     <div class="page-banner-bg"></div>
     <div class="page-banner-overlay"></div>
     <div class="container">
@@ -45,307 +45,145 @@
     </div>
   </section>
 
-  <!-- Contact Section -->
+  <!-- Contact -->
   <section class="section-padding">
     <div class="container">
       <div class="row g-5">
         <div class="col-lg-5">
-          <span class="section-label" data-aos="fade-up">Get in Touch</span>
-          <h2 class="section-title">We're Here<br/>to Help.</h2>
-          <p class="section-subtitle mt-2" data-aos="fade-up">Urgent matter? Call us. Otherwise, fill out the form and a senior partner will respond within 2 business hours.</p>
-          <div class="mt-4">
-            <div class="contact-info-item" data-aos="fade-up">
-              <div class="icon"><i class="fa-regular fa-building"></i></div>
-              <div>
-                <h6>Main Office</h6>
-                <p>120 Broadway, Suite 2400<br/>New York, NY 10271, USA</p>
-              </div>
+          <div class="contact-info-side">
+            <div class="contact-info-heading">
+              <span class="section-label" data-aos="fade-up">Get In Touch</span>
+              <h2 class="section-title mt-2" data-aos="fade-up">Let&rsquo;s Talk About Your Legal Needs</h2>
+              <p class="section-subtitle mt-3" data-aos="fade-up">Our attorneys are ready to assist with corporate counsel, litigation, compliance, and more. Reach out and we&rsquo;ll respond within one business day.</p>
             </div>
-            <div class="contact-info-item" data-aos="fade-up">
-              <div class="icon"><i class="fa-regular fa-envelope"></i></div>
-              <div>
-                <h6>Email</h6>
-                <p>counsel@stackly.com</p>
+            <div data-aos="fade-up">
+              <div class="contact-info-item">
+                <div class="icon"><i class="fa-regular fa-building-columns"></i></div>
+                <div><h6>Global Headquarters</h6><p>120 Broadway, Suite 2100, New York, NY 10271, USA</p></div>
               </div>
-            </div>
-            <div class="contact-info-item" data-aos="fade-up">
-              <div class="icon"><i class="fa-regular fa-phone"></i></div>
-              <div>
-                <h6>Phone</h6>
-                <p>+1 (212) 555-0198</p>
+              <div class="contact-info-item">
+                <div class="icon"><i class="fa-regular fa-phone"></i></div>
+                <div><h6>Phone</h6><p><a href="tel:+12125550900" class="text-decoration-none">+1 (212) 555-0900</a></p></div>
               </div>
-            </div>
-            <div class="contact-info-item" data-aos="fade-up">
-              <div class="icon"><i class="fa-regular fa-clock"></i></div>
-              <div>
-                <h6>Office Hours</h6>
-                <p>Mon – Fri: 8:00 AM – 7:00 PM EST<br/>Weekend: By appointment</p>
+              <div class="contact-info-item">
+                <div class="icon"><i class="fa-regular fa-envelope"></i></div>
+                <div><h6>Email</h6><p><a href="mailto:info@stackly.com" class="text-decoration-none">info@stackly.com</a></p></div>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-lg-6 offset-lg-1">
-          <form class="contact-form -right" onsubmit="event.preventDefault(); alert('Thank you for your inquiry. A senior partner will contact you shortly.');" data-aos="fade-right">
+        <div class="col-lg-7">
+          <form class="contact-form" novalidate data-aos="fade-up" onsubmit="event.preventDefault(); if (!window.stacklyValidateForm(this)) return; var msg = document.getElementById('contactMessage'); msg.className = 'newsletter-message success'; msg.textContent = 'Thank you for your message. A member of our team will respond within one business day.'; this.reset();">
             <div class="row g-3">
-              <div class="col-md-6"><input type="text" class="form-control" placeholder="Full Name" required /></div>
-              <div class="col-md-6"><input type="email" class="form-control" placeholder="Email Address" required /></div>
-              <div class="col-md-6"><input type="tel" class="form-control" placeholder="Phone Number" /></div>
               <div class="col-md-6">
-                <select class="form-control" required>
-                  <option value="" disabled selected>Practice Area</option>
-                  <option>Corporate Law</option>
+                <label class="form-label fw-semibold">Full Name</label>
+                <input type="text" class="form-control" placeholder="John Smith" required />
+              </div>
+              <div class="col-md-6">
+                <label class="form-label fw-semibold">Email Address</label>
+                <input type="email" class="form-control" placeholder="john@example.com" required />
+              </div>
+              <div class="col-md-6">
+                <label class="form-label fw-semibold">Phone</label>
+                <input type="tel" class="form-control" placeholder="+1 (555) 000-0000" />
+              </div>
+              <div class="col-md-6">
+                <label class="form-label fw-semibold">Subject</label>
+                <select class="form-select" required>
+                  <option value="" selected disabled>Select a topic</option>
+                  <option>Corporate Counsel</option>
                   <option>Mergers &amp; Acquisitions</option>
-                  <option>Contract Drafting &amp; Review</option>
-                  <option>Employment Law</option>
+                  <option>Litigation &amp; Disputes</option>
                   <option>Intellectual Property</option>
-                  <option>Tax Advisory</option>
                   <option>Compliance &amp; Regulatory</option>
-                  <option>Litigation &amp; Dispute Resolution</option>
-                  <option>Banking &amp; Finance</option>
+                  <option>Tax &amp; Wealth Planning</option>
+                  <option>Consultation Booking</option>
+                  <option>Other</option>
                 </select>
               </div>
-              <div class="col-12"><textarea class="form-control" placeholder="Tell us about your legal matter…" required></textarea></div>
-              <div class="col-12"><button type="submit" class="btn btn-gold"><i class="fa-regular fa-paper-plane me-2"></i>Send Inquiry</button></div>
+              <div class="col-md-6">
+                <label class="form-label fw-semibold">Company / Organization</label>
+                <input type="text" class="form-control" placeholder="Company name (optional)" />
+              </div>
+              <div class="col-md-6">
+                <label class="form-label fw-semibold">Preferred Contact Method</label>
+                <select class="form-select">
+                  <option value="" selected disabled>Select a method</option>
+                  <option>Email</option>
+                  <option>Phone</option>
+                  <option>Video Consultation</option>
+                </select>
+              </div>
+              <div class="col-12">
+                <label class="form-label fw-semibold">Message</label>
+                <textarea class="form-control" placeholder="Briefly describe how we can help you." required></textarea>
+              </div>
+              <div class="col-12">
+                <button type="submit" class="btn btn-gold btn-lg"><i class="fa-regular fa-paper-plane me-2"></i>Send Message</button>
+              </div>
+              <div class="col-12">
+                <div class="newsletter-message" id="contactMessage"></div>
+              </div>
             </div>
           </form>
         </div>
       </div>
+      <div class="map-wrapper mt-5" data-aos="fade-up">
+        <iframe src="https://maps.google.com/maps?q=120%20Broadway%2C%20New%20York%2C%20NY%2010271&output=embed" title="Stackly Global Headquarters — 120 Broadway, New York" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
     </div>
   </section>
 
-  <!-- Google Map -->
+  <!-- Global Offices -->
   <section class="section-padding bg-navy-800">
     <div class="container">
       <div class="text-center mb-5">
-        <span class="section-label" data-aos="fade-up">Visit Us</span>
-        <h2 class="section-title">Our Locations</h2>
-        <p class="section-subtitle mx-auto mt-2" style="max-width:600px;" data-aos="fade-up">With 9 offices across 14 countries, we're always within reach. Visit our main New York office or contact us for directions to any of our global locations.</p>
+        <span class="section-label" data-aos="fade-up">Worldwide Presence</span>
+        <h2 class="section-title" data-aos="fade-up">Our Global Offices</h2>
+        <p class="section-subtitle mx-auto mt-2" data-aos="fade-up">Nine offices across fourteen countries, serving clients in every major economic region.</p>
       </div>
       <div class="row g-4">
-        <div class="col-lg-8 mx-auto">
-          <div class="map-wrapper" data-aos="fade-up">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3024.181094290674!2d-74.011688!3d40.708091!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a1670d6b3d5%3A0x5f8b9e1e3e9c8f1!2s120%20Broadway%2C%20New%20York%2C%20NY%2010271!5e0!3m2!1sen!2sus!4v1" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-          </div>
+        <div class="col-sm-6 col-lg-3" data-aos="fade-up">
+          <div class="value-item card-image-top"><div class="card-body"><div class="icon"><i class="fa-solid fa-building-columns"></i></div><h5>New York</h5><p><strong>Global HQ</strong><br/>120 Broadway, Suite 2100<br/>New York, NY 10271<br/>+1 (212) 555-0900</p></div></div>
         </div>
-      </div>
-      <div class="row g-4 mt-3">
-        <div class="col-md-3 col-6" data-aos="fade-up">
-          <div class="text-center p-3"><h6 style="font-family:var(--font-display);color:var(--gold);">New York</h6><p style="font-size:0.8rem;color:var(--text-muted);margin:0;">120 Broadway, Suite 2400</p></div>
+        <div class="col-sm-6 col-lg-3" data-aos="fade-up">
+          <div class="value-item card-image-top"><div class="card-body"><div class="icon"><i class="fa-solid fa-landmark"></i></div><h5>London</h5><p><strong>Europe HQ</strong><br/>30 St Mary Axe<br/>London EC3A 8BF<br/>+44 (20) 7555-1200</p></div></div>
         </div>
-        <div class="col-md-3 col-6" data-aos="fade-up">
-          <div class="text-center p-3"><h6 style="font-family:var(--font-display);color:var(--gold);">London</h6><p style="font-size:0.8rem;color:var(--text-muted);margin:0;">1 King William Street</p></div>
+        <div class="col-sm-6 col-lg-3" data-aos="fade-up">
+          <div class="value-item card-image-top"><div class="card-body"><div class="icon"><i class="fa-solid fa-city"></i></div><h5>Singapore</h5><p><strong>APAC HQ</strong><br/>1 Raffles Place, #28-00<br/>Singapore 048616<br/>+65 6555 8900</p></div></div>
         </div>
-        <div class="col-md-3 col-6" data-aos="fade-up">
-          <div class="text-center p-3"><h6 style="font-family:var(--font-display);color:var(--gold);">Singapore</h6><p style="font-size:0.8rem;color:var(--text-muted);margin:0;">1 Raffles Place, #20-01</p></div>
-        </div>
-        <div class="col-md-3 col-6" data-aos="fade-up">
-          <div class="text-center p-3"><h6 style="font-family:var(--font-display);color:var(--gold);">Dubai</h6><p style="font-size:0.8rem;color:var(--text-muted);margin:0;">DIFC, Gate Village 4</p></div>
+        <div class="col-sm-6 col-lg-3" data-aos="fade-up">
+          <div class="value-item card-image-top"><div class="card-body"><div class="icon"><i class="fa-solid fa-mosque"></i></div><h5>Dubai</h5><p><strong>Middle East</strong><br/>DIFC, Gate Village 7<br/>Dubai, UAE<br/>+971 (4) 555 7800</p></div></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Department Contacts -->
+  <!-- FAQ -->
   <section class="section-padding">
     <div class="container">
-      <div class="text-center mb-5">
-        <span class="section-label" data-aos="fade-up">Reach the Right Team</span>
-        <h2 class="section-title">Department Contacts</h2>
-        <p class="section-subtitle mx-auto mt-2" data-aos="fade-up">Not sure who to contact? Here's who handles what — reach out to the right team directly.</p>
-      </div>
-      <div class="row g-4">
-        <div class="col-md-6 col-lg-3" data-aos="fade-up">
-          <div class="case-card" style="height:100%;">
-            <div class="case-icon"><i class="fa-solid fa-handshake"></i></div>
-            <span class="case-tag" style="color:var(--gold);">New Business</span>
-            <h5>New Business &amp; Consultations</h5>
-            <p>For prospective clients, consultations, and intake. A senior partner responds within 2 business hours.</p>
-            <div class="case-result"><a href="mailto:newbusiness@stackly.com" style="color:var(--gold);font-weight:600;">newbusiness@stackly.com</a></div>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-3" data-aos="fade-up">
-          <div class="case-card" style="height:100%;">
-            <div class="case-icon"><i class="fa-solid fa-headset"></i></div>
-            <span class="case-tag" style="color:var(--gold);">Client Care</span>
-            <h5>Client Care &amp; Existing Matters</h5>
-            <p>For updates on active matters and general client support. Your matter team is available 24/7 for urgent issues.</p>
-            <div class="case-result"><a href="mailto:clientservice@stackly.com" style="color:var(--gold);font-weight:600;">clientservice@stackly.com</a></div>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-3" data-aos="fade-up">
-          <div class="case-card" style="height:100%;">
-            <div class="case-icon"><i class="fa-solid fa-newspaper"></i></div>
-            <span class="case-tag" style="color:var(--gold);">Media</span>
-            <h5>Press &amp; Media</h5>
-            <p>For journalists seeking expert commentary, interviews, or firm announcements.</p>
-            <div class="case-result"><a href="mailto:media@stackly.com" style="color:var(--gold);font-weight:600;">media@stackly.com</a></div>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-3" data-aos="fade-up">
-          <div class="case-card" style="height:100%;">
-            <div class="case-icon"><i class="fa-solid fa-briefcase"></i></div>
-            <span class="case-tag" style="color:var(--gold);">Careers</span>
-            <h5>Careers &amp; Recruiting</h5>
-            <p>For applications, campus recruiting, and questions about opportunities at the firm.</p>
-            <div class="case-result"><a href="mailto:recruiting@stackly.com" style="color:var(--gold);font-weight:600;">recruiting@stackly.com</a></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- All Global Offices -->
-  <section class="section-padding">
-    <div class="container">
-      <div class="text-center mb-5">
-        <span class="section-label" data-aos="fade-up">Global Reach</span>
-        <h2 class="section-title">All Global Offices</h2>
-        <p class="section-subtitle mx-auto mt-2" data-aos="fade-up">Nine full-service offices across fourteen countries, supported by trusted correspondent firms worldwide.</p>
-      </div>
-      <div class="row g-4">
-        <div class="col-md-6 col-lg-4" data-aos="fade-up">
-          <div class="case-card" style="height:100%;">
-            <div class="case-icon"><i class="fa-solid fa-location-dot"></i></div>
-            <span class="case-tag" style="color:var(--gold);">United States</span>
-            <h5>New York — Headquarters</h5>
-            <p>120 Broadway, Suite 2400<br/>New York, NY 10271</p>
-            <div class="case-result"><a href="tel:+12125550198" style="color:var(--gold);font-weight:600;">+1 (212) 555-0198</a></div>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4" data-aos="fade-up">
-          <div class="case-card" style="height:100%;">
-            <div class="case-icon"><i class="fa-solid fa-location-dot"></i></div>
-            <span class="case-tag" style="color:var(--gold);">United Kingdom</span>
-            <h5>London</h5>
-            <p>1 King William Street<br/>London EC4N 7AR</p>
-            <div class="case-result"><a href="tel:+442079460200" style="color:var(--gold);font-weight:600;">+44 20 7946 0200</a></div>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4" data-aos="fade-up">
-          <div class="case-card" style="height:100%;">
-            <div class="case-icon"><i class="fa-solid fa-location-dot"></i></div>
-            <span class="case-tag" style="color:var(--gold);">Singapore</span>
-            <h5>Singapore</h5>
-            <p>1 Raffles Place #20-01<br/>Singapore 048616</p>
-            <div class="case-result"><a href="tel:+6562220300" style="color:var(--gold);font-weight:600;">+65 6222 0300</a></div>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4" data-aos="fade-up">
-          <div class="case-card" style="height:100%;">
-            <div class="case-icon"><i class="fa-solid fa-location-dot"></i></div>
-            <span class="case-tag" style="color:var(--gold);">United Arab Emirates</span>
-            <h5>Dubai</h5>
-            <p>Gate Village 4, DIFC<br/>Dubai, UAE</p>
-            <div class="case-result"><a href="tel:+97145550400" style="color:var(--gold);font-weight:600;">+971 4 555 0400</a></div>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4" data-aos="fade-up">
-          <div class="case-card" style="height:100%;">
-            <div class="case-icon"><i class="fa-solid fa-location-dot"></i></div>
-            <span class="case-tag" style="color:var(--gold);">United States</span>
-            <h5>San Francisco</h5>
-            <p>555 California Street, Suite 2900<br/>San Francisco, CA 94104</p>
-            <div class="case-result"><a href="tel:+14155550199" style="color:var(--gold);font-weight:600;">+1 (415) 555-0199</a></div>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4" data-aos="fade-up">
-          <div class="case-card" style="height:100%;">
-            <div class="case-icon"><i class="fa-solid fa-location-dot"></i></div>
-            <span class="case-tag" style="color:var(--gold);">Germany</span>
-            <h5>Frankfurt</h5>
-            <p>Taunusanlage 8, 60329<br/>Frankfurt am Main</p>
-            <div class="case-result"><a href="tel:+496955500500" style="color:var(--gold);font-weight:600;">+49 69 5550 0500</a></div>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4" data-aos="fade-up">
-          <div class="case-card" style="height:100%;">
-            <div class="case-icon"><i class="fa-solid fa-location-dot"></i></div>
-            <span class="case-tag" style="color:var(--gold);">Hong Kong SAR</span>
-            <h5>Hong Kong</h5>
-            <p>Two Exchange Square, 8 Connaught Place<br/>Central, Hong Kong</p>
-            <div class="case-result"><a href="tel:+85237000600" style="color:var(--gold);font-weight:600;">+852 3700 0600</a></div>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4" data-aos="fade-up">
-          <div class="case-card" style="height:100%;">
-            <div class="case-icon"><i class="fa-solid fa-location-dot"></i></div>
-            <span class="case-tag" style="color:var(--gold);">Brazil</span>
-            <h5>São Paulo</h5>
-            <p>Av. Brigadeiro Faria Lima 4500<br/>São Paulo, SP 04538-132</p>
-            <div class="case-result"><a href="tel:+551155500700" style="color:var(--gold);font-weight:600;">+55 11 5550 0700</a></div>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4" data-aos="fade-up">
-          <div class="case-card" style="height:100%;">
-            <div class="case-icon"><i class="fa-solid fa-location-dot"></i></div>
-            <span class="case-tag" style="color:var(--gold);">Canada</span>
-            <h5>Toronto</h5>
-            <p>100 King Street West, Suite 5600<br/>Toronto, ON M5X 1C9</p>
-            <div class="case-result"><a href="tel:+14165550800" style="color:var(--gold);font-weight:600;">+1 (416) 555-0800</a></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Response Commitments -->
-  <section class="section-padding bg-navy-800">
-    <div class="container">
-      <div class="text-center mb-5">
-        <span class="section-label" data-aos="fade-up">Our Promises to You</span>
-        <h2 class="section-title">Response Commitments</h2>
-        <p class="section-subtitle mx-auto mt-2" data-aos="fade-up">Clear service standards we hold ourselves to on every client interaction, large or small.</p>
-      </div>
-      <div class="row g-4">
-        <div class="col-6 col-lg-3" data-aos="fade-up">
-          <div class="metric-card"><div class="number"><span data-count="2">0</span> hrs</div><div class="label">Average Response Time</div></div>
-        </div>
-        <div class="col-6 col-lg-3" data-aos="fade-up">
-          <div class="metric-card"><div class="number">24<span style="font-size:1.6rem;">/7</span></div><div class="label">Emergency Hotline</div></div>
-        </div>
-        <div class="col-6 col-lg-3" data-aos="fade-up">
-          <div class="metric-card"><div class="number"><span data-count="9">0</span></div><div class="label">Global Offices</div></div>
-        </div>
-        <div class="col-6 col-lg-3" data-aos="fade-up">
-          <div class="metric-card"><div class="number"><span data-count="98">0</span>%</div><div class="label">Client Satisfaction</div></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact FAQ -->
-  <section class="section-padding bg-ivory" id="faqs">
-    <div class="container">
-      <div class="text-center mb-5">
-        <span class="section-label" data-aos="fade-up">Before You Ask</span>
-        <h2 class="section-title">Contact FAQ</h2>
-      </div>
       <div class="row justify-content-center">
         <div class="col-lg-8">
-          <div class="accordion faq-accordion" id="contactFaqAccordion">
+          <div class="text-center mb-5">
+            <span class="section-label" data-aos="fade-up">FAQs</span>
+            <h2 class="section-title" data-aos="fade-up">Frequently Asked Questions</h2>
+          </div>
+          <div class="faq-accordion accordion" id="contactFaq">
             <div class="accordion-item" data-aos="fade-up">
-              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#cfaq1">How quickly will I hear back after reaching out?</button></h2>
-              <div id="cfaq1" class="accordion-collapse collapse" data-bs-parent="#contactFaqAccordion"><div class="accordion-body">For new inquiries, a senior partner typically responds within 2 business hours on normal business days. For existing clients, your matter team is available 24/7 for urgent matters.</div></div>
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">How quickly will you respond to my inquiry?</button></h2>
+              <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#contactFaq"><div class="accordion-body">We aim to respond to all inquiries within one business day. Matters requiring urgent attention can reach our client emergency line at any time.</div></div>
             </div>
             <div class="accordion-item" data-aos="fade-up">
-              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#cfaq2">Do you offer free initial consultations?</button></h2>
-              <div id="cfaq2" class="accordion-collapse collapse" data-bs-parent="#contactFaqAccordion"><div class="accordion-body">Yes. Your first consultation is always free and carries no obligation. A senior partner will listen to your situation, answer your questions, and outline potential approaches before any engagement is agreed.</div></div>
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">Do you offer an initial consultation?</button></h2>
+              <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#contactFaq"><div class="accordion-body">Yes. We offer a no-obligation initial consultation with a senior attorney to understand your matter, assess feasibility, and outline next steps.</div></div>
             </div>
             <div class="accordion-item" data-aos="fade-up">
-              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#cfaq3">How do I reach a specific attorney or practice group?</button></h2>
-              <div id="cfaq3" class="accordion-collapse collapse" data-bs-parent="#contactFaqAccordion"><div class="accordion-body">You can reach any attorney directly via their email on the <a href="team.html">Our Team</a> page, or call our main line and our operators will route you to the right person and practice group.</div></div>
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">Do you work with clients outside the United States?</button></h2>
+              <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#contactFaq"><div class="accordion-body">Absolutely. We serve clients across 14 countries from our global offices, handling cross-border transactions, disputes, and compliance matters daily.</div></div>
             </div>
             <div class="accordion-item" data-aos="fade-up">
-              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#cfaq4">Can you help with legal matters outside the United States?</button></h2>
-              <div id="cfaq4" class="accordion-collapse collapse" data-bs-parent="#contactFaqAccordion"><div class="accordion-body">Absolutely. Cross-border matters are a core strength of our firm. With 9 offices across 14 countries and trusted correspondent relationships in additional jurisdictions, we handle multi-jurisdictional matters routinely.</div></div>
-            </div>
-            <div class="accordion-item" data-aos="fade-up">
-              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#cfaq5">How is my information kept confidential?</button></h2>
-              <div id="cfaq5" class="accordion-collapse collapse" data-bs-parent="#contactFaqAccordion"><div class="accordion-body">All inquiries are protected by attorney-client privilege and handled under strict confidentiality protocols. Our systems use enterprise-grade encryption, and we never share your information without your consent.</div></div>
-            </div>
-            <div class="accordion-item" data-aos="fade-up">
-              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#cfaq6">What is the best way to reach you after hours?</button></h2>
-              <div id="cfaq6" class="accordion-collapse collapse" data-bs-parent="#contactFaqAccordion"><div class="accordion-body">For urgent matters outside business hours, call our 24/7 emergency hotline at <a href="tel:+12125550198">+1 (212) 555-0198</a> and a senior partner will respond within 30 minutes.</div></div>
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">Is my information kept confidential?</button></h2>
+              <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#contactFaq"><div class="accordion-body">Yes. All communications are protected by attorney&ndash;client privilege and our strict data security policies.</div></div>
             </div>
           </div>
         </div>
@@ -353,16 +191,22 @@
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="section-padding cta-section">
-    <div class="container text-center">
-      <span class="section-label" data-aos="fade-up">Urgent Matter?</span>
-      <h2 class="mb-3">Available 24/7 for Emergencies.</h2>
-      <p class="text-muted mx-auto mb-4" style="max-width:560px;line-height:1.8;" data-aos="fade-up">For urgent legal matters outside business hours, call our emergency hotline and a senior partner will respond within 30 minutes.</p>
-      <div class="d-flex flex-wrap justify-content-center gap-3" data-aos="fade-up">
-        <a href="tel:+12125550198" class="btn btn-gold btn-lg"><i class="fa-solid fa-phone me-2"></i>+1 (212) 555-0198</a>
-        <a href="about.html" class="btn btn-outline-light btn-lg"><i class="fa-regular fa-building me-2"></i>Learn About Our Firm</a>
+  <!-- Newsletter -->
+  <section class="section-padding newsletter-section" id="newsletter">
+    <div class="container">
+      <div class="text-center mb-4">
+        <span class="section-label" data-aos="fade-up">Stay Informed</span>
+        <h2 class="section-title">Subscribe to Our Newsletter</h2>
+        <p class="section-subtitle mx-auto mt-2" data-aos="fade-up">Receive legal updates, business compliance tips, and industry insights delivered to your inbox.</p>
       </div>
+      <form class="newsletter-form" novalidate data-aos="fade-up">
+        <div class="newsletter-input-group">
+          <input type="email" class="newsletter-input" placeholder="Enter your email address" required aria-label="Email address" />
+          <button type="submit" class="newsletter-btn">Subscribe</button>
+        </div>
+        <div class="newsletter-message" id="newsletterMessage"></div>
+      </form>
+      <p class="newsletter-disclaimer text-center" data-aos="fade-up">No spam. Unsubscribe anytime. We respect your privacy.</p>
     </div>
   </section>
 
@@ -407,7 +251,7 @@
             <li><i class="fa-regular fa-location-dot"></i> 120 Broadway, Suite 2100, New York, NY 10271, USA</li>
             <li><i class="fa-regular fa-phone"></i> <a href="tel:+12125550900">+1 (212) 555-0900</a></li>
             <li><i class="fa-regular fa-envelope"></i> <a href="mailto:info@stackly.com">info@stackly.com</a></li>
-            <li><i class="fa-regular fa-clock"></i> Mon &ndash; Fri: 8:30 AM &ndash; 6:30 PM</li>
+            <li><i class="fa-regular fa-clock"></i> Mon — Fri: 8:30 AM – 6:30 PM</li>
             <li><i class="fa-regular fa-map"></i> <a href="contact.html">Get Directions <i class="fa-solid fa-arrow-right ms-1" style="font-size:0.7rem;"></i></a></li>
           </ul>
         </div>
@@ -425,7 +269,7 @@
       <hr class="footer-divider" />
       <div class="row">
         <div class="col-md-6"><p class="footer-bottom mb-0">&copy; 2026 Stackly LLP. All rights reserved.</p></div>
-        <div class="col-md-6 text-md-end"><p class="footer-bottom mb-0">Attorney Advertising &bull; <a href="#">Disclaimer</a> &bull; <a href="#">Terms of Use</a></p></div>
+        <div class="col-md-6 text-md-end"><p class="footer-bottom mb-0">Attorney Advertising &bull; <a href="404.html">Disclaimer</a> &bull; <a href="404.html">Terms of Use</a></p></div>
       </div>
     </div>
   </footer>
@@ -438,5 +282,6 @@
   <script src="https://unpkg.com/split-type@0.3.4"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/validation.js"></script>
 </body>
 </html>

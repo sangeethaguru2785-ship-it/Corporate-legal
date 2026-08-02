@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Profile — Client Portal | Stackly</title>
-  <meta name="description" content="Your Stackly client profile — contact details, firm information, and preferences." />
-
+  <title>My Profile — Stackly Client Portal</title>
+  <meta name="description" content="View and update your personal and contact information in the Stackly client portal." />
+  <meta name="robots" content="noindex" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -16,252 +16,126 @@
 </head>
 <body class="dashboard">
 
-  <!-- Overlay -->
-  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+  <div class="dash-shell">
 
-  <!-- Sidebar -->
-  <aside class="dash-sidebar" id="dashSidebar">
-    <a class="sidebar-brand" href="index.html">
-      <img src="assets/img/logo.webp" alt="Stackly" />
-      <span>Client Portal</span>
-    </a>
+    <!-- Sidebar -->
+    <aside class="dash-sidebar" id="dashSidebar">
+      <a class="sidebar-brand" href="index.html"><img src="assets/img/logo.webp" alt="Stackly" /></a>
 
-    <nav class="sidebar-nav">
-      <div class="sidebar-label">Main</div>
-      <ul>
-        <li><a class="sidebar-link" href="user-dashboard.html"><i class="fa-solid fa-chart-pie"></i> Dashboard</a></li>
-        <li><a class="sidebar-link active" href="user-profile.html"><i class="fa-regular fa-user"></i> My Profile</a></li>
-        <li><a class="sidebar-link" href="user-services.html"><i class="fa-solid fa-briefcase"></i> My Services</a></li>
-        <li><a class="sidebar-link" href="user-appointments.html"><i class="fa-regular fa-calendar-check"></i> My Appointments</a><span class="ms-auto status-badge pending" style="padding:0.15rem 0.5rem;font-size:0.62rem;">2</span></li>
-        <li><a class="sidebar-link" href="user-notifications.html"><i class="fa-regular fa-bell"></i> Notifications</a><span class="ms-auto status-badge pending" style="padding:0.15rem 0.5rem;font-size:0.62rem;">3</span></li>
-        <li><a class="sidebar-link" href="user-documents.html"><i class="fa-solid fa-folder-open"></i> Documents</a></li>
-        <li><a class="sidebar-link" href="user-payments.html"><i class="fa-solid fa-credit-card"></i> Payment History</a></li>
-        <li><a class="sidebar-link" href="user-support.html"><i class="fa-solid fa-headset"></i> Support</a></li>
-      </ul>
-
-      <div class="sidebar-label" style="margin-top:1.5rem;">Account</div>
-      <ul>
-        <li><a class="sidebar-link" href="user-settings.html"><i class="fa-solid fa-gear"></i> Settings</a></li>
-        <li><a class="sidebar-link" href="logout.html"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a></li>
-      </ul>
-    </nav>
-
-    <div class="sidebar-footer">
-      <div class="d-flex align-items-center gap-3 px-3">
-        <span class="avatar-initials md gold-bg">JP</span>
-        <div class="flex-grow-1" style="min-width:0;">
-          <div style="font-size:0.82rem;font-weight:600;color:var(--white);">Jonathan Pierce</div>
-          <div style="font-size:0.72rem;color:rgba(255,255,255,0.45);">Preferred Client</div>
-        </div>
-        <span class="status-badge active" style="font-size:0.6rem;padding:0.15rem 0.5rem;">Online</span>
-      </div>
-    </div>
-  </aside>
-
-  <!-- Main -->
-  <div class="dash-main">
-
-    <!-- Topbar -->
-    <header class="dash-topbar">
-      <button class="hamburger" id="sidebarToggle" aria-label="Toggle sidebar" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
-      <h1 class="topbar-title">My Profile</h1>
-
-      <form class="topbar-search" role="search" onsubmit="return false;">
-        <i class="fa-solid fa-magnifying-glass"></i>
-        <input type="search" placeholder="Search my portal..." aria-label="Search" />
-      </form>
-
-      <div class="topbar-actions">
-        <div class="dash-dropdown">
-          <button class="icon-btn" data-dropdown-toggle aria-label="Notifications">
-            <i class="fa-regular fa-bell"></i>
-            <span class="badge">3</span>
-          </button>
-          <div class="dash-dropdown-panel">
-            <div class="dash-dropdown-head">
-              <span>Notifications</span>
-              <a href="user-notifications.html" class="btn-link">View all</a>
-            </div>
-            <div class="notif-list">
-              <a href="user-notifications.html" class="notif-item text-decoration-none">
-                <span class="notif-icon" style="background:rgba(171,135,82,0.12);color:var(--gold);"><i class="fa-solid fa-calendar-check"></i></span>
-                <div class="notif-text">
-                  <div class="notif-title">Your consultation is confirmed for Aug 6 at 2:00 PM.</div>
-                  <div class="notif-time">30 min ago</div>
-                </div>
-              </a>
-              <a href="user-notifications.html" class="notif-item text-decoration-none">
-                <span class="notif-icon" style="background:rgba(12,21,36,0.08);color:var(--primary);"><i class="fa-solid fa-file-lines"></i></span>
-                <div class="notif-text">
-                  <div class="notif-title">New document added to your case file.</div>
-                  <div class="notif-time">3 hours ago</div>
-                </div>
-              </a>
-              <a href="user-notifications.html" class="notif-item text-decoration-none">
-                <span class="notif-icon" style="background:rgba(110,31,42,0.1);color:var(--oxblood);"><i class="fa-solid fa-file-invoice-dollar"></i></span>
-                <div class="notif-text">
-                  <div class="notif-title">Invoice #4821 is ready for review.</div>
-                  <div class="notif-time">Yesterday</div>
-                </div>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="dash-dropdown">
-          <button class="avatar-initials md gold-bg" data-dropdown-toggle aria-label="Account menu" style="border:none;cursor:pointer;">JP</button>
-          <div class="dash-dropdown-panel profile-menu">
-            <div class="profile-head">
-              <span class="avatar-initials md gold-bg">JP</span>
-              <div>
-                <div class="name">Jonathan Pierce</div>
-                <div class="role">Preferred Client</div>
-              </div>
-            </div>
-            <a href="user-profile.html"><i class="fa-regular fa-user"></i> My Profile</a>
-            <a href="user-settings.html"><i class="fa-solid fa-gear"></i> Account Settings</a>
-            <a href="user-appointments.html"><i class="fa-regular fa-calendar-check"></i> My Appointments</a>
-            <a href="logout.html" class="danger"><i class="fa-solid fa-arrow-right-from-bracket"></i> Sign Out</a>
-          </div>
+      <div class="sidebar-profile">
+        <span class="avatar-initials gold-bg md" data-user-first-initial></span>
+        <div class="sidebar-profile-meta">
+          <div class="sidebar-profile-name" data-user-name></div>
+          <div class="sidebar-profile-email" data-user-email></div>
         </div>
       </div>
-    </header>
 
-    <!-- Content -->
-    <main class="dash-content">
+      <nav class="sidebar-nav" aria-label="Sidebar navigation">
+        <ul>
+          <li class="sidebar-label">Main</li>
+          <li><a class="sidebar-link" href="user-dashboard.html"><i class="fa-solid fa-gauge-high"></i>Dashboard</a></li>
+          <li><a class="sidebar-link" href="user-appointments.html"><i class="fa-solid fa-calendar-check"></i>Appointments</a></li>
+          <li><a class="sidebar-link" href="user-documents.html"><i class="fa-solid fa-file-lines"></i>Documents</a></li>
+          <li><a class="sidebar-link" href="user-payments.html"><i class="fa-solid fa-credit-card"></i>Payments</a></li>
+          <li><a class="sidebar-link" href="user-services.html"><i class="fa-solid fa-scale-balanced"></i>Services</a></li>
+          <li><a class="sidebar-link" href="user-notifications.html"><i class="fa-regular fa-bell"></i>Notifications</a></li>
+          <li><a class="sidebar-link" href="user-support.html"><i class="fa-solid fa-headset"></i>Support</a></li>
+        </ul>
+      </nav>
 
-      <div class="dash-hello d-flex flex-wrap align-items-end justify-content-between gap-3">
-        <div>
+      <div class="sidebar-footer">
+        <ul>
+          <li><a class="sidebar-link" href="index.html"><i class="fa-solid fa-house"></i>Go to Home</a></li>
+          <li><a class="sidebar-link active" href="user-profile.html"><i class="fa-solid fa-user"></i>My Profile</a></li>
+          <li><a class="sidebar-link" href="user-settings.html"><i class="fa-solid fa-gear"></i>Settings</a></li>
+          <li><a class="sidebar-link" href="login.html"><i class="fa-solid fa-arrow-right-from-bracket"></i>Sign Out</a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- Main -->
+    <main class="dash-main">
+
+      <!-- Topbar -->
+      <header class="dash-topbar">
+        <h2 class="topbar-title">My Profile</h2>
+      </header>
+
+      <!-- Content -->
+      <div class="dash-content">
+
+        <div class="dash-hello">
           <h2>My Profile</h2>
-          <p>Keep your contact details and firm information up to date.</p>
+          <p>View and update your personal and contact information.</p>
         </div>
-        <button class="btn btn-gold" onclick="return false;"><i class="fa-solid fa-floppy-disk me-2"></i>Save Changes</button>
-      </div>
 
-      <!-- Profile + details -->
-      <div class="row g-3 mb-4">
-        <div class="col-lg-4">
-          <div class="dash-card hoverable h-100 text-center">
-            <span class="avatar-initials lg gold-bg" style="width:96px;height:96px;font-size:2rem;margin:0 auto;">JP</span>
-            <h3 class="mt-3 mb-1" style="font-family:var(--font-display);font-weight:700;color:var(--primary);font-size:1.25rem;">Jonathan Pierce</h3>
-            <div style="font-size:0.8rem;color:var(--text-muted);">Client since March 2024</div>
-            <span class="member-badge" style="margin-top:0.9rem;"><i class="fa-solid fa-crown"></i> Preferred Client</span>
-            <div class="d-flex justify-content-center gap-2 mt-4">
-              <a href="user-payments.html" class="icon-btn" aria-label="Billing"><i class="fa-solid fa-credit-card"></i></a>
-              <a href="user-support.html" class="icon-btn" aria-label="Message"><i class="fa-regular fa-envelope"></i></a>
-              <a href="user-settings.html" class="icon-btn" aria-label="Settings"><i class="fa-solid fa-gear"></i></a>
+        <!-- Profile card -->
+        <div class="dash-card mb-4">
+          <div class="d-flex align-items-center flex-wrap gap-4">
+            <span class="avatar-initials lg gold-bg" data-user-initials></span>
+            <div>
+              <h4 class="mb-1" style="font-family:var(--font-display);color:var(--primary);" data-user-name></h4>
+              <div class="muted mb-2" style="font-size:0.82rem;" data-user-email></div>
+              <span class="member-badge"><i class="fa-solid fa-crown"></i><span data-user-role>Client</span></span>
             </div>
           </div>
         </div>
 
-        <div class="col-lg-8">
-          <div class="dash-card h-100">
-            <div class="dash-card-head">
-              <div>
+        <div class="row g-4 mt-1">
+          <div class="col-lg-7">
+            <div class="dash-card h-100">
+              <div class="dash-card-head">
                 <h3>Personal Information</h3>
-                <span class="muted">Basic contact details</span>
+                <span class="muted">Keep your details up to date</span>
               </div>
+              <form id="profileForm">
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <label for="profileName" class="form-label">Full Name</label>
+                    <input type="text" class="form-control" id="profileName" value="" data-user-name-input />
+                  </div>
+                  <div class="col-md-6">
+                    <label for="profileEmail" class="form-label">Email Address</label>
+                    <input type="email" class="form-control" id="profileEmail" value="" data-user-email-input />
+                  </div>
+                  <div class="col-md-6">
+                    <label for="profilePhone" class="form-label">Phone</label>
+                    <input type="tel" class="form-control" id="profilePhone" placeholder="+1 (212) 555-0148" />
+                  </div>
+                  <div class="col-md-6">
+                    <label for="profileCompany" class="form-label">Company</label>
+                    <input type="text" class="form-control" id="profileCompany" placeholder="Apex Technology Inc." />
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-gold mt-4"><i class="fa-solid fa-floppy-disk me-2"></i>Save Changes</button>
+              </form>
             </div>
-            <div class="row g-3">
-              <div class="col-md-6">
-                <label class="form-label" style="font-size:0.78rem;font-weight:600;color:var(--text-muted);">First Name</label>
-                <input class="form-control" type="text" value="Jonathan" style="border:1px solid rgba(12,21,36,0.12);border-radius:var(--radius);padding:0.6rem 0.9rem;font-size:0.88rem;color:var(--text);" />
+          </div>
+          <div class="col-lg-5">
+            <div class="dash-card h-100">
+              <div class="dash-card-head">
+                <h3>Account Details</h3>
+                <span class="muted">Read-only reference</span>
               </div>
-              <div class="col-md-6">
-                <label class="form-label" style="font-size:0.78rem;font-weight:600;color:var(--text-muted);">Last Name</label>
-                <input class="form-control" type="text" value="Pierce" style="border:1px solid rgba(12,21,36,0.12);border-radius:var(--radius);padding:0.6rem 0.9rem;font-size:0.88rem;color:var(--text);" />
-              </div>
-              <div class="col-md-6">
-                <label class="form-label" style="font-size:0.78rem;font-weight:600;color:var(--text-muted);">Email Address</label>
-                <input class="form-control" type="email" value="j.pierce@email.com" style="border:1px solid rgba(12,21,36,0.12);border-radius:var(--radius);padding:0.6rem 0.9rem;font-size:0.88rem;color:var(--text);" />
-              </div>
-              <div class="col-md-6">
-                <label class="form-label" style="font-size:0.78rem;font-weight:600;color:var(--text-muted);">Phone Number</label>
-                <input class="form-control" type="tel" value="+1 (555) 214-8890" style="border:1px solid rgba(12,21,36,0.12);border-radius:var(--radius);padding:0.6rem 0.9rem;font-size:0.88rem;color:var(--text);" />
-              </div>
-              <div class="col-md-6">
-                <label class="form-label" style="font-size:0.78rem;font-weight:600;color:var(--text-muted);">City</label>
-                <input class="form-control" type="text" value="New York" style="border:1px solid rgba(12,21,36,0.12);border-radius:var(--radius);padding:0.6rem 0.9rem;font-size:0.88rem;color:var(--text);" />
-              </div>
-              <div class="col-md-6">
-                <label class="form-label" style="font-size:0.78rem;font-weight:600;color:var(--text-muted);">Country / Region</label>
-                <select class="form-select" style="border:1px solid rgba(12,21,36,0.12);border-radius:var(--radius);padding:0.6rem 0.9rem;font-size:0.88rem;color:var(--text);">
-                  <option>United States</option>
-                  <option>Canada</option>
-                  <option>United Kingdom</option>
-                  <option>Other</option>
-                </select>
-              </div>
+              <ul class="list-group list-group-flush" style="font-size:0.85rem;">
+                <li class="list-group-item d-flex justify-content-between px-0"><span class="muted">Client ID</span><strong>STK-88421</strong></li>
+                <li class="list-group-item d-flex justify-content-between px-0"><span class="muted">Membership</span><strong>Platinum Client</strong></li>
+                <li class="list-group-item d-flex justify-content-between px-0"><span class="muted">Member Since</span><strong>Mar 2019</strong></li>
+                <li class="list-group-item d-flex justify-content-between px-0"><span class="muted">Assigned Counsel</span><strong>Sarah Chen</strong></li>
+              </ul>
+              <a href="user-settings.html" class="btn btn-outline-primary w-100 mt-3"><i class="fa-solid fa-gear me-2"></i>Manage Settings</a>
             </div>
           </div>
         </div>
+
       </div>
-
-      <!-- Firm relationship + security -->
-      <div class="row g-3">
-        <div class="col-lg-6">
-          <div class="dash-card hoverable h-100">
-            <div class="dash-card-head">
-              <div>
-                <h3>Firm Relationship</h3>
-                <span class="muted">Your assigned counsel</span>
-              </div>
-            </div>
-            <div class="appt-item">
-              <span class="avatar-initials md gold-bg">MC</span>
-              <div class="appt-info">
-                <div class="title">Margaret Chen</div>
-                <div class="meta">Senior Counsel &middot; Corporate Law</div>
-              </div>
-              <a href="user-support.html" class="icon-btn" aria-label="Message counsel"><i class="fa-regular fa-envelope"></i></a>
-            </div>
-            <div class="appt-item mb-0">
-              <span class="avatar-initials md" style="background:var(--oxblood);">DO</span>
-              <div class="appt-info">
-                <div class="title">David Okafor</div>
-                <div class="meta">Associate &middot; Contract Review</div>
-              </div>
-              <a href="user-support.html" class="icon-btn" aria-label="Message associate"><i class="fa-regular fa-envelope"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-6">
-          <div class="dash-card hoverable h-100">
-            <div class="dash-card-head">
-              <div>
-                <h3>Account Security</h3>
-                <span class="muted">Password and verification</span>
-              </div>
-            </div>
-            <div class="appt-item">
-              <div class="appt-info">
-                <div class="title">Password</div>
-                <div class="meta">Last changed 2 months ago</div>
-              </div>
-              <button class="btn-link btn text-decoration-none p-0" style="font-size:0.82rem;font-weight:600;color:var(--gold);" onclick="return false;">Change</button>
-            </div>
-            <div class="appt-item mb-0">
-              <div class="appt-info">
-                <div class="title">Two-Factor Authentication</div>
-                <div class="meta">Enabled via SMS</div>
-              </div>
-              <span class="status-badge active">On</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
     </main>
-
-    <!-- Footer -->
-    <footer style="border-top:1px solid rgba(12,21,36,0.06);padding:1.25rem 1.75rem;font-size:0.78rem;color:var(--text-light);display:flex;flex-wrap:wrap;gap:0.5rem;justify-content:space-between;">
-      <span>&copy; 2026 Stackly LLP. All rights reserved.</span>
-      <span><a href="index.html" class="text-decoration-none" style="color:var(--gold);">Back to Website</a> &middot; <a href="#" class="text-decoration-none" style="color:var(--text-light);">Privacy</a> &middot; <a href="#" class="text-decoration-none" style="color:var(--text-light);">Terms</a></span>
-    </footer>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="assets/js/dashboard.js"></script>
+  <script src="assets/js/validation.js"></script>
 </body>
 </html>
